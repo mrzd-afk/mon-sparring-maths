@@ -17,15 +17,26 @@ function updateGlobalUI() {
 async function loadChapter(id) {
     try {
         const response = await fetch(`maths_${id}.json`);
+        if (!response.ok) throw new Error("Fichier non trouvé");
         CHAPTER_DATA = await response.json();
         CURRENT_CHAPTER = id;
+
         document.getElementById('chapter-title').textContent = CHAPTER_DATA.title;
         document.getElementById('mastery-label').textContent = `Maîtrise : ${MASTERY[id]}%`;
+        
         document.getElementById('dashboard').classList.add('hidden');
         document.getElementById('workspace').classList.remove('hidden');
+        
+        // On lance l'affichage
         switchTab('cards');
-        renderCards(); renderQuiz(); renderExos(); renderTraps();
-    } catch (e) { alert("Erreur de fichier JSON"); }
+        renderCards();
+        renderQuiz();
+        renderExos();
+        renderTraps();
+
+    } catch (e) {
+        alert("Erreur lors du chargement du chapitre : " + e.message);
+    }
 }
 
 function switchTab(tab) {
@@ -132,3 +143,4 @@ function renderTraps() {
 function toggleElement(id) { document.getElementById(id).classList.toggle('hidden'); if (window.MathJax) MathJax.typesetPromise(); }
 function showDashboard() { document.getElementById('workspace').classList.add('hidden'); document.getElementById('dashboard').classList.remove('hidden'); updateGlobalUI(); }
 function resetStats() { if(confirm("Réinitialiser ?")) { localStorage.clear(); location.reload(); } }
+
