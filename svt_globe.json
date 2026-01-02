@@ -1,0 +1,85 @@
+{
+  "title": "Structure du Globe Terrestre (Niveau Expert)",
+  "level": 8,
+  "flashcards": [
+    {
+      "q": "Quelle est la différence entre la croûte continentale et la croûte océanique (composition et épaisseur) ?",
+      "answers": ["La croûte continentale est granitique, peu dense (2,7) et épaisse (30-70km). La croûte océanique est basaltique/gabbroïque, plus dense (2,9) et fine (7km)."],
+      "hints": ["Pensez aux roches principales.", "Laquelle 'flotte' le plus haut sur le manteau ?"],
+      "points": 10
+    },
+    {
+      "q": "Définissez la LVZ (Low Velocity Zone) et son importance rhéologique.",
+      "answers": ["Zone du manteau supérieur où la vitesse des ondes baisse, marquant la limite ductile entre la lithosphère rigide et l'asthénosphère moins rigide."],
+      "hints": ["Ondes sismiques ralentissent.", "Lien avec la ductilité des roches."],
+      "points": 12
+    },
+    {
+      "q": "Citez les 3 discontinuités majeures du globe et leur profondeur.",
+      "answers": ["Moho (variable, moy. 35km), Gutenberg (2900km), Lehmann (5100km)."],
+      "hints": ["Croûte/Manteau, Manteau/Noyau, Noyau ext/Noyau int."],
+      "points": 10
+    },
+    {
+      "q": "Comment sait-on que le noyau externe est liquide ?",
+      "answers": ["Les ondes S (cisaillement) ne s'y propagent pas, et les ondes P ralentissent brutalement à 2900km."],
+      "hints": ["Propriétés des ondes S dans les fluides.", "Zone d'ombre."],
+      "points": 12
+    }
+  ],
+  "quiz": [
+    {
+      "type": "mcq",
+      "q": "Quelle roche est la plus représentative du manteau terrestre ?",
+      "options": ["Le Basalte", "Le Granite", "La Péridotite", "Le Gabbro"],
+      "answer": 2,
+      "explanation": "La péridotite est la roche ultra-mafique qui constitue l'essentiel du manteau supérieur.",
+      "points": 8
+    },
+    {
+      "type": "mcq",
+      "q": "Lors du passage du Moho, la vitesse des ondes sismiques :",
+      "options": ["Diminue", "Augmente brutalement", "Reste constante", "S'arrête"],
+      "answer": 1,
+      "explanation": "Le passage d'une croûte moins dense à un manteau plus dense accélère les ondes.",
+      "points": 10
+    },
+    {
+      "type": "open",
+      "q": "Quel minéral caractérise principalement le faciès de la croûte continentale ?",
+      "expected_keywords": ["Quartz", "Feldspath"],
+      "explanation": "Le granite est riche en quartz et feldspaths silicatés.",
+      "points": 10
+    }
+  ],
+  "exercises": [
+    {
+      "q": "Calcul de profondeur : Une onde P réfléchie sur le Moho revient à la surface après 12 secondes. Si sa vitesse moyenne est de 6 km/s, à quelle profondeur est le Moho ?",
+      "solution": "L'onde fait l'aller-retour. Distance totale = Vitesse x Temps = 6 x 12 = 72 km. La profondeur est la moitié : 72 / 2 = 36 km.",
+      "time_limit_sec": 180,
+      "points": 20
+    },
+    {
+      "q": "Interprétez l'existence de la zone d'ombre sismique (entre 103° et 142°).",
+      "solution": "Elle est due à la réfraction des ondes P à la limite manteau-noyau (discontinuité de Gutenberg) et à l'arrêt des ondes S par le noyau liquide.",
+      "time_limit_sec": 300,
+      "points": 20
+    }
+  ],
+  "traps": [
+    {
+      "title": "Le manteau n'est pas liquide !",
+      "bad_reasoning": "Le manteau est constitué de magma liquide car c'est de là que sort la lave des volcans.",
+      "error_analysis": "C'est l'erreur la plus courante. Le manteau est SOLIDE (mais ductile sur le long terme). Le magma ne représente que 1% du volume total dans des zones très localisées.",
+      "correct_formula": "Le manteau est un solide capable de déformation plastique (ductilité).",
+      "points": 15
+    },
+    {
+      "title": "Lithosphère vs Croûte",
+      "bad_reasoning": "La lithosphère est synonyme de croûte terrestre.",
+      "error_analysis": "Faux. La lithosphère = la croûte + la partie supérieure rigide du manteau supérieur.",
+      "correct_formula": "Lithosphère = Croûte + Manteau lithosphérique.",
+      "points": 12
+    }
+  ]
+}
