@@ -1,71 +1,115 @@
 {
-  "title": "Suites Numériques (Niveau 7-8)",
+  "title": "Suites Numériques (Niveau Intensif 8/10)",
   "level": 8,
   "flashcards": [
     {
-      "q": "Comment démontre-t-on qu'une suite $(v_n)$ est géométrique ?",
-      "answers": ["On calcule le rapport $\\frac{v_{n+1}}{v_n}$ et on doit trouver une constante $q$ indépendante de $n$."],
-      "hints": ["Exprimez d'abord $v_{n+1}$ en fonction de $u_{n+1}$.", "Remplacez $u_{n+1}$ par sa définition.", "Factorisez pour faire apparaître $v_n$."],
+      "q": "Comment démontrer qu'une suite $(u_n)$ est géométrique de raison $q$ ?",
+      "answers": ["Il faut calculer le rapport $\\frac{u_{n+1}}{u_n}$ et montrer qu'il est égal à une constante $q$ réelle, indépendante de $n$."],
+      "hints": [
+        "Exprimez $u_{n+1}$ en fonction de $n$ ou de $u_n$.",
+        "Simplifiez la fraction au maximum.",
+        "Si le résultat dépend de $n$, la suite n'est pas géométrique."
+      ],
       "points": 10
     },
     {
-      "q": "Quelle est la limite d'une suite géométrique $q^n$ selon la valeur de $q$ ?",
-      "answers": ["Si $|q| < 1$, la limite est $0$. Si $q > 1$, la limite est $+\\infty$. Si $q \\le -1$, pas de limite."],
-      "hints": ["Pensez à ce qui se passe si on multiplie 0,5 par lui-même indéfiniment.", "Et pour un nombre plus grand que 1 ?", "Rappelez-vous le cas des suites alternées."],
+      "q": "Donnez la limite de la suite $(q^n)$ selon les valeurs du réel $q$.",
+      "answers": ["Si $q > 1$, $\\lim = +\\infty$. Si $-1 < q < 1$, $\\lim = 0$. Si $q \\le -1$, la suite n'a pas de limite."],
+      "hints": [
+        "Pensez à un placement bancaire (intérêt > 1).",
+        "Pensez à une remise successive (0,9 ; 0,81...).",
+        "Pour $q=1$, la suite est constante."
+      ],
       "points": 12
     },
     {
-      "q": "Énoncez la formule de la somme des termes d'une suite géométrique.",
-      "answers": ["$S = \\text{Premier terme} \\times \\frac{1 - q^{\\text{nb de termes}}}{1 - q}$"],
-      "hints": ["Ne confondez pas l'indice final avec le nombre de termes.", "La formule n'est valable que si $q \\neq 1$."],
+      "q": "Méthode : Comment étudier les variations d'une suite $(u_n)$ ?",
+      "answers": ["On étudie le signe de la différence $u_{n+1} - u_n$. Si $> 0$, elle est croissante. Si $< 0$, elle est décroissante."],
+      "hints": [
+        "C'est la méthode la plus universelle.",
+        "Alternative : si tous les termes sont positifs, on peut comparer $\\frac{u_{n+1}}{u_n}$ à 1.",
+        "On peut aussi étudier la fonction $f$ telle que $u_n = f(n)$."
+      ],
+      "points": 10
+    },
+    {
+      "q": "Formule de la somme des termes d'une suite arithmétique.",
+      "answers": ["$S = \\text{Nombre de termes} \\times \\frac{\\text{Premier terme} + \\text{Dernier terme}}{2}$"],
+      "hints": [
+        "Souvent notée : $n \\frac{u_1 + u_n}{2}$.",
+        "Le nombre de termes se calcule par : $(\\text{Indice final} - \\text{Indice initial}) + 1$."
+      ],
       "points": 10
     }
   ],
   "quiz": [
     {
       "type": "mcq",
-      "q": "Soit $u_{n+1} = 0,5u_n + 3$. Si $v_n = u_n - 6$, de quelle nature est $v_n$ ?",
-      "options": ["Arithmétique de raison 3", "Géométrique de raison 0,5", "Géométrique de raison 3", "Constante"],
+      "q": "Soit $S = 1 + 2 + 4 + 8 + ... + 1024$. Quelle est la valeur de $S$ ?",
+      "options": [
+        "1023",
+        "2047",
+        "2048",
+        "4095"
+      ],
       "answer": 1,
-      "explanation": "$v_{n+1} = u_{n+1} - 6 = (0,5u_n + 3) - 6 = 0,5u_n - 3 = 0,5(u_n - 6) = 0,5v_n$.",
-      "points": 14
-    },
-    {
-      "type": "open",
-      "q": "Donnez le nombre de termes de la somme $S = u_3 + u_4 + ... + u_{15}$.",
-      "expected_keywords": ["13", "treize"],
-      "explanation": "Calcul : $15 - 3 + 1 = 13$. On ajoute toujours 1 car on inclut les deux bornes.",
-      "points": 10
+      "explanation": "Somme géométrique : $q=2$, $u_0=1$. $1024 = 2^{10}$, donc il y a 11 termes. $S = 1 \\times \\frac{1-2^{11}}{1-2} = 2^{11} - 1 = 2048 - 1 = 2047$.",
+      "points": 15
     },
     {
       "type": "mcq",
-      "q": "Si $u_n = 2^n - n$, la suite est-elle arithmétique ?",
-      "options": ["Oui", "Non, car la différence n'est pas constante", "Seulement pour n > 0"],
-      "answer": 1,
-      "explanation": "$u_1-u_0 = 1$ et $u_2-u_1 = 2$. La différence change, donc elle n'est pas arithmétique.",
-      "points": 12
+      "q": "Soit $u_{n+1} = 3u_n - 4$. Si $u_0 = 2$, que vaut $u_2$ ?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "0"
+      ],
+      "answer": 0,
+      "explanation": "$u_1 = 3(2) - 4 = 2$. Puis $u_2 = 3(2) - 4 = 2$. La suite est constante.",
+      "points": 10
+    },
+    {
+      "type": "open",
+      "q": "Combien de termes y a-t-il dans la somme $u_7 + u_8 + ... + u_{42}$ ?",
+      "expected_keywords": ["36"],
+      "explanation": "Calcul : $42 - 7 + 1 = 36$. On n'oublie jamais le '+1'.",
+      "points": 10
     }
   ],
   "exercises": [
     {
-      "q": "Calculez la somme $S = 1 + 3 + 9 + 27 + ... + 59049$. On donne $3^{10} = 59049$.",
-      "solution": "C'est une suite géométrique de raison $q=3$ et $u_0=1$. Il y a 11 termes ($n=0$ à $n=10$). $S = 1 \\times \\frac{1-3^{11}}{1-3} = \\frac{1-177147}{-2} = 88573$.",
-      "time_limit_sec": 240,
-      "points": 15
+      "q": "Suite auxiliaire : Soit $u_{n+1} = 0,8u_n + 2$ avec $u_0 = 5$. On pose $v_n = u_n - 10$. Démontrez que $(v_n)$ est géométrique.",
+      "solution": "1. $v_{n+1} = u_{n+1} - 10$. <br> 2. On remplace : $v_{n+1} = (0,8u_n + 2) - 10 = 0,8u_n - 8$. <br> 3. On factorise par 0,8 : $v_{n+1} = 0,8(u_n - 10) = 0,8v_n$. <br> La suite $(v_n)$ est géométrique de raison $q=0,8$ et $v_0 = 5-10 = -5$.",
+      "time_limit_sec": 360,
+      "points": 25
     },
     {
-      "q": "Démontrez par le calcul que la suite $u_n = \\frac{3n-1}{n+1}$ est croissante.",
-      "solution": "Étudions $f(x) = \\frac{3x-1}{x+1}$. Sa dérivée est $f'(x) = \\frac{3(x+1) - 1(3x-1)}{(x+1)^2} = \\frac{4}{(x+1)^2}$. Comme $f'(x) > 0$, la fonction et la suite sont croissantes.",
+      "q": "Somme complexe : Calculez $S = 100 + 110 + 121 + ... + 100 \\times 1,1^{20}$.",
+      "solution": "1. C'est une somme géométrique de raison $1,1$ et premier terme $100$. <br> 2. Il y a 21 termes (de l'exposant 0 à 20). <br> 3. $S = 100 \\times \\frac{1-1,1^{21}}{1-1,1} = 100 \\times \\frac{1-1,1^{21}}{-0,1} = 1000 \\times (1,1^{21} - 1)$. <br> Environ $6400,25$.",
       "time_limit_sec": 300,
-      "points": 18
+      "points": 20
+    },
+    {
+      "q": "Sens de variation : Étudiez les variations de la suite $u_n = \\frac{2^n}{n+1}$ pour $n \\ge 1$.",
+      "solution": "Comme $u_n > 0$, comparons $\\frac{u_{n+1}}{u_n}$ à 1. <br> $\\frac{u_{n+1}}{u_n} = \\frac{2^{n+1}}{n+2} \\times \\frac{n+1}{2^n} = \\frac{2(n+1)}{n+2} = \\frac{2n+2}{n+2}$. <br> Pour $n \\ge 1$, $2n+2$ est toujours supérieur à $n+2$. <br> Donc le rapport est $> 1$, la suite est strictement croissante.",
+      "time_limit_sec": 420,
+      "points": 25
     }
   ],
   "traps": [
     {
-      "title": "Confusion Indice / Valeur",
-      "bad_reasoning": "Pour calculer $u_5$, je remplace $u_n$ par 5.",
-      "error_analysis": "ERREUR : $n=5$ est la position, $u_5$ est le résultat. On remplace $n$ par 5 dans la formule.",
-      "correct_formula": "$u_n = f(n)$",
+      "title": "Le piège de la raison q < 0",
+      "bad_reasoning": "La suite $u_n = (-3)^n$ est décroissante car la raison est négative.",
+      "error_analysis": "Faux ! Si la raison est négative, la suite n'est pas monotone. Elle change de signe à chaque terme (elle est alternée).",
+      "correct_formula": "Une suite géométrique est monotone seulement si $q > 0$.",
+      "points": 12
+    },
+    {
+      "title": "L'indice de départ dans les sommes",
+      "bad_reasoning": "La somme de $u_0$ à $u_{10}$ contient 10 termes.",
+      "error_analysis": "C'est l'erreur la plus courante. Il y a 11 termes. Oublier un terme change totalement le résultat d'une puissance.",
+      "correct_formula": "$N = \\text{Fin} - \\text{Début} + 1$",
       "points": 10
     }
   ]
