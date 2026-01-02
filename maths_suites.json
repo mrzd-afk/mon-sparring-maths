@@ -1,115 +1,189 @@
 {
-  "title": "Suites Numériques (Niveau Intensif 8/10)",
+  "title": "Suites Numériques (Niveau Expert)",
   "level": 8,
   "flashcards": [
     {
-      "q": "Comment démontrer qu'une suite $(u_n)$ est géométrique de raison $q$ ?",
-      "answers": ["Il faut calculer le rapport $\\frac{u_{n+1}}{u_n}$ et montrer qu'il est égal à une constante $q$ réelle, indépendante de $n$."],
-      "hints": [
-        "Exprimez $u_{n+1}$ en fonction de $n$ ou de $u_n$.",
-        "Simplifiez la fraction au maximum.",
-        "Si le résultat dépend de $n$, la suite n'est pas géométrique."
-      ],
+      "q": "Définition : Qu'est-ce qu'une suite définie de façon explicite ?",
+      "answers": ["C'est une suite où chaque terme $u_n$ est exprimé directement en fonction de $n$ (ex: $u_n = f(n)$). On peut calculer n'importe quel terme sans connaître les précédents."],
+      "hints": ["Contraire de récurrence.", "Pas besoin de boucle pour calculer $u_{100}$."],
       "points": 10
     },
     {
-      "q": "Donnez la limite de la suite $(q^n)$ selon les valeurs du réel $q$.",
-      "answers": ["Si $q > 1$, $\\lim = +\\infty$. Si $-1 < q < 1$, $\\lim = 0$. Si $q \\le -1$, la suite n'a pas de limite."],
-      "hints": [
-        "Pensez à un placement bancaire (intérêt > 1).",
-        "Pensez à une remise successive (0,9 ; 0,81...).",
-        "Pour $q=1$, la suite est constante."
-      ],
+      "q": "Quelle est la méthode pour étudier les variations d'une suite quelconque ?",
+      "answers": ["On étudie le signe de la différence $u_{n+1} - u_n$. Si $>0$, croissante. Si $<0$, décroissante."],
+      "hints": ["Ne dérivez pas par rapport à n !", "C'est la méthode universelle."],
+      "points": 10
+    },
+    {
+      "q": "Si $u_n > 0$, quelle autre méthode peut-on utiliser pour les variations ?",
+      "answers": ["On compare le rapport $\\frac{u_{n+1}}{u_n}$ par rapport à 1. Si $>1$, croissante (car $u_n > 0$)."],
+      "hints": ["Utile pour les puissances et factorielles.", "Attention, il faut prouver que les termes sont positifs avant."],
       "points": 12
     },
     {
-      "q": "Méthode : Comment étudier les variations d'une suite $(u_n)$ ?",
-      "answers": ["On étudie le signe de la différence $u_{n+1} - u_n$. Si $> 0$, elle est croissante. Si $< 0$, elle est décroissante."],
-      "hints": [
-        "C'est la méthode la plus universelle.",
-        "Alternative : si tous les termes sont positifs, on peut comparer $\\frac{u_{n+1}}{u_n}$ à 1.",
-        "On peut aussi étudier la fonction $f$ telle que $u_n = f(n)$."
-      ],
+      "q": "Donnez la formule explicite d'une suite arithmétique de raison $r$ et de premier terme $u_0$.",
+      "answers": ["$u_n = u_0 + n \\cdot r$"],
+      "hints": ["C'est une fonction affine de variable n.", "On ajoute n fois la raison."],
+      "points": 8
+    },
+    {
+      "q": "Donnez la formule explicite d'une suite géométrique de raison $q$ et de premier terme $u_p$.",
+      "answers": ["$u_n = u_p \\cdot q^{(n-p)}$"],
+      "hints": ["Attention si on ne part pas de 0.", "C'est une puissance."],
       "points": 10
     },
     {
-      "q": "Formule de la somme des termes d'une suite arithmétique.",
-      "answers": ["$S = \\text{Nombre de termes} \\times \\frac{\\text{Premier terme} + \\text{Dernier terme}}{2}$"],
-      "hints": [
-        "Souvent notée : $n \\frac{u_1 + u_n}{2}$.",
-        "Le nombre de termes se calcule par : $(\\text{Indice final} - \\text{Indice initial}) + 1$."
-      ],
+      "q": "Somme arithmétique : $S = 1 + 2 + ... + n$. Formule ?",
+      "answers": ["$S_n = \\frac{n(n+1)}{2}$"],
+      "hints": ["L'histoire du petit Gauss.", "Nombre de termes x moyenne des extrêmes."],
       "points": 10
+    },
+    {
+      "q": "Somme géométrique : $1 + q + q^2 + ... + q^n$. Formule ?",
+      "answers": ["$\\frac{1 - q^{n+1}}{1 - q}$ (pour $q \\neq 1$)"],
+      "hints": ["Il y a n+1 termes.", "La formule est (1 - raison^nombre) / (1 - raison)."],
+      "points": 10
+    },
+    {
+      "q": "Quelle est la limite de $q^n$ si $q > 1$ ?",
+      "answers": ["$\\lim_{n \\to +\\infty} q^n = +\\infty$"],
+      "hints": ["La suite grandit exponentiellement.", "Exemple : $2^n$."],
+      "points": 8
+    },
+    {
+      "q": "Quelle est la limite de $q^n$ si $-1 < q < 1$ ?",
+      "answers": ["$\\lim_{n \\to +\\infty} q^n = 0$"],
+      "hints": ["On multiplie par un nombre petit.", "Exemple : $0,5^n$."],
+      "points": 8
+    },
+    {
+      "q": "Une suite bornée est-elle nécessairement convergente ?",
+      "answers": ["Non. Exemple : $u_n = (-1)^n$ est bornée entre -1 et 1 mais oscille indéfiniment."],
+      "hints": ["Pensez à une suite qui alterne.", "Convergence demande une limite unique."],
+      "points": 12
     }
   ],
   "quiz": [
     {
       "type": "mcq",
-      "q": "Soit $S = 1 + 2 + 4 + 8 + ... + 1024$. Quelle est la valeur de $S$ ?",
-      "options": [
-        "1023",
-        "2047",
-        "2048",
-        "4095"
-      ],
-      "answer": 1,
-      "explanation": "Somme géométrique : $q=2$, $u_0=1$. $1024 = 2^{10}$, donc il y a 11 termes. $S = 1 \\times \\frac{1-2^{11}}{1-2} = 2^{11} - 1 = 2048 - 1 = 2047$.",
-      "points": 15
+      "q": "Si $u_{n+1} = u_n + 2n + 1$, la suite est :",
+      "options": ["Arithmétique", "Géométrique", "Ni l'une ni l'autre"],
+      "answer": 2,
+      "explanation": "La différence $u_{n+1}-u_n = 2n+1$ n'est pas constante (elle dépend de n).",
+      "points": 10
     },
     {
       "type": "mcq",
-      "q": "Soit $u_{n+1} = 3u_n - 4$. Si $u_0 = 2$, que vaut $u_2$ ?",
+      "q": "Quel algorithme Python calcule le plus petit $n$ tel que $u_n > 1000$ (suite croissante) ?",
       "options": [
-        "2",
-        "3",
-        "1",
-        "0"
+        "while u <= 1000: n=n+1",
+        "if u > 1000: return n",
+        "for i in range(1000): u=u+1"
       ],
       "answer": 0,
-      "explanation": "$u_1 = 3(2) - 4 = 2$. Puis $u_2 = 3(2) - 4 = 2$. La suite est constante.",
+      "explanation": "On utilise une boucle TANT QUE la condition n'est pas atteinte. C'est un algorithme de seuil.",
+      "points": 12
+    },
+    {
+      "type": "open",
+      "q": "Combien de termes dans la somme $u_{10} + ... + u_{50}$ ?",
+      "expected_keywords": ["41"],
+      "explanation": "$50 - 10 + 1 = 41$ termes.",
+      "points": 8
+    },
+    {
+      "type": "mcq",
+      "q": "Une suite arithmétique a pour raison $r = -2$. Elle est :",
+      "options": ["Croissante", "Décroissante", "Non monotone"],
+      "answer": 1,
+      "explanation": "On ajoute un nombre négatif à chaque étape, donc on descend.",
+      "points": 8
+    },
+    {
+      "type": "mcq",
+      "q": "Soit $u_n = 3 \\times 2^n$. Alors $u_{n+1} / u_n$ vaut :",
+      "options": ["2", "3", "6"],
+      "answer": 0,
+      "explanation": "$u_{n+1} = 3 \\times 2^{n+1} = 3 \\times 2^n \\times 2 = 2 u_n$. La raison est 2.",
       "points": 10
     },
     {
       "type": "open",
-      "q": "Combien de termes y a-t-il dans la somme $u_7 + u_8 + ... + u_{42}$ ?",
-      "expected_keywords": ["36"],
-      "explanation": "Calcul : $42 - 7 + 1 = 36$. On n'oublie jamais le '+1'.",
+      "q": "Si une suite géométrique a $u_2=4$ et $u_4=16$ (termes positifs), que vaut la raison $q$ ?",
+      "expected_keywords": ["2"],
+      "explanation": "$u_4 = u_2 \\times q^2$. Donc $16 = 4q^2 \\implies q^2 = 4$. Comme termes positifs, $q=2$.",
+      "points": 14
+    },
+    {
+      "type": "mcq",
+      "q": "La suite $u_n = \\frac{n+1}{n}$ pour $n \\ge 1$ est :",
+      "options": ["Croissante", "Décroissante", "Constante"],
+      "answer": 1,
+      "explanation": "$u_n = 1 + 1/n$. La fonction inverse est décroissante sur les positifs.",
+      "points": 12
+    },
+    {
+      "type": "open",
+      "q": "Exprimez $S_n - S_{n-1}$ en fonction de $u$.",
+      "expected_keywords": ["u_n", "un"],
+      "explanation": "La différence entre la somme des n premiers termes et celle des n-1 premiers est le terme ajouté : $u_n$.",
       "points": 10
     }
   ],
   "exercises": [
     {
-      "q": "Suite auxiliaire : Soit $u_{n+1} = 0,8u_n + 2$ avec $u_0 = 5$. On pose $v_n = u_n - 10$. Démontrez que $(v_n)$ est géométrique.",
-      "solution": "1. $v_{n+1} = u_{n+1} - 10$. <br> 2. On remplace : $v_{n+1} = (0,8u_n + 2) - 10 = 0,8u_n - 8$. <br> 3. On factorise par 0,8 : $v_{n+1} = 0,8(u_n - 10) = 0,8v_n$. <br> La suite $(v_n)$ est géométrique de raison $q=0,8$ et $v_0 = 5-10 = -5$.",
-      "time_limit_sec": 360,
-      "points": 25
-    },
-    {
-      "q": "Somme complexe : Calculez $S = 100 + 110 + 121 + ... + 100 \\times 1,1^{20}$.",
-      "solution": "1. C'est une somme géométrique de raison $1,1$ et premier terme $100$. <br> 2. Il y a 21 termes (de l'exposant 0 à 20). <br> 3. $S = 100 \\times \\frac{1-1,1^{21}}{1-1,1} = 100 \\times \\frac{1-1,1^{21}}{-0,1} = 1000 \\times (1,1^{21} - 1)$. <br> Environ $6400,25$.",
+      "q": "Suite Arithmético-Géométrique : Soit $u_{n+1} = 0,5u_n + 1$ et $v_n = u_n - 2$. Montrez que $v_n$ est géométrique.",
+      "solution": "$v_{n+1} = u_{n+1} - 2 = (0,5u_n + 1) - 2 = 0,5u_n - 1$. <br> Factorisons par 0,5 : $0,5(u_n - 2) = 0,5v_n$. <br> Donc $(v_n)$ est géométrique de raison 0,5.",
       "time_limit_sec": 300,
       "points": 20
     },
     {
-      "q": "Sens de variation : Étudiez les variations de la suite $u_n = \\frac{2^n}{n+1}$ pour $n \\ge 1$.",
-      "solution": "Comme $u_n > 0$, comparons $\\frac{u_{n+1}}{u_n}$ à 1. <br> $\\frac{u_{n+1}}{u_n} = \\frac{2^{n+1}}{n+2} \\times \\frac{n+1}{2^n} = \\frac{2(n+1)}{n+2} = \\frac{2n+2}{n+2}$. <br> Pour $n \\ge 1$, $2n+2$ est toujours supérieur à $n+2$. <br> Donc le rapport est $> 1$, la suite est strictement croissante.",
-      "time_limit_sec": 420,
-      "points": 25
+      "q": "Somme complexe : Calculez $S = 2 + 4 + 8 + ... + 256$.",
+      "solution": "C'est une suite géométrique de raison 2 et 1er terme 2. <br> $256 = 2^8$, donc on va de $2^1$ à $2^8$. Il y a 8 termes. <br> $S = 2 \\times \\frac{1-2^8}{1-2} = 2 \\times (256 - 1) = 510$.",
+      "time_limit_sec": 240,
+      "points": 15
+    },
+    {
+      "q": "Problème de seuil : On place 1000€ à 5% par an. Au bout de combien d'années le capital double-t-il ?",
+      "solution": "On cherche $n$ tel que $1000 \\times 1,05^n \\ge 2000$, soit $1,05^n \\ge 2$. <br> À la calculatrice : $1,05^{14} \\approx 1,97$ et $1,05^{15} \\approx 2,07$. <br> Il faut attendre 15 ans.",
+      "time_limit_sec": 300,
+      "points": 15
     }
   ],
   "traps": [
     {
-      "title": "Le piège de la raison q < 0",
-      "bad_reasoning": "La suite $u_n = (-3)^n$ est décroissante car la raison est négative.",
-      "error_analysis": "Faux ! Si la raison est négative, la suite n'est pas monotone. Elle change de signe à chaque terme (elle est alternée).",
-      "correct_formula": "Une suite géométrique est monotone seulement si $q > 0$.",
-      "points": 12
+      "title": "Confusion $u_n + 1$ et $u_{n+1}$",
+      "bad_reasoning": "Pour calculer $u_{n+1}$, j'ajoute 1 au résultat de $u_n$.",
+      "error_analysis": "ERREUR : $u_{n+1}$ est le terme SUIVANT. $u_n + 1$ est le terme actuel auquel on ajoute 1. Ce sont deux choses très différentes.",
+      "correct_formula": "Bien lire la position de l'indice.",
+      "points": 10
     },
     {
-      "title": "L'indice de départ dans les sommes",
-      "bad_reasoning": "La somme de $u_0$ à $u_{10}$ contient 10 termes.",
-      "error_analysis": "C'est l'erreur la plus courante. Il y a 11 termes. Oublier un terme change totalement le résultat d'une puissance.",
-      "correct_formula": "$N = \\text{Fin} - \\text{Début} + 1$",
+      "title": "Le piège de la somme des puissances",
+      "bad_reasoning": "$2^n + 2^n = 4^n$.",
+      "error_analysis": "ERREUR : $x + x = 2x$. Donc $2^n + 2^n = 2 \\times 2^n = 2^{n+1}$.",
+      "correct_formula": "$2^n + 2^n = 2^{n+1}$",
+      "points": 10
+    },
+    {
+      "title": "Le nombre de termes (Indices)",
+      "bad_reasoning": "De $u_1$ à $u_n$, il y a $n-1$ termes.",
+      "error_analysis": "ERREUR : De 1 à $n$, il y a $n$ termes. C'est de 0 à $n$ qu'il y en a $n+1$.",
+      "correct_formula": "Toujours faire : Fin - Début + 1.",
+      "points": 8
+    },
+    {
+      "title": "Raison négative",
+      "bad_reasoning": "Une suite géométrique de raison -2 est décroissante.",
+      "error_analysis": "Faux. Elle alterne : 1, -2, 4, -8... Elle n'est ni croissante ni décroissante.",
+      "correct_formula": "Non monotone.",
+      "points": 10
+    },
+    {
+      "title": "Pourcentages cumulés",
+      "bad_reasoning": "Une hausse de 10% suivie d'une baisse de 10%, ça revient au départ.",
+      "error_analysis": "ERREUR : $1,10 \\times 0,90 = 0,99$. On a perdu 1%.",
+      "correct_formula": "Les coefficients multiplicateurs se multiplient.",
       "points": 10
     }
   ]
