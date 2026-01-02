@@ -1,85 +1,33 @@
 {
-  "title": "Structure du Globe Terrestre (Niveau Expert)",
-  "level": 8,
+  "title": "Structure du Globe Terrestre",
   "flashcards": [
-    {
-      "q": "Quelle est la différence entre la croûte continentale et la croûte océanique (composition et épaisseur) ?",
-      "answers": ["La croûte continentale est granitique, peu dense (2,7) et épaisse (30-70km). La croûte océanique est basaltique/gabbroïque, plus dense (2,9) et fine (7km)."],
-      "hints": ["Pensez aux roches principales.", "Laquelle 'flotte' le plus haut sur le manteau ?"],
-      "points": 10
-    },
-    {
-      "q": "Définissez la LVZ (Low Velocity Zone) et son importance rhéologique.",
-      "answers": ["Zone du manteau supérieur où la vitesse des ondes baisse, marquant la limite ductile entre la lithosphère rigide et l'asthénosphère moins rigide."],
-      "hints": ["Ondes sismiques ralentissent.", "Lien avec la ductilité des roches."],
-      "points": 12
-    },
-    {
-      "q": "Citez les 3 discontinuités majeures du globe et leur profondeur.",
-      "answers": ["Moho (variable, moy. 35km), Gutenberg (2900km), Lehmann (5100km)."],
-      "hints": ["Croûte/Manteau, Manteau/Noyau, Noyau ext/Noyau int."],
-      "points": 10
-    },
-    {
-      "q": "Comment sait-on que le noyau externe est liquide ?",
-      "answers": ["Les ondes S (cisaillement) ne s'y propagent pas, et les ondes P ralentissent brutalement à 2900km."],
-      "hints": ["Propriétés des ondes S dans les fluides.", "Zone d'ombre."],
-      "points": 12
-    }
+    {"q":"Épaisseur croûte océanique ?", "answers":["~7 km"], "hints":["Très fine.", "Faite de basalte."], "points":10},
+    {"q":"Roche du manteau ?", "answers":["Péridotite"], "hints":["Riche en olivine.", "Verte."], "points":10},
+    {"q":"Discontinuité Moho ?", "answers":["Croûte / Manteau"], "hints":["La plus haute.", "Séisme de 1909."], "points":10},
+    {"q":"Noyau externe : liquide ou solide ?", "answers":["Liquide"], "hints":["Les ondes S s'arrêtent.", "Champ magnétique."], "points":10},
+    {"q":"Densité croûte continentale ?", "answers":["2,7"], "hints":["Plus légère que l'océanique.", "Granite."], "points":10},
+    {"q":"Discontinuité de Gutenberg ?", "answers":["Manteau / Noyau"], "hints":["A 2900 km.", "Chute de vitesse P."], "points":10},
+    {"q":"Ondes S : milieu ?", "answers":["Solide uniquement"], "hints":["Cisaillement.", "Pas dans l'eau."], "points":10},
+    {"q":"Lithosphère vs Asthénosphère ?", "answers":["Rigide vs Ductile"], "hints":["Comportement mécanique.", "Limite à 1300°C."], "points":10},
+    {"q":"Profondeur du Moho sous les montagnes ?", "answers":["Jusqu'à 70 km"], "hints":["Racine crustale.", "Plus profond."], "points":10},
+    {"q":"Composition du noyau ?", "answers":["Fer et Nickel"], "hints":["Métallique.", "Très dense."], "points":10}
   ],
   "quiz": [
-    {
-      "type": "mcq",
-      "q": "Quelle roche est la plus représentative du manteau terrestre ?",
-      "options": ["Le Basalte", "Le Granite", "La Péridotite", "Le Gabbro"],
-      "answer": 2,
-      "explanation": "La péridotite est la roche ultra-mafique qui constitue l'essentiel du manteau supérieur.",
-      "points": 8
-    },
-    {
-      "type": "mcq",
-      "q": "Lors du passage du Moho, la vitesse des ondes sismiques :",
-      "options": ["Diminue", "Augmente brutalement", "Reste constante", "S'arrête"],
-      "answer": 1,
-      "explanation": "Le passage d'une croûte moins dense à un manteau plus dense accélère les ondes.",
-      "points": 10
-    },
-    {
-      "type": "open",
-      "q": "Quel minéral caractérise principalement le faciès de la croûte continentale ?",
-      "expected_keywords": ["Quartz", "Feldspath"],
-      "explanation": "Le granite est riche en quartz et feldspaths silicatés.",
-      "points": 10
-    }
+    {"type":"mcq","q":"Quelle onde arrive en premier ?","options":["Onde P","Onde S","Onde L"],"answer":0,"explanation":"P pour Primaire.","points":10},
+    {"type":"mcq","q":"Roche principale croûte océanique ?","options":["Granite","Basalte","Péridotite"],"answer":1,"points":10},
+    {"type":"open","q":"Profondeur limite manteau-noyau ?","expected_keywords":["2900"],"points":10},
+    {"type":"mcq","q":"LVZ signifie ?","options":["Low Velocity Zone","Large Volcanic Zone"],"answer":0,"points":10},
+    {"type":"mcq","q":"Le Moho est une discontinuité ...","options":["Chimique","Mécanique"],"answer":0,"explanation":"Changement de roche.","points":10},
+    {"type":"open","q":"Roche croûte continentale ?","expected_keywords":["granite"],"points":10},
+    {"type":"mcq","q":"La graine est ?","options":["Solide","Liquide"],"answer":0,"points":10},
+    {"type":"open","q":"Vitesse ondes P au Moho ?","expected_keywords":["augmente"],"points":10},
+    {"type":"mcq","q":"Zone d'ombre due au ?","options":["Noyau","Manteau"],"answer":0,"points":10},
+    {"type":"mcq","q":"Manteau est principalement ?","options":["Solide","Liquide"],"answer":0,"explanation":"Solide mais ductile.","points":10}
   ],
   "exercises": [
-    {
-      "q": "Calcul de profondeur : Une onde P réfléchie sur le Moho revient à la surface après 12 secondes. Si sa vitesse moyenne est de 6 km/s, à quelle profondeur est le Moho ?",
-      "solution": "L'onde fait l'aller-retour. Distance totale = Vitesse x Temps = 6 x 12 = 72 km. La profondeur est la moitié : 72 / 2 = 36 km.",
-      "time_limit_sec": 180,
-      "points": 20
-    },
-    {
-      "q": "Interprétez l'existence de la zone d'ombre sismique (entre 103° et 142°).",
-      "solution": "Elle est due à la réfraction des ondes P à la limite manteau-noyau (discontinuité de Gutenberg) et à l'arrêt des ondes S par le noyau liquide.",
-      "time_limit_sec": 300,
-      "points": 20
-    }
+    {"q":"Calculez la profondeur si une onde P (v=6km/s) revient après 10s.","solution":"D=V*T=6*10=60km aller-retour donc 30km de profondeur.", "time_limit_sec":180, "points":25}
   ],
   "traps": [
-    {
-      "title": "Le manteau n'est pas liquide !",
-      "bad_reasoning": "Le manteau est constitué de magma liquide car c'est de là que sort la lave des volcans.",
-      "error_analysis": "C'est l'erreur la plus courante. Le manteau est SOLIDE (mais ductile sur le long terme). Le magma ne représente que 1% du volume total dans des zones très localisées.",
-      "correct_formula": "Le manteau est un solide capable de déformation plastique (ductilité).",
-      "points": 15
-    },
-    {
-      "title": "Lithosphère vs Croûte",
-      "bad_reasoning": "La lithosphère est synonyme de croûte terrestre.",
-      "error_analysis": "Faux. La lithosphère = la croûte + la partie supérieure rigide du manteau supérieur.",
-      "correct_formula": "Lithosphère = Croûte + Manteau lithosphérique.",
-      "points": 12
-    }
+    {"title":"Manteau Magma", "bad_reasoning":"Le manteau est liquide car il y a du magma.", "error_analysis":"Le manteau est solide à 99%.", "correct_formula":"Solide ductile", "points":10}
   ]
 }
