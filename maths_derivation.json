@@ -1,186 +1,33 @@
 {
-  "title": "Dérivation & Analyse (Niveau Expert)",
-  "level": 8,
+  "title": "Dérivation & Analyse",
   "flashcards": [
-    {
-      "q": "Définition : Formule du taux d'accroissement de f entre a et a+h.",
-      "answers": ["$\\frac{f(a+h) - f(a)}{h}$"],
-      "hints": ["C'est la pente de la corde.", "Différence des y sur différence des x."],
-      "points": 8
-    },
-    {
-      "q": "Quelle est l'équation réduite de la tangente en $a$ ?",
-      "answers": ["$y = f'(a)(x-a) + f(a)$"],
-      "hints": ["À savoir par cœur !", "C'est une droite affine de coefficient directeur $f'(a)$."],
-      "points": 10
-    },
-    {
-      "q": "Dérivée de $x^n$ (pour $n$ entier ou réel).",
-      "answers": ["$n x^{n-1}$"],
-      "hints": ["L'exposant 'descend' devant.", "La puissance diminue de 1."],
-      "points": 5
-    },
-    {
-      "q": "Dérivée de $\\frac{1}{x}$.",
-      "answers": ["$-\\frac{1}{x^2}$"],
-      "hints": ["C'est un cas particulier de $1/u$ ou $x^{-1}$."],
-      "points": 8
-    },
-    {
-      "q": "Dérivée de $\\sqrt{x}$ et son ensemble de dérivabilité.",
-      "answers": ["$\\frac{1}{2\\sqrt{x}}$, dérivable sur $]0; +\\infty[$."],
-      "hints": ["Attention, pas dérivable en 0 (tangente verticale)."],
-      "points": 10
-    },
-    {
-      "q": "Dérivée d'un produit $u \\times v$.",
-      "answers": ["$u'v + uv'$"],
-      "hints": ["Attention, ce n'est PAS $u'v'$ !", "Pensez à 'dérive l'un, garde l'autre' + inverse."],
-      "points": 10
-    },
-    {
-      "q": "Dérivée d'un quotient $\\frac{u}{v}$.",
-      "answers": ["$\\frac{u'v - uv'}{v^2}$"],
-      "hints": ["Le signe est MOINS.", "Commencez par dériver le Haut.", "Le bas est au carré."],
-      "points": 10
-    },
-    {
-      "q": "Dérivée de la composée $f(ax + b)$.",
-      "answers": ["$a \\cdot f'(ax+b)$"],
-      "hints": ["On multiplie par le coefficient de x.", "Exemple : $(\\sin(2x))' = 2\\cos(2x)$."],
-      "points": 12
-    },
-    {
-      "q": "Dérivée de $e^{u(x)}$.",
-      "answers": ["$u'(x) e^{u(x)}$"],
-      "hints": ["L'exponentielle reste, mais on multiplie par la dérivée de l'exposant."],
-      "points": 12
-    },
-    {
-      "q": "Lien graphique : Si la courbe admet une tangente horizontale en $a$, que vaut $f'(a)$ ?",
-      "answers": ["$f'(a) = 0$"],
-      "hints": ["La pente est nulle.", "C'est souvent un sommet (extremum)."],
-      "points": 8
-    }
+    {"q":"Dérivée de $x^n$ ?", "answers":["$n x^{n-1}$"], "hints":["L'exposant descend.", "Puissance baisse."], "points":10},
+    {"q":"Dérivée de $\\sqrt{x}$ ?", "answers":["$\\frac{1}{2\\sqrt{x}}$"], "hints":["1 sur 2 racine.", "Non dérivable en 0."], "points":10},
+    {"q":"Dérivée de $u \\cdot v$ ?", "answers":["$u'v + uv'$"], "hints":["Pas juste $u'v'$.", "Addition."], "points":10},
+    {"q":"Dérivée de $\\frac{1}{u}$ ?", "answers":["$-\\frac{u'}{u^2}$"], "hints":["Signe moins.", "u carré en bas."], "points":10},
+    {"q":"Equation tangente ?", "answers":["$y = f'(a)(x-a) + f(a)$"], "hints":["Pente f'(a).", "Passe par A(a; f(a))."], "points":10},
+    {"q":"Dérivée de $\\cos(x)$ ?", "answers":["$-\\sin(x)$"], "hints":["Signe moins.", "Vers le bas du cercle."], "points":10},
+    {"q":"Dérivée de $\\sin(x)$ ?", "answers":["$\\cos(x)$"], "hints":["Pas de changement de signe.", "Horizontal."], "points":10},
+    {"q":"Dérivée de $\\frac{u}{v}$ ?", "answers":["$\\frac{u'v-uv'}{v^2}$"], "hints":["Signe moins au numérateur.", "v au carré."], "points":10},
+    {"q":"$f'(x) > 0$ signifie ?", "answers":["$f$ est croissante."], "hints":["Lien signe/variations.", "La pente monte."], "points":10},
+    {"q":"$f'(x) = 0$ signifie ?", "answers":["Tangente horizontale."], "hints":["Extremum local ?", "Sommet."], "points":10}
   ],
   "quiz": [
-    {
-      "type": "mcq",
-      "q": "La dérivée de $f(x) = 3x^2 - 5x + 1$ est :",
-      "options": ["$6x - 5$", "$3x - 5$", "$6x$"],
-      "answer": 0,
-      "explanation": "$2 \\times 3x - 5 = 6x - 5$.",
-      "points": 8
-    },
-    {
-      "type": "mcq",
-      "q": "La dérivée de $f(x) = x e^x$ est :",
-      "options": ["$e^x$", "$x e^x$", "$(x+1)e^x$"],
-      "answer": 2,
-      "explanation": "Produit $uv$. $u=x, u'=1$. $v=e^x, v'=e^x$. Donc $1\\cdot e^x + x \\cdot e^x = e^x(1+x)$.",
-      "points": 12
-    },
-    {
-      "type": "open",
-      "q": "Donnez la dérivée de $f(x) = \\cos(x)$.",
-      "expected_keywords": ["-sin", "moins sinus"],
-      "explanation": "$-\\sin(x)$. Attention au signe moins !",
-      "points": 8
-    },
-    {
-      "type": "mcq",
-      "q": "Dérivée de $\\frac{3}{2x+1}$ :",
-      "options": ["$\\frac{-6}{(2x+1)^2}$", "$\\frac{3}{(2x+1)^2}$", "$\\frac{-3}{(2x+1)^2}$"],
-      "answer": 0,
-      "explanation": "Formule $k/u \\to -ku'/u^2$. Ici $k=3, u'=2$. Donc $-3(2)/(...) = -6/(...)$.",
-      "points": 12
-    },
-    {
-      "type": "open",
-      "q": "Si $f'(x)$ est positif sur $[a;b]$, alors f est...",
-      "expected_keywords": ["croissante"],
-      "explanation": "La fonction monte.",
-      "points": 5
-    },
-    {
-      "type": "mcq",
-      "q": "La fonction $|x|$ (valeur absolue) est-elle dérivable en 0 ?",
-      "options": ["Oui", "Non"],
-      "answer": 1,
-      "explanation": "Non. La pente à gauche est -1, la pente à droite est +1. Il y a un 'point anguleux'.",
-      "points": 14
-    },
-    {
-      "type": "open",
-      "q": "Dérivée de $\\sqrt{3x+4}$ ?",
-      "expected_keywords": ["3/(2sqrt(3x+4))", "3 sur 2 racine"],
-      "explanation": "$u'/2\\sqrt{u}$ avec $u=3x+4$ donc $u'=3$.",
-      "points": 12
-    },
-    {
-      "type": "mcq",
-      "q": "Physique : Si $x(t)$ est la position, que représente $x'(t)$ ?",
-      "options": ["L'accélération", "La vitesse", "La trajectoire"],
-      "answer": 1,
-      "explanation": "La dérivée de la position par rapport au temps est la vitesse instantanée.",
-      "points": 10
-    }
+    {"type":"mcq","q":"Dérivée de $x^2 + x$ ?","options":["$2x+1$","$2x$","$x+1$"],"answer":0,"explanation":"$2x$ pour $x^2$ et $1$ pour $x$.","points":10},
+    {"type":"mcq","q":"Dérivée de $3e^x$ ?","options":["$3e^x$","$e^x$","$3x$"],"answer":0,"explanation":"$(ke^x)' = ke^x$.","points":10},
+    {"type":"mcq","q":"Dérivée de $1/x$ ?","options":["$1/x^2$","$-1/x^2$","$x$"],"answer":1,"explanation":"Formule usuelles.","points":10},
+    {"type":"open","q":"Si $f'(x)=-5$, f est ... ?","expected_keywords":["décroissante"],"points":10},
+    {"type":"mcq","q":"$f(x)=x^2$ au point $x=3$, pente ?","options":["3","6","9"],"answer":1,"explanation":"$f'(3) = 2 \\cdot 3 = 6$.","points":10},
+    {"type":"open","q":"Dérivée de $5x+2$ ?","expected_keywords":["5"],"points":10},
+    {"type":"mcq","q":"Dérivée de $\\sqrt{x}$ en 0 ?","options":["0","1","N'existe pas"],"answer":2,"explanation":"Limite infinie.","points":10},
+    {"type":"mcq","q":"Dérivée de $(3x+1)^2$ ?","options":["$6(3x+1)$","$2(3x+1)$","$3$"],"answer":0,"explanation":"$2 \\cdot 3 \\cdot (3x+1)$.","points":10},
+    {"type":"open","q":"La dérivée d'une constante est ?","expected_keywords":["0","zéro"],"points":10},
+    {"type":"mcq","q":"Signe de la dérivée d'une fonction constante ?","options":["Positif","Nul","Négatif"],"answer":1,"points":10}
   ],
   "exercises": [
-    {
-      "q": "Analyse complète : Soit $f(x) = \\frac{2x+1}{x-1}$. Étudiez les variations.",
-      "solution": "1. Ensemble de déf : $\\mathbb{R} \\setminus \\{1\\}$. <br> 2. Quotient : $u=2x+1, u'=2$. $v=x-1, v'=1$. <br> 3. $f'(x) = \\frac{2(x-1) - 1(2x+1)}{(x-1)^2} = \\frac{2x-2-2x-1}{(x-1)^2} = \\frac{-3}{(x-1)^2}$. <br> 4. Le numérateur est négatif, le carré positif. $f'(x) < 0$. <br> 5. $f$ est décroissante sur chaque intervalle.",
-      "time_limit_sec": 300,
-      "points": 20
-    },
-    {
-      "q": "Optimisation : On veut enclore un champ rectangulaire de surface 100m² le long d'un mur (seulement 3 côtés de clôture). Quelle dimension minimise la clôture ?",
-      "solution": "Soit $x$ la largeur. La longueur est $100/x$. <br> Longueur clôture $L(x) = x + x + 100/x = 2x + 100/x$. <br> $L'(x) = 2 - 100/x^2$. <br> $L'(x)=0 \\iff 2x^2=100 \\iff x^2=50 \\iff x=\\sqrt{50} \\approx 7,07$. <br> Il faut une largeur d'environ 7,1m.",
-      "time_limit_sec": 420,
-      "points": 25
-    },
-    {
-      "q": "Tangente commune : Trouvez le point où la tangente à $y=x^2$ est parallèle à la droite $y=4x-5$.",
-      "solution": "Parallèle = même coefficient directeur. La pente de la droite est 4. <br> On cherche $x$ tel que $f'(x) = 4$. <br> $2x = 4 \\implies x = 2$. <br> Le point est $(2 ; 4)$.",
-      "time_limit_sec": 180,
-      "points": 15
-    }
+    {"q":"Dérivez $f(x) = (x^2+1)\\sin(x)$.","solution":"$(2x)\\sin(x) + (x^2+1)\\cos(x)$", "time_limit_sec":300, "points":25}
   ],
   "traps": [
-    {
-      "title": "La dérivée du produit",
-      "bad_reasoning": "La dérivée de $x^2 \\sin(x)$ est $2x \\cos(x)$.",
-      "error_analysis": "ERREUR GRAVE : On ne dérive pas chaque facteur séparément. Il faut utiliser $u'v + uv'$.",
-      "correct_formula": "$2x \\sin(x) + x^2 \\cos(x)$",
-      "points": 10
-    },
-    {
-      "title": "La dérivée de 1/u",
-      "bad_reasoning": "La dérivée de $\\frac{1}{x^2+1}$ est $\\frac{1}{2x}$.",
-      "error_analysis": "ERREUR : On ne dérive pas le dénominateur 'sur place'. La formule est $-u'/u^2$. Il y a un changement de signe et un carré.",
-      "correct_formula": "$\\frac{-2x}{(x^2+1)^2}$",
-      "points": 10
-    },
-    {
-      "title": "Equation de tangente",
-      "bad_reasoning": "La tangente est $y = f'(x)(x-a) + f(a)$.",
-      "error_analysis": "ERREUR : Dans l'équation, la pente est un NOMBRE CONSTANT $f'(a)$, pas la fonction $f'(x)$.",
-      "correct_formula": "$y = f'(a)(x-a) + f(a)$",
-      "points": 8
-    },
-    {
-      "title": "Signe vs Variations",
-      "bad_reasoning": "Si $f(x)$ est positif, alors $f$ est croissante.",
-      "error_analysis": "Confusion totale. Une fonction peut être très haute (positive) mais en train de descendre.",
-      "correct_formula": "Signe de f' $\\leftrightarrow$ Variations de f.",
-      "points": 8
-    },
-    {
-      "title": "Simplification abusive",
-      "bad_reasoning": "$\\frac{2x+1}{x^2} = \\frac{2+1}{x}$ en barrant les x.",
-      "error_analysis": "Interdit de simplifier une somme par une partie de la somme. C'est une erreur de collège qui coûte très cher en 1ère.",
-      "correct_formula": "On ne peut rien simplifier ici.",
-      "points": 5
-    }
+    {"title":"Oubli de u'", "bad_reasoning":"Dérivée de cos(3x) est -sin(3x).", "error_analysis":"Il manque la dérivée interne.", "correct_formula":"-3sin(3x)", "points":10}
   ]
 }
