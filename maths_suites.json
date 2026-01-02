@@ -1,72 +1,71 @@
 {
   "title": "Suites Numériques (Niveau 7-8)",
-  "level": 7,
+  "level": 8,
   "flashcards": [
     {
-      "q": "Expliquez la différence fondamentale entre une définition explicite et une définition par récurrence.",
-      "answers": ["L'explicite permet de calculer $u_n$ directement à partir de $n$. La récurrence nécessite de connaître le terme précédent $u_{n-1}$."],
-      "hints": [
-        "Pensez au calcul de $u_{100}$.",
-        "Laquelle nécessite une boucle de calcul ?",
-        "L'une est de type $f(n)$, l'autre $f(u_n)$."
-      ],
+      "q": "Comment démontre-t-on qu'une suite $(v_n)$ est géométrique ?",
+      "answers": ["On calcule le rapport $\\frac{v_{n+1}}{v_n}$ et on doit trouver une constante $q$ indépendante de $n$."],
+      "hints": ["Exprimez d'abord $v_{n+1}$ en fonction de $u_{n+1}$.", "Remplacez $u_{n+1}$ par sa définition.", "Factorisez pour faire apparaître $v_n$."],
       "points": 10
     },
     {
-      "q": "Donnez la formule de la somme $S = 1 + 2 + 3 + ... + n$ et démontrez-la rapidement par l'astuce de Gauss.",
-      "answers": ["$S = \\frac{n(n+1)}{2}$. Astuce : on écrit la somme à l'endroit et à l'envers, chaque paire verticale vaut $(n+1)$."],
-      "hints": [
-        "Combien y a-t-il de termes ?",
-        "Si on additionne le premier et le dernier, qu'obtient-on ?",
-        "Il y a $n$ paires de valeur $(n+1)$, mais on divise par 2."
-      ],
+      "q": "Quelle est la limite d'une suite géométrique $q^n$ selon la valeur de $q$ ?",
+      "answers": ["Si $|q| < 1$, la limite est $0$. Si $q > 1$, la limite est $+\\infty$. Si $q \\le -1$, pas de limite."],
+      "hints": ["Pensez à ce qui se passe si on multiplie 0,5 par lui-même indéfiniment.", "Et pour un nombre plus grand que 1 ?", "Rappelez-vous le cas des suites alternées."],
       "points": 12
+    },
+    {
+      "q": "Énoncez la formule de la somme des termes d'une suite géométrique.",
+      "answers": ["$S = \\text{Premier terme} \\times \\frac{1 - q^{\\text{nb de termes}}}{1 - q}$"],
+      "hints": ["Ne confondez pas l'indice final avec le nombre de termes.", "La formule n'est valable que si $q \\neq 1$."],
+      "points": 10
     }
   ],
   "quiz": [
     {
       "type": "mcq",
-      "q": "Si $(u_n)$ est géométrique avec $u_2 = 18$ et $u_5 = 486$, quelle est la raison $q$ ?",
-      "options": ["2", "3", "9", "27"],
+      "q": "Soit $u_{n+1} = 0,5u_n + 3$. Si $v_n = u_n - 6$, de quelle nature est $v_n$ ?",
+      "options": ["Arithmétique de raison 3", "Géométrique de raison 0,5", "Géométrique de raison 3", "Constante"],
       "answer": 1,
-      "explanation": "$u_5 = u_2 \\times q^3$. Donc $486/18 = 27$. $q^3 = 27 \\implies q = 3$.",
-      "points": 10
+      "explanation": "$v_{n+1} = u_{n+1} - 6 = (0,5u_n + 3) - 6 = 0,5u_n - 3 = 0,5(u_n - 6) = 0,5v_n$.",
+      "points": 14
     },
     {
       "type": "open",
-      "q": "Soit $u_{n+1} = 2u_n + 5$. Pourquoi cette suite n'est-elle ni arithmétique ni géométrique ?",
-      "expected_keywords": ["constante", "raison", "addition", "multiplication", "arithmético-géométrique"],
-      "explanation": "La différence $u_{n+1}-u_n$ n'est pas constante (dépend de $u_n$) et le rapport $u_{n+1}/u_n$ n'est pas constant non plus.",
-      "points": 14
+      "q": "Donnez le nombre de termes de la somme $S = u_3 + u_4 + ... + u_{15}$.",
+      "expected_keywords": ["13", "treize"],
+      "explanation": "Calcul : $15 - 3 + 1 = 13$. On ajoute toujours 1 car on inclut les deux bornes.",
+      "points": 10
+    },
+    {
+      "type": "mcq",
+      "q": "Si $u_n = 2^n - n$, la suite est-elle arithmétique ?",
+      "options": ["Oui", "Non, car la différence n'est pas constante", "Seulement pour n > 0"],
+      "answer": 1,
+      "explanation": "$u_1-u_0 = 1$ et $u_2-u_1 = 2$. La différence change, donc elle n'est pas arithmétique.",
+      "points": 12
     }
   ],
   "exercises": [
     {
-      "q": "Soit $u_n$ définie par $u_n = 3n^2 - 1$. Étudiez les variations de la suite.",
-      "solution": "Calculons $u_{n+1} - u_n = 3(n+1)^2 - 1 - (3n^2 - 1) = 3(n^2 + 2n + 1) - 3n^2 = 6n + 3$. Comme $n \\ge 0$, $6n + 3 > 0$. La suite est strictement croissante.",
-      "time_limit_sec": 150,
-      "points": 12
-    },
-    {
-      "q": "Somme de termes : calculez $S = 5 + 10 + 20 + ... + 5120$.",
-      "solution": "C'est une suite géométrique de premier terme $a=5$ et raison $q=2$. $5120 = 5 \\times 2^{10}$, donc il y a 11 termes. $S = 5 \\times \\frac{1-2^{11}}{1-2} = 5 \\times (2048 - 1) = 10235$.",
+      "q": "Calculez la somme $S = 1 + 3 + 9 + 27 + ... + 59049$. On donne $3^{10} = 59049$.",
+      "solution": "C'est une suite géométrique de raison $q=3$ et $u_0=1$. Il y a 11 termes ($n=0$ à $n=10$). $S = 1 \\times \\frac{1-3^{11}}{1-3} = \\frac{1-177147}{-2} = 88573$.",
       "time_limit_sec": 240,
       "points": 15
+    },
+    {
+      "q": "Démontrez par le calcul que la suite $u_n = \\frac{3n-1}{n+1}$ est croissante.",
+      "solution": "Étudions $f(x) = \\frac{3x-1}{x+1}$. Sa dérivée est $f'(x) = \\frac{3(x+1) - 1(3x-1)}{(x+1)^2} = \\frac{4}{(x+1)^2}$. Comme $f'(x) > 0$, la fonction et la suite sont croissantes.",
+      "time_limit_sec": 300,
+      "points": 18
     }
   ],
   "traps": [
     {
-      "title": "Le nombre de termes",
-      "bad_reasoning": "Pour calculer $u_0 + u_1 + ... + u_n$, il y a $n$ termes.",
-      "error_analysis": "ERREUR : De $0$ à $n$, il y a $n+1$ termes.",
-      "correct_formula": "Nombre de termes = (Indice final - Indice initial) + 1",
-      "points": 10
-    },
-    {
-      "title": "Le piège de la raison négative",
-      "bad_reasoning": "Si $q = -2$, la suite est décroissante car la raison est inférieure à 1.",
-      "error_analysis": "ERREUR : Si $q < 0$, la suite n'est pas monotone. Elle est alternée (change de signe à chaque terme).",
-      "correct_formula": "Une suite géométrique est monotone seulement si $q > 0$.",
+      "title": "Confusion Indice / Valeur",
+      "bad_reasoning": "Pour calculer $u_5$, je remplace $u_n$ par 5.",
+      "error_analysis": "ERREUR : $n=5$ est la position, $u_5$ est le résultat. On remplace $n$ par 5 dans la formule.",
+      "correct_formula": "$u_n = f(n)$",
       "points": 10
     }
   ]
