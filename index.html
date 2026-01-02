@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparring Partner | Maths</title>
+    <title>Sparring Partner | Spé Sciences</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -22,71 +23,65 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Inter:wght@400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
         .tab-active { border-bottom: 3px solid #6366f1; color: white; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 min-h-screen font-sans">
 
-    <header class="border-b border-slate-800 bg-slate-900/50 sticky top-0 z-50 p-4">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <h1 class="font-bold text-xl tracking-tight">SPARRING<span class="text-indigo-500">PARTNER</span></h1>
+<body class="bg-slate-950 text-slate-200 min-h-screen">
+
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-indigo-600 p-2 rounded-lg">
+                    <i class="fas fa-graduation-cap text-white"></i>
+                </div>
+                <h1 class="font-bold text-lg tracking-tight">SPARRING<span class="text-indigo-500">PARTNER</span></h1>
+            </div>
+            
             <div class="flex items-center gap-4">
                 <div class="text-right">
-                    <p id="global-score" class="font-mono text-indigo-400 font-bold text-xl text-xl">0000</p>
+                    <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest">Score Total</p>
+                    <p id="global-score" class="mono text-indigo-400 text-xl">0000</p>
                 </div>
-                <button onclick="resetStats()" class="text-slate-600 hover:text-red-400"><i class="fas fa-redo-alt"></i></button>
+                <button onclick="resetStats()" class="text-slate-600 hover:text-red-400 transition" title="Réinitialiser">
+                    <i class="fas fa-redo-alt"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto p-4 sm:p-8">
         
-        <section id="dashboard" class="space-y-6">
-            <h2 class="text-2xl font-bold mb-8">Choisissez votre entraînement</h2>
+        <section id="dashboard" class="space-y-8 animate-fade-in">
+            <div>
+                <h2 class="text-3xl font-bold">Tableau de bord</h2>
+                <p class="text-slate-400 mt-1">Sélectionnez une leçon pour commencer l'entraînement.</p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div onclick="loadChapter('suites')" class="cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition">
-                    <h3 class="text-xl font-bold mb-4">01. Suites Numériques</h3>
-                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div id="progress-suites" class="bg-indigo-500 h-full w-0 transition-all"></div>
+                <div onclick="loadChapter('suites')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all hover:shadow-2xl hover:shadow-indigo-500/10">
+                    <div class="flex justify-between mb-4">
+                        <i class="fas fa-list-ol text-3xl text-slate-700 group-hover:text-indigo-500 transition"></i>
+                        <span class="bg-indigo-500/10 text-indigo-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Maths</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Suites Numériques</h3>
+                    <p class="text-sm text-slate-500 mb-4">Arithmétique, géométrique et sommes complexes.</p>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="progress-suites" class="bg-indigo-500 h-full w-0 transition-all duration-1000"></div>
                     </div>
                 </div>
-                <div onclick="loadChapter('derivation')" class="cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition">
-                    <h3 class="text-xl font-bold mb-4">02. Dérivation</h3>
-                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                        <div id="progress-derivation" class="bg-indigo-500 h-full w-0 transition-all"></div>
+
+                <div onclick="loadChapter('derivation')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all hover:shadow-2xl hover:shadow-indigo-500/10">
+                    <div class="flex justify-between mb-4">
+                        <i class="fas fa-chart-line text-3xl text-slate-700 group-hover:text-indigo-500 transition"></i>
+                        <span class="bg-indigo-500/10 text-indigo-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Maths</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="workspace" class="hidden">
-            <button onclick="showDashboard()" class="text-slate-400 mb-6"><i class="fas fa-chevron-left mr-2"></i>Retour</button>
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-                <div class="p-6 border-b border-slate-800 bg-slate-900/50 flex justify-between items-center">
-                    <div>
-                        <h2 id="chapter-title" class="text-2xl font-bold text-white uppercase tracking-tighter">---</h2>
-                        <p id="mastery-label" class="text-xs text-indigo-400 font-bold mt-1">Maîtrise : 0%</p>
-                    </div>
-                    <div id="mastery-badge" class="h-10 w-10 rounded-full border-2 border-indigo-500 flex items-center justify-center font-bold text-indigo-500 text-sm">1</div>
-                </div>
-                <div class="flex border-b border-slate-800 text-[10px] font-bold sm:text-xs">
-                    <button onclick="switchTab('cards')" id="tab-btn-cards" class="flex-1 py-4 tab-active">FLASH-CARDS</button>
-                    <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="flex-1 py-4">QUIZ</button>
-                    <button onclick="switchTab('exos')" id="tab-btn-exos" class="flex-1 py-4">EXOS</button>
-                    <button onclick="switchTab('traps')" id="tab-btn-traps" class="flex-1 py-4">PIÈGES</button>
-                </div>
-                <div class="p-6">
-                    <div id="tab-cards" class="tab-content space-y-4"></div>
-                    <div id="tab-quiz" class="tab-content hidden space-y-4"></div>
-                    <div id="tab-exos" class="tab-content hidden space-y-4"></div>
-                    <div id="tab-traps" class="tab-content hidden space-y-4"></div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="app.js"></script>
-</body>
-</html>
-
-
+                    <h3 class="text-xl font-bold mb-2">Dérivation</h3>
+                    <p class="text-sm text-slate-500 mb-4">Tangentes, fonctions composées et variations.</p>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="progress-derivation" class="bg-indigo-500 h-full w-0 transition-all duration-100
