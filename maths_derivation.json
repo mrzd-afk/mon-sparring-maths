@@ -1,73 +1,59 @@
 {
-  "title": "Dérivation (Niveau 7-8)",
+  "title": "Dérivation & Analyse (Niveau 7-8)",
   "level": 8,
   "flashcards": [
     {
-      "q": "Donnez la dérivée de $f(x) = \\sqrt{u(x)}$ et précisez la condition de dérivabilité.",
-      "answers": ["$f'(x) = \\frac{u'(x)}{2\\sqrt{u(x)}}$. Condition : $u(x)$ doit être strictement supérieur à 0."],
-      "hints": [
-        "Appliquez la règle de la chaîne à $u^{1/2}$.",
-        "Pourquoi $u(x)$ ne peut pas être nul au dénominateur ?",
-        "N'oubliez pas le $u'(x)$ au numérateur."
-      ],
-      "points": 10
+      "q": "Quelle est la dérivée de $f(x) = u(x)^n$ ?",
+      "answers": ["$f'(x) = n \\cdot u'(x) \\cdot u(x)^{n-1}$"],
+      "hints": ["C'est une généralisation de $x^n$.", "N'oubliez pas de dériver ce qu'il y a à l'intérieur de la parenthèse ($u'$)."],
+      "points": 12
     },
     {
-      "q": "Comment détermine-t-on l'équation d'une tangente à $\\mathcal{C}_f$ au point d'abscisse $a$ ?",
-      "answers": ["On utilise la formule $y = f'(a)(x - a) + f(a)$."],
-      "hints": [
-        "C'est une droite de pente $f'(a)$.",
-        "Elle passe par le point $(a ; f(a))$.",
-        "La formule est du type $y = mx + p$."
-      ],
-      "points": 10
+      "q": "Comment justifier qu'une fonction est dérivable en un point $a$ ?",
+      "answers": ["Il faut vérifier que le taux d'accroissement $\\frac{f(a+h)-f(a)}{h}$ admet une limite finie quand $h \\to 0$."],
+      "hints": ["C'est la définition fondamentale.", "Si la limite est infinie, la fonction n'est pas dérivable."],
+      "points": 15
     }
   ],
   "quiz": [
     {
       "type": "mcq",
-      "q": "Soit $f(x) = (2x+1)^3$. Quelle est sa dérivée ?",
-      "options": ["$3(2x+1)^2$", "$6(2x+1)^2$", "$2(2x+1)^2$", "$6x(2x+1)^2$"],
-      "answer": 1,
-      "explanation": "Formule $(u^n)' = n \\cdot u' \\cdot u^{n-1}$. Ici $n=3$ et $u'=2$, donc $3 \\times 2 \\times (2x+1)^2 = 6(2x+1)^2$.",
+      "q": "Dérivée de $f(x) = \\frac{1}{x^2+x}$ ?",
+      "options": ["$\\frac{-2x-1}{(x^2+x)^2}$", "$\\frac{2x+1}{(x^2+x)^2}$", "$\\frac{1}{2x+1}$", "$\\frac{-1}{(x^2+x)^2}$"],
+      "answer": 0,
+      "explanation": "Formule $(1/u)' = -u'/u^2$ avec $u=x^2+x$ et $u'=2x+1$.",
       "points": 12
     },
     {
-      "type": "open",
-      "q": "Si $f'(x) < 0$ sur $[0;5]$ et $f(0)=10$, que peut-on dire du signe de $f(x)$ sur cet intervalle ?",
-      "expected_keywords": ["décroissante", "maximum", "impossible", "signe"],
-      "explanation": "On sait que $f$ est décroissante, donc pour tout $x \\in [0;5]$, $f(x) \\le 10$. Mais on ne peut pas affirmer que $f(x)$ reste positif sans calculer $f(5)$.",
-      "points": 14
+      "type": "mcq",
+      "q": "Quelle est l'abscisse du point où la tangente à $y=x^2$ est horizontale ?",
+      "options": ["$1$", "$0$", "$-1$", "Il n'y en a pas"],
+      "answer": 1,
+      "explanation": "Tangente horizontale signifie $f'(x)=0$. $2x=0 \\implies x=0$.",
+      "points": 10
     }
   ],
   "exercises": [
     {
-      "q": "Dériver $f(x) = \\frac{2x-3}{x^2+1}$.",
-      "solution": "Utilisons $(u/v)' = (u'v-uv')/v^2$. $u=2x-3, u'=2, v=x^2+1, v'=2x$. <br> $f'(x) = \\frac{2(x^2+1) - (2x-3)(2x)}{(x^2+1)^2} = \\frac{2x^2+2-4x^2+6x}{(x^2+1)^2} = \\frac{-2x^2+6x+2}{(x^2+1)^2}$.",
-      "time_limit_sec": 240,
-      "points": 15
+      "q": "Soit $f(x) = x^3 - 6x^2 + 9x + 1$. Déterminez le tableau de variations complet.",
+      "solution": "1. $f'(x) = 3x^2 - 12x + 9$. <br> 2. Racines de $3(x^2 - 4x + 3)$ : $\\Delta = 16 - 12 = 4$. $x_1=1, x_2=3$. <br> 3. $f'$ est positive à l'extérieur des racines. <br> 4. $f$ est croissante sur $]-\\infty; 1]$, décroissante sur $[1; 3]$, et croissante sur $[3; +\\infty[$.",
+      "time_limit_sec": 360,
+      "points": 20
     },
     {
-      "q": "Soit $f(x) = x^3 - 3x + 1$. Trouvez les points où la tangente est horizontale.",
-      "solution": "Une tangente est horizontale si $f'(x) = 0$. <br> $f'(x) = 3x^2 - 3$. <br> $3x^2 - 3 = 0 \\implies x^2 = 1 \\implies x = 1$ ou $x = -1$.",
+      "q": "Trouvez l'équation de la tangente à la courbe de $f(x) = \\sqrt{x}$ au point d'abscisse 4.",
+      "solution": "$f(4) = 2$. $f'(x) = \\frac{1}{2\\sqrt{x}} \\implies f'(4) = \\frac{1}{4}$. <br> Équation : $y = \\frac{1}{4}(x-4) + 2 \\implies y = 0,25x + 1$.",
       "time_limit_sec": 180,
-      "points": 12
+      "points": 15
     }
   ],
   "traps": [
     {
-      "title": "Le piège de la dérivée de u(v(x))",
-      "bad_reasoning": "La dérivée de $\\cos(3x+1)$ est $-\\sin(3x+1)$.",
-      "error_analysis": "ERREUR : On a oublié de multiplier par la dérivée de l'intérieur ($u'=3$).",
-      "correct_formula": "$f'(x) = -3\\sin(3x+1)$",
-      "points": 10
-    },
-    {
-      "title": "Le signe dans le quotient",
-      "bad_reasoning": "La dérivée de $u/v$ est $(u'v + uv')/v^2$.",
-      "error_analysis": "ERREUR : Ne confondez pas avec le produit. Pour le quotient, c'est un signe MOINS.",
-      "correct_formula": "$(u/v)' = (u'v - uv')/v^2$",
-      "points": 10
+      "title": "La racine carrée de zéro",
+      "bad_reasoning": "La fonction $\\sqrt{x}$ est dérivable sur $[0; +\\infty[$.",
+      "error_analysis": "ERREUR : Elle est CONTINUE en 0, mais pas DÉRIVABLE en 0 car la tangente y est verticale.",
+      "correct_formula": "Dérivable sur $]0; +\\infty[$ (ouvert en 0)",
+      "points": 12
     }
   ]
 }
