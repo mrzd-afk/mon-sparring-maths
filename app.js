@@ -1,146 +1,121 @@
-/* ==== app.js – Version MathJax OK ==== */
+/* =======================================================
+   APP.JS - SPARRING PARTNER (Version Complète & Corrigée)
+   ======================================================= */
+
+// --- ÉTAT GLOBAL DE L'APPLICATION ---
 let CURRENT_CHAPTER = null;
 let CHAPTER_DATA = null;
 let SCORE = parseInt(localStorage.getItem('sparring_score') || '0');
-let MASTERY = JSON.parse(localStorage.getItem('sparring_mastery') || '{"suites":0, "derivation":0}');
 
-window.onload = () => { updateGlobalUI(); };
+// Initialisation de la maîtrise (Progression par chapitre)
+let MASTERY = JSON.parse(localStorage.getItem('sparring_mastery') || '{"suites":0, "derivation":0, "globe":0}');
 
+// --- INITIALISATION AU CHARGEMENT ---
+window.onload = () => {
+    updateGlobalUI();
+};
+
+// --- NAVIGATION & UI ---
+
+// Met à jour les scores et les barres de progression sur le menu
 function updateGlobalUI() {
-    document.getElementById('global-score').textContent = SCORE.toString().padStart(4, '0');
-    if(document.getElementById('progress-suites')) document.getElementById('progress-suites').style.width = `${MASTERY.suites}%`;
-    if(document.getElementById('progress-derivation')) document.getElementById('progress-derivation').style.width = `${MASTERY.derivation}%`;
+    const scoreEl = document.getElementById('global-score');
+    if (scoreEl) scoreEl.textContent = SCORE.toString().padStart(4, '0');
+
+    // Mise à jour des barres de progression si elles existent
+    if (document.getElementById('progress-suites')) 
+        document.getElementById('progress-suites').style.width = `${MASTERY.suites}%`;
+    if (document.getElementById('progress-derivation')) 
+        document.getElementById('progress-derivation').style.width = `${MASTERY.derivation}%`;
+    if (document.getElementById('progress-globe')) 
+        document.getElementById('progress-globe').style.width = `${MASTERY.globe}%`;
+
+    // Sauvegarde locale
     localStorage.setItem('sparring_score', SCORE);
     localStorage.setItem('sparring_mastery', JSON.stringify(MASTERY));
 }
 
+// Charge les données d'un chapitre (Suites, Dérivation ou Globe)
 async function loadChapter(id) {
     try {
-        const response = await fetch(`maths_${id}.json`);
+        // Chargement du fichier JSON
+        const response = await fetch(`maths_${id}.json`).catch(() => fetch(`svt_${id}.json`));
         if (!response.ok) throw new Error("Fichier non trouvé");
+        
         CHAPTER_DATA = await response.json();
         CURRENT_CHAPTER = id;
 
+        // Mise à jour de l'interface
         document.getElementById('chapter-title').textContent = CHAPTER_DATA.title;
-        document.getElementById('mastery-label').textContent = `Maîtrise : ${MASTERY[id]}%`;
+        updateMasteryDisplay();
         
         document.getElementById('dashboard').classList.add('hidden');
         document.getElementById('workspace').classList.remove('hidden');
         
-        // On lance l'affichage
+        // Par défaut, on affiche l'onglet des Flash-cards
         switchTab('cards');
+        
+        // On génère le contenu
         renderCards();
         renderQuiz();
         renderExos();
         renderTraps();
 
     } catch (e) {
-        alert("Erreur lors du chargement du chapitre : " + e.message);
+        alert("Erreur : Le fichier 'maths_" + id + ".json' ou 'svt_" + id + ".json' est introuvable sur GitHub.");
+        console.error(e);
     }
 }
 
+function showDashboard() {
+    document.getElementById('workspace').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    updateGlobalUI();
+}
+
 function switchTab(tab) {
+    // Masquer tous les contenus
     document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+    // Dé-selectionner tous les boutons
     document.querySelectorAll('[id^="tab-btn-"]').forEach(b => b.classList.remove('tab-active'));
+    
+    // Afficher le contenu actif
     document.getElementById(`tab-${tab}`).classList.remove('hidden');
     document.getElementById(`tab-btn-${tab}`).classList.add('tab-active');
 }
 
+// --- MODULE FLASH-CARDS ---
+
 function renderCards() {
     const container = document.getElementById('tab-cards');
     container.innerHTML = CHAPTER_DATA.flashcards.map((c, i) => `
-        <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl mb-4">
-            <p class="text-lg mb-4">${c.q}</p>
+        <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl mb-4 animate-fade-in">
+            <p class="text-indigo-300 text-[10px] font-bold mb-2 uppercase tracking-widest">Question Sparring</p>
+            <p class="text-lg font-medium mb-4">${c.q}</p>
             <div id="hints-${i}" class="space-y-2 mb-4"></div>
-            <div class="flex gap-2">
-                <button onclick="getHint(${i})" class="bg-amber-500/10 text-amber-500 p-2 rounded text-xs">Indice</button>
-                <button onclick="toggleElement('ans-${i}')" class="bg-indigo-500 p-2 rounded text-xs">Réponse</button>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="getHint(${i})" class="text-xs bg-amber-500/10 text-amber-500 border border-amber-500/20 px-3 py-2 rounded-lg hover:bg-amber-500/20 transition">
+                    <i class="fas fa-lightbulb mr-1"></i> Indice (-2 pts)
+                </button>
+                <button onclick="toggleElement('ans-${i}')" class="text-xs bg-indigo-500 text-white px-3 py-2 rounded-lg hover:bg-indigo-400 transition">
+                    Vérifier la réponse
+                </button>
             </div>
-            <div id="ans-${i}" class="hidden mt-4 p-4 bg-slate-900 border-l-2 border-green-500">${c.answers[0]}</div>
+            <div id="ans-${i}" class="hidden mt-4 p-4 bg-slate-900 border-l-2 border-green-500 text-sm text-slate-300 italic">
+                ${c.answers[0]}
+                <div class="mt-4 flex gap-2">
+                    <button onclick="validateExo(${c.points}, ${i}, 'card')" class="bg-green-600/20 text-green-400 text-[10px] px-2 py-1 rounded hover:bg-green-600/40 uppercase">J'avais la bonne réponse</button>
+                </div>
+            </div>
         </div>
     `).join('');
+    
+    // Reset des indices utilisés
     CHAPTER_DATA.flashcards.forEach(c => c.usedHints = 0);
-    if (window.MathJax) MathJax.typesetPromise(); // <--- Ligne magique
+    refreshMaths();
 }
 
 function getHint(idx) {
     const card = CHAPTER_DATA.flashcards[idx];
     if (card.usedHints < card.hints.length) {
         const hZone = document.getElementById(`hints-${idx}`);
-        hZone.innerHTML += `<div class="text-xs p-2 bg-amber-900/20 text-amber-200 rounded">${card.hints[card.usedHints]}</div>`;
-        card.usedHints++;
-        SCORE -= 2; updateGlobalUI();
-        if (window.MathJax) MathJax.typesetPromise(); // <--- Ligne magique
-    }
-}
-
-function renderQuiz() {
-    const container = document.getElementById('tab-quiz');
-    container.innerHTML = CHAPTER_DATA.quiz.map((q, i) => `
-        <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 mb-4">
-            <p class="mb-4">${q.q}</p>
-            <div class="space-y-2">
-                ${q.type === 'mcq' ? q.options.map((opt, oi) => `<button onclick="checkQuiz(${i}, ${oi})" class="w-full text-left p-2 bg-slate-900 border border-slate-700 rounded text-sm">${opt}</button>`).join('') : ''}
-            </div>
-            <div id="quiz-fb-${i}" class="hidden mt-4 p-2 rounded text-xs"></div>
-        </div>
-    `).join('');
-    if (window.MathJax) MathJax.typesetPromise();
-}
-
-function checkQuiz(qIdx, optIdx) {
-    const q = CHAPTER_DATA.quiz[qIdx];
-    const fb = document.getElementById(`quiz-fb-${qIdx}`);
-    fb.classList.remove('hidden');
-    fb.innerHTML = (optIdx === q.answer) ? `✅ Correct ! ${q.explanation}` : `❌ Faux. ${q.explanation}`;
-    fb.className = (optIdx === q.answer) ? "mt-4 p-2 bg-green-900/20 text-green-400 rounded" : "mt-4 p-2 bg-red-900/20 text-red-400 rounded";
-    if (optIdx === q.answer) { SCORE += q.points; updateGlobalUI(); }
-    if (window.MathJax) MathJax.typesetPromise();
-}
-
-function renderExos() {
-    const container = document.getElementById('tab-exos');
-    container.innerHTML = CHAPTER_DATA.exercises.map((e, i) => `
-        <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 mb-4">
-            <div class="flex justify-between items-start mb-4"><p class="flex-1">${e.q}</p><div id="timer-${i}" class="text-indigo-400 font-bold ml-4">--:--</div></div>
-            <button id="btn-chrono-${i}" onclick="startChrono(${i}, ${e.time_limit_sec})" class="w-full py-2 bg-green-600/20 text-green-400 border border-green-500/20 rounded font-bold">LANCER LE CHRONO</button>
-            <div id="exo-sol-${i}" class="hidden p-4 bg-indigo-950/30 border border-indigo-500/30 rounded mt-4">${e.solution}</div>
-        </div>
-    `).join('');
-    if (window.MathJax) MathJax.typesetPromise();
-}
-
-function startChrono(idx, sec) {
-    const btn = document.getElementById(`btn-chrono-${idx}`);
-    const display = document.getElementById(`timer-${idx}`);
-    btn.classList.add('hidden');
-    let timeLeft = sec;
-    const interval = setInterval(() => {
-        let m = Math.floor(timeLeft / 60); let s = timeLeft % 60;
-        display.textContent = `${m}:${s.toString().padStart(2,'0')}`;
-        if (timeLeft <= 0) { clearInterval(interval); document.getElementById(`exo-sol-${idx}`).classList.remove('hidden'); if (window.MathJax) MathJax.typesetPromise();}
-        timeLeft--;
-    }, 1000);
-}
-
-function renderTraps() {
-    const container = document.getElementById('tab-traps');
-    if (!CHAPTER_DATA.traps) return;
-    container.innerHTML = CHAPTER_DATA.traps.map((t, i) => `
-        <div class="bg-red-950/10 border border-red-500/20 p-6 rounded-2xl mb-4">
-            <h4 class="text-red-400 font-bold mb-2">${t.title}</h4>
-            <p class="italic text-slate-300 mb-4">${t.bad_reasoning}</p>
-            <button onclick="toggleElement('trap-sol-${i}')" class="bg-red-600 px-3 py-1 rounded text-xs">DÉMASQUER</button>
-            <div id="trap-sol-${i}" class="hidden mt-4 p-4 bg-slate-900 rounded text-sm">
-                <p><span class="text-red-400 font-bold">Erreur :</span> ${t.error_analysis}</p>
-                <p class="mt-2"><span class="text-green-400 font-bold">Méthode :</span> ${t.correct_formula}</p>
-            </div>
-        </div>
-    `).join('');
-    if (window.MathJax) MathJax.typesetPromise();
-}
-
-function toggleElement(id) { document.getElementById(id).classList.toggle('hidden'); if (window.MathJax) MathJax.typesetPromise(); }
-function showDashboard() { document.getElementById('workspace').classList.add('hidden'); document.getElementById('dashboard').classList.remove('hidden'); updateGlobalUI(); }
-function resetStats() { if(confirm("Réinitialiser ?")) { localStorage.clear(); location.reload(); } }
-
