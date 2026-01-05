@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparring Partner | Spé 1ère</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Sparring Partner | Spé Sciences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         window.MathJax = {
@@ -14,66 +14,59 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Inter:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
         .tab-active { border-bottom: 3px solid #6366f1; color: white; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200 min-h-screen">
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 p-4">
+    <header class="border-b border-slate-800 bg-slate-900/80 p-4 sticky top-0 z-50">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <h1 class="font-bold text-lg">SPARRING<span class="text-indigo-500">PARTNER</span></h1>
-            <div class="flex items-center gap-4">
-                <div class="text-right">
-                    <p class="text-[10px] text-slate-500 font-bold uppercase">Score</p>
-                    <p id="global-score" class="mono text-indigo-400 text-xl">0000</p>
-                </div>
-                <button onclick="resetStats()" class="text-slate-600 hover:text-red-400"><i class="fas fa-redo-alt"></i></button>
+            <div class="text-right">
+                <p class="text-[10px] text-slate-500 font-bold uppercase">Score Total</p>
+                <p id="global-score" class="text-indigo-400 text-xl font-mono">0000</p>
             </div>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto p-6">
         <section id="dashboard" class="space-y-8">
-            <h2 class="text-3xl font-bold">Entraînement</h2>
+            <h2 class="text-3xl font-bold text-white">Entraînement</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div onclick="loadChapter('suites')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all">
-                    <i class="fas fa-list-ol text-3xl mb-4 text-slate-700 group-hover:text-indigo-500"></i>
-                    <h3 class="text-xl font-bold">Suites Numériques</h3>
+                <div onclick="loadChapter('suites')" class="cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all">
+                    <h3 class="text-xl font-bold text-white">Suites Numériques</h3>
                     <div class="w-full bg-slate-800 h-2 rounded-full mt-4"><div id="progress-suites" class="bg-indigo-500 h-full w-0 transition-all"></div></div>
                 </div>
-                <div onclick="loadChapter('derivation')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all">
-                    <i class="fas fa-chart-line text-3xl mb-4 text-slate-700 group-hover:text-indigo-500"></i>
-                    <h3 class="text-xl font-bold">Dérivation</h3>
+                <div onclick="loadChapter('derivation')" class="cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all">
+                    <h3 class="text-xl font-bold text-white">Dérivation</h3>
                     <div class="w-full bg-slate-800 h-2 rounded-full mt-4"><div id="progress-derivation" class="bg-indigo-500 h-full w-0 transition-all"></div></div>
                 </div>
-                <div onclick="loadChapter('globe')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-emerald-500 transition-all">
-                    <i class="fas fa-earth-americas text-3xl mb-4 text-slate-700 group-hover:text-emerald-500"></i>
-                    <h3 class="text-xl font-bold">Structure du Globe</h3>
+                <div onclick="loadChapter('globe')" class="cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-emerald-500 transition-all">
+                    <h3 class="text-xl font-bold text-white">Structure du Globe</h3>
                     <div class="w-full bg-slate-800 h-2 rounded-full mt-4"><div id="progress-globe" class="bg-emerald-500 h-full w-0 transition-all"></div></div>
                 </div>
             </div>
         </section>
 
         <section id="workspace" class="hidden">
-            <button onclick="showDashboard()" class="text-slate-400 mb-6 hover:text-white"><i class="fas fa-arrow-left mr-2"></i>Retour</button>
+            <button onclick="showDashboard()" class="text-slate-400 mb-6 hover:text-white transition"><i class="fas fa-arrow-left mr-2"></i>Retour au menu</button>
             <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-                <div class="p-6 border-b border-slate-800 flex justify-between items-center">
-                    <div><h2 id="chapter-title" class="text-2xl font-bold">---</h2><p id="mastery-label" class="text-xs text-indigo-400 font-bold uppercase mt-1">Maîtrise : 0%</p></div>
+                <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+                    <div><h2 id="chapter-title" class="text-2xl font-bold text-white tracking-tight">---</h2><p id="mastery-label" class="text-xs text-indigo-400 font-bold uppercase mt-1 tracking-widest">Maîtrise : 0%</p></div>
                     <div id="mastery-badge" class="h-10 w-10 rounded-full border-2 border-indigo-500 flex items-center justify-center font-bold text-indigo-500">1</div>
                 </div>
-                <div class="flex border-b border-slate-800 text-xs font-bold">
-                    <button onclick="switchTab('cards')" id="tab-btn-cards" class="flex-1 py-4 tab-active uppercase">Cartes</button>
-                    <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="flex-1 py-4 uppercase">Quiz</button>
-                    <button onclick="switchTab('exos')" id="tab-btn-exos" class="flex-1 py-4 uppercase">Exos</button>
-                    <button onclick="switchTab('traps')" id="tab-btn-traps" class="flex-1 py-4 uppercase">Pièges</button>
+                <div class="flex border-b border-slate-800 text-xs font-bold text-center bg-slate-900/30">
+                    <button onclick="switchTab('cards')" id="tab-btn-cards" class="flex-1 py-4 tab-active">FLASH-CARDS</button>
+                    <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="flex-1 py-4">QUIZ</button>
+                    <button onclick="switchTab('exos')" id="tab-btn-exos" class="flex-1 py-4">EXERCICES</button>
+                    <button onclick="switchTab('traps')" id="tab-btn-traps" class="flex-1 py-4">PIÈGES</button>
                 </div>
                 <div class="p-6 min-h-[400px]">
-                    <div id="tab-cards" class="tab-content space-y-4"></div>
-                    <div id="tab-quiz" class="tab-content hidden space-y-4"></div>
-                    <div id="tab-exos" class="tab-content hidden space-y-4"></div>
-                    <div id="tab-traps" class="tab-content hidden space-y-4"></div>
+                    <div id="tab-cards" class="tab-content"></div>
+                    <div id="tab-quiz" class="tab-content hidden"></div>
+                    <div id="tab-exos" class="tab-content hidden"></div>
+                    <div id="tab-traps" class="tab-content hidden"></div>
                 </div>
             </div>
         </section>
@@ -81,4 +74,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
