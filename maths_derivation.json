@@ -1,36 +1,37 @@
-{
-  "title": "Dérivation & Analyse - Expert",
-  "level": 9,
-  "flashcards": [
-    {"q":"Dérivée de $f(x) = u(x)^n$.", "answers":["$n \\cdot u'(x) \\cdot u(x)^{n-1}$"], "hints":["Ne pas oublier la dérivée de l'intérieur $u'$."], "points":12},
-    {"q":"Démontrez la dérivée de $1/u$.", "answers":["$(\\frac{1}{u})' = \\frac{-u'}{u^2}$"], "hints":["Utilisez le taux d'accroissement ou la dérivée d'un quotient."], "points":15},
-    {"q":"Condition pour que $f$ soit dérivable en $a$.", "answers":["La limite du taux d'accroissement $\\frac{f(a+h)-f(a)}{h}$ doit être un réel fini."], "hints":["Si c'est $\\infty$, ce n'est pas dérivable."], "points":10},
-    {"q":"Dérivée de $\\sqrt{u(x)}$.", "answers":["$\\frac{u'(x)}{2\\sqrt{u(x)}}$"], "hints":["Composée de la racine."], "points":10},
-    {"q":"Équation de la normale à la courbe en $a$ (perpendiculaire à la tangente).", "answers":["$y = \\frac{-1}{f'(a)}(x-a) + f(a)$"], "hints":["Le produit des pentes de deux droites perpendiculaires vaut -1."], "points":18},
-    {"q":"Dérivée de $\\sin(ax+b)$.", "answers":["$a \\cdot \\cos(ax+b)$"], "hints":["Sortez la constante a."], "points":10},
-    {"q":"Donnez la dérivée seconde de $x^3$. Quel est son sens ?", "answers":["$6x$. Elle indique la convexité de la fonction."], "hints":["Dérivez deux fois."], "points":12},
-    {"q":"Lien dérivée et extremum local.", "answers":["Si $f$ a un extremum en $a$, alors $f'(a)=0$. La réciproque est fausse."], "hints":["Pensez à $x^3$ en 0."], "points":15},
-    {"q":"Dérivée de $x^n$ pour $n$ négatif.", "answers":["$n x^{n-1}$ (la règle reste la même)."], "hints":["Exemple pour $x^{-2}$."], "points":10},
-    {"q":"Qu'est-ce qu'un point d'inflexion ?", "answers":["Un point où la courbe change de convexité (la dérivée seconde s'annule et change de signe)."], "hints":["La courbe traverse sa tangente."], "points":15}
-  ],
-  "quiz": [
-    {"type":"mcq","q":"Dérivée de $f(x) = (3x^2+1)^4$ ?","options":["$4(3x^2+1)^3$","$24x(3x^2+1)^3$","$6x(3x^2+1)^3$"],"answer":1,"explanation":"$4 \\cdot (6x) \\cdot (3x^2+1)^3 = 24x(...)^3$.","points":15},
-    {"type":"mcq","q":"Pente de la tangente à $1/x$ en $x=2$ ?","options":["0,5","-0,25","0,25","-0,5"],"answer":1,"explanation":"$-1/x^2 = -1/4 = -0,25$.","points":12},
-    {"type":"open","q":"Dérivée de $e^{2x}$ ?","expected_keywords":["2e^(2x)","2e^2x"],"points":10},
-    {"type":"mcq","q":"Si $f'(x) = x^2+1$, alors f est :","options":["Toujours croissante","Toujours décroissante","Monotone puis non monotone"],"answer":0,"explanation":"$x^2+1$ est toujours strictement positif.","points":10},
-    {"type":"open","q":"Quelle est la dérivée de la constante $\\pi^2$ ?","expected_keywords":["0"],"points":8},
-    {"type":"mcq","q":"Dérivée de $\\frac{x}{x+1}$ ?","options":["$\\frac{1}{(x+1)^2}$","$\\frac{-1}{(x+1)^2}$","$1$"],"answer":0,"explanation":"$(1(x+1)-1(x))/(x+1)^2 = 1/(x+1)^2$.","points":14},
-    {"type":"mcq","q":"L'approximation affine de $\\sqrt{1+h}$ en 0 est :","options":["$1+h$","$1+h/2$","$1+2h$"],"answer":1,"points":15},
-    {"type":"open","q":"En quel point la tangente à $x^2$ a une pente de 10 ?","expected_keywords":["5"],"explanation":"$2x = 10 \\implies x=5$.","points":10},
-    {"type":"mcq","q":"Si $f$ est paire, sa dérivée est :","options":["Paire","Impaire","Ni l'un ni l'autre"],"answer":1,"points":15},
-    {"type":"mcq","q":"Dérivée de $\\cos(x^2)$ ?","options":["$-2x\\sin(x^2)$","$-\\sin(x^2)$","$-2x\\cos(x^2)$"],"answer":0,"points":15}
-  ],
-  "exercises": [
-    {"q":"Étudiez les variations de $f(x) = \\frac{x^2-3x}{x-4}$ sur $\\mathbb{R} \\setminus \\{4\\}$.","solution":"$f'(x) = \\frac{(2x-3)(x-4)-1(x^2-3x)}{(x-4)^2} = \\frac{x^2-8x+12}{(x-4)^2}$. Racines : 2 et 6. Croissante sur $]-\\infty, 2]$ et $[6, +\\infty[$.", "time_limit_sec":480, "points":30},
-    {"q":"Trouvez l'équation de la tangente à $f(x)=x^3-x$ au point d'abscisse 1.","solution":"$f(1)=0$. $f'(x)=3x^2-1$, donc $f'(1)=2$. $y = 2(x-1)+0 = 2x-2$.", "time_limit_sec":240, "points":15}
-  ],
-  "traps": [
-    {"title":"La puissance et la chaîne", "bad_reasoning":"La dérivée de $(x^2+1)^2$ est $2(x^2+1)$.", "error_analysis":"On a oublié de dériver l'intérieur ($2x$).", "correct_formula":"$2(2x)(x^2+1) = 4x(x^2+1)$", "points":15},
-    {"title":"Le signe du quotient", "bad_reasoning":"$\\frac{u'v + uv'}{v^2}$", "error_analysis":"C'est un MOINS au numérateur pour le quotient.", "correct_formula":"$\\frac{u'v - uv'}{v^2}$", "points":10}
-  ]
-}
+"traps": [
+    {
+      "title": "Dérivée d'un produit constant",
+      "bad_reasoning": "La dérivée de $f(x) = 5x^2$ est $0 \\times x^2 + 5 \\times 2x = 10x$.",
+      "error_analysis": "C'est juste, mais inutilement long. Ne traitez pas le nombre 5 comme une fonction $u(x)$.",
+      "correct_formula": "$(k \\cdot u)' = k \\cdot u'$ (On garde la constante devant).",
+      "points": 8
+    },
+    {
+      "title": "Le piège de la racine en 0",
+      "bad_reasoning": "La fonction $f(x) = \\sqrt{x}$ est dérivable sur $[0; +\\infty[$.",
+      "error_analysis": "ERREUR : Elle est continue en 0, mais pas dérivable en 0 car sa tangente y est verticale (pente infinie).",
+      "correct_formula": "Dérivable uniquement sur $]0; +\\infty[$.",
+      "points": 15
+    },
+    {
+      "title": "Confusion Signe / Variation",
+      "bad_reasoning": "Si $f(x)$ est positif sur un intervalle, alors $f$ est croissante.",
+      "error_analysis": "ERREUR : C'est le signe de la DÉRIVÉE $f'(x)$ qui compte, pas celui de la fonction $f(x)$.",
+      "correct_formula": "$f'(x) > 0 \\implies f$ croissante.",
+      "points": 12
+    },
+    {
+      "title": "La dérivée de 1/x²",
+      "bad_reasoning": "La dérivée de $1/x^2$ est $1/(2x)$.",
+      "error_analysis": "ERREUR : On ne dérive pas le dénominateur séparément. On utilise la règle $x^n$ avec $n = -2$.",
+      "correct_formula": "$(x^{-2})' = -2x^{-3} = -2/x^3$.",
+      "points": 12
+    },
+    {
+      "title": "Oubli de la dérivée interne",
+      "bad_reasoning": "La dérivée de $(3x+1)^2$ est $2(3x+1)$.",
+      "error_analysis": "ERREUR : Il manque la multiplication par la dérivée de ce qu'il y a dans la parenthèse (ici 3).",
+      "correct_formula": "$2 \\times 3 \\times (3x+1) = 6(3x+1)$.",
+      "points": 15
+    }
+]
