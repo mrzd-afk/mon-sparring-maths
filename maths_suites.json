@@ -2,36 +2,35 @@
   "title": "Suites Numériques - Expert",
   "flashcards": [
     {"q":"Définition d'une suite explicite ?", "answers":["$u_n = f(n)$"], "hints":["Pas besoin du terme précédent.", "Direct en fonction de n."], "points":10},
-    {"q":"Démontrer qu'une suite est arithmétique ?", "answers":["$u_{n+1}-u_n = r$ (constante)"], "hints":["La différence doit être un nombre réel.", "Calculez la différence."], "points":10},
-    {"q":"Formule somme des entiers de 1 à n ?", "answers":["$\\frac{n(n+1)}{2}$"], "hints":["Pensez à l'astuce de Gauss.", "Moyenne des extrêmes fois le nombre de termes."], "points":10},
-    {"q":"Limite de $q^n$ si $|q| < 1$ ?", "answers":["0"], "hints":["La raison est petite.", "La suite diminue à chaque étape."], "points":10},
-    {"q":"Définition d'une suite par récurrence ?", "answers":["$u_{n+1} = f(u_n)$"], "hints":["Besoin du terme précédent pour avoir le suivant.", "Nécessite $u_0$."], "points":10},
-    {"q":"Démontrer qu'une suite est géométrique ?", "answers":["$u_{n+1} = q \\times u_n$"], "hints":["Rapport constant entre deux termes.", "Division de $u_{n+1}$ par $u_n$."], "points":10},
-    {"q":"Limite de $q^n$ si $q > 1$ ?", "answers":["$+\\infty$"], "hints":["Raison supérieure à 1.", "Explosion exponentielle."], "points":10},
-    {"q":"Somme suite géométrique (formule) ?", "answers":["$u_p \\times \\frac{1-q^{\\text{nb de termes}}}{1-q}$"], "hints":["1-raison puissance nb termes.", "Cas où q est différent de 1."], "points":10},
-    {"q":"Nombre de termes de $u_p$ à $u_n$ ?", "answers":["$n-p+1$"], "hints":["Dernier indice - premier + 1.", "De 0 à 10, il y a 11 termes."], "points":10},
-    {"q":"Qu'est-ce qu'une suite majorée ?", "answers":["$u_n \\le M$ pour tout $n$."], "hints":["Il existe un 'plafond' réel.", "La suite ne dépasse jamais ce nombre."], "points":10}
+    {"q":"Démontrer qu'une suite est arithmétique ?", "answers":["$u_{n+1}-u_n = r$ (constante)"], "hints":["La différence doit être un nombre réel."], "points":10},
+    {"q":"Formule somme des entiers de 1 à n ?", "answers":["$\\frac{n(n+1)}{2}$"], "hints":["Astuce de Gauss."], "points":10},
+    {"q":"Limite de $q^n$ si $|q| < 1$ ?", "answers":["0"], "hints":["La raison est petite."], "points":10},
+    {"q":"Définition d'une suite par récurrence ?", "answers":["$u_{n+1} = f(u_n)$"], "hints":["Besoin du terme précédent."], "points":10},
+    {"q":"Démontrer qu'une suite est géométrique ?", "answers":["$u_{n+1} = q \\times u_n$"], "hints":["Rapport constant."], "points":10},
+    {"q":"Limite de $q^n$ si $q > 1$ ?", "answers":["$+\\infty$"], "hints":["Explosion exponentielle."], "points":10},
+    {"q":"Somme suite géométrique (formule) ?", "answers":["$u_p \\times \\frac{1-q^{\\text{nb}}}{1-q}$"], "hints":["1-raison puissance nb termes."], "points":10},
+    {"q":"Nombre de termes de $u_p$ à $u_n$ ?", "answers":["$n-p+1$"], "hints":["Fin - début + 1."], "points":10},
+    {"q":"Qu'est-ce qu'une suite majorée ?", "answers":["$u_n \\le M$ pour tout $n$."], "hints":["Il existe un plafond réel."], "points":10}
   ],
   "quiz": [
-    {"type":"mcq","q":"$u_{n+1} = u_n + 5$, $u_0=2$. Que vaut $u_2$ ?","options":["7","12","17"],"answer":1,"explanation":"$u_1=7, u_2=12$.","points":10},
-    {"type":"mcq","q":"Somme $1+2+3+4+5+6$ ?","options":["15","21","28"],"answer":1,"explanation":"$6 \\times 7 / 2 = 21$.","points":10},
-    {"type":"mcq","q":"Raison de $80, 40, 20$ ?","options":["-40","0,5","2"],"answer":1,"explanation":"$40/80 = 0,5$.","points":10},
+    {"type":"mcq","q":"$u_{n+1} = u_n + 5$, $u_0=2$. Que vaut $u_2$ ?","options":["7","12","17"],"answer":1,"points":10},
+    {"type":"mcq","q":"Somme $1+2+3+4+5+6$ ?","options":["15","21","28"],"answer":1,"points":10},
+    {"type":"mcq","q":"Raison de $80, 40, 20$ ?","options":["-40","0,5","2"],"answer":1,"points":10},
     {"type":"open","q":"Nb de termes de $u_0$ à $u_{100}$ ?","expected_keywords":["101"],"points":10},
     {"type":"mcq","q":"$u_n = 4n-1$ est :","options":["Arithmétique","Géométrique","Ni l'une"],"answer":0,"points":10},
     {"type":"mcq","q":"Limite de $1,1^n$ ?","options":["0","1","+\\infty"],"answer":2,"points":10},
     {"type":"mcq","q":"$u_{n+1} = 2u_n - 4$. Nature ?","options":["Arithmétique","Géométrique","Arithmético-géométrique"],"answer":2,"points":10},
-    {"type":"open","q":"Si $u_1=3$ et $r=2$, $u_{10}$ ?","expected_keywords":["21"],"explanation":"$3 + 9 \\times 2 = 21$.","points":10},
+    {"type":"open","q":"Si $u_1=3$ et $r=2$, $u_{10}$ ?","expected_keywords":["21"],"points":10},
     {"type":"mcq","q":"Une suite décroissante et minorée est :","options":["Divergente","Convergente"],"answer":1,"points":10},
     {"type":"open","q":"Mot-clé pour une suite qui n'a pas de limite ?","expected_keywords":["divergente"],"points":10}
   ],
   "exercises": [
-    {"q":"Calculez la somme $S = 2 + 4 + 6 + ... + 20$.","solution":"C'est $2(1+2+...+10) = 2 \\times \\frac{10 \\times 11}{2} = 110$.", "time_limit_sec":180, "points":20}
+    {"q":"Calculez la somme $S = 2 + 4 + 6 + ... + 40$.", "solution":"Somme arithmétique : $u_1=2, u_{20}=40, n=20$. $S = 20 \\times \\frac{2+40}{2} = 420$.", "time_limit_sec":180, "points":20},
+    {"q":"Soit $u_{n+1} = 0,5u_n + 3$ avec $u_0 = 10$. On pose $v_n = u_n - 6$. Montrez que $v_n$ est géométrique.", "solution":"$v_{n+1} = u_{n+1}-6 = 0,5u_n+3-6 = 0,5u_n-3 = 0,5(u_n-6) = 0,5v_n$.", "time_limit_sec":300, "points":25},
+    {"q":"Calculez la limite de $u_n = \\frac{5n^2 - n}{2n^2 + 1}$.", "solution":"On garde les plus hauts degrés : $5n^2 / 2n^2 = 2,5$. La limite est 2,5.", "time_limit_sec":240, "points":20},
+    {"q":"Somme géométrique : $S = 1 + 3 + 9 + ... + 3^7$.", "solution":"$q=3, n=8$ termes. $S = 1 \\times \\frac{1-3^8}{1-3} = \\frac{1-6561}{-2} = 3280$.", "time_limit_sec":240, "points":20},
+    {"q":"Algorithme : Au bout de combien d'années un capital de 1000€ à 4% dépasse-t-il 1500€ ?", "solution":"On cherche $1000 \\times 1,04^n > 1500$. À la calculatrice, $1,04^{10} \\approx 1,48$ et $1,04^{11} \\approx 1,54$. Réponse : 11 ans.", "time_limit_sec":300, "points":25}
   ],
   "traps": [
-    {"title":"Oubli du +1", "bad_reasoning":"De 0 à n, il y a n termes.", "error_analysis":"Il y en a n+1. On oublie souvent l'indice zéro.", "correct_formula":"Fin - Début + 1", "points":10},
-    {"title":"Raison négative", "bad_reasoning":"$(-2)^n$ est décroissante.", "error_analysis":"Elle n'est pas monotone. Elle change de signe tout le temps.", "correct_formula":"Pas de sens de variation si q < 0", "points":10},
-    {"title":"Somme vs Terme", "bad_reasoning":"$S_n$ et $u_n$ c'est pareil.", "error_analysis":"$u_n$ est un élément, $S_n$ est l'addition de tous les éléments.", "correct_formula":"$S_n = u_0 + ... + u_n$", "points":10},
-    {"title":"L'indice décalé", "bad_reasoning":"$u_n = u_0 + nr$ donc $u_n = u_1 + nr$.", "error_analysis":"Faux, si on part de 1, on ajoute n-1 fois la raison.", "correct_formula":"$u_1 + (n-1)r$", "points":10},
-    {"title":"La limite nulle", "bad_reasoning":"Si $u_n \\to 0$, elle est géométrique.", "error_analysis":"Pas forcément. $1/n$ tend vers 0 mais n'est pas géométrique.", "correct_formula":"Vérifier le rapport $u_{n+1}/u_n$.", "points":10}
-  ]
-}
+    {"title":"Oubli du +1", "bad_reasoning":"De 0 à n, il y a n termes.", "error_analysis":"Il y en a n+1.", "correct_formula":"Fin - Début + 1", "points":10},
+    {"title":"Raison négative", "bad_reasoning":"$(-2)^n
