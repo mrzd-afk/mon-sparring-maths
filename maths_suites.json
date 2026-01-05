@@ -1,33 +1,33 @@
 {
-  "title": "Suites Numériques",
+  "title": "Suites Numériques - Expert",
+  "level": 9,
   "flashcards": [
-    {"q":"Définition d'une suite explicite ?", "answers":["$u_n = f(n)$"], "hints":["Pas besoin d'un terme précédent.", "Direct de n."], "points":10},
-    {"q":"Démontrer qu'une suite est arithmétique ?", "answers":["$u_{n+1}-u_n = r$"], "hints":["La différence doit être constante.", "Calcul de la différence."], "points":10},
-    {"q":"Formule somme 1 à n ?", "answers":["$\\frac{n(n+1)}{2}$"], "hints":["Astuce de Gauss.", "Moyenne des extrêmes."], "points":10},
-    {"q":"Limite de $0,5^n$ ?", "answers":["0"], "hints":["Raison entre -1 et 1.", "Diminue à chaque étape."], "points":10},
-    {"q":"Définition suite par récurrence ?", "answers":["$u_{n+1} = f(u_n)$"], "hints":["Besoin de $u_n$ pour avoir le suivant.", "Nécessite $u_0$."], "points":10},
-    {"q":"Suite géométrique de raison $q$ ?", "answers":["$u_{n+1} = q \\cdot u_n$"], "hints":["Rapport constant.", "Multiplication."], "points":10},
-    {"q":"Limite de $2^n$ ?", "answers":["$+\\infty$"], "hints":["Raison > 1.", "Explosion exponentielle."], "points":10},
-    {"q":"Somme suite géométrique ?", "answers":["$u_p \\cdot \\frac{1-q^{\\text{nb}}}{1-q}$"], "hints":["1-raison^nb termes.", "Cas q différent de 1."], "points":10},
-    {"q":"Nombre de termes de $u_p$ à $u_n$ ?", "answers":["$n-p+1$"], "hints":["Fin - début + 1.", "Exemple de 0 à 10."], "points":10},
-    {"q":"Suite bornée ?", "answers":["Majorée et minorée."], "hints":["Deux barrières.", "Entre deux nombres réels."], "points":10}
+    {"q":"Démontrez la formule explicite d'une suite arithmétique $u_n = u_p + (n-p)r$.", "answers":["Par récurrence ou itération : $u_{p+1}=u_p+r$, $u_{p+2}=u_p+2r$... jusqu'à n."], "hints":["Combien de fois ajoute-t-on $r$ entre p et n ?"], "points":12},
+    {"q":"Condition de convergence d'une suite géométrique $q^n$.", "answers":["$-1 < q \\le 1$. Si $q=1$, converge vers $u_0$. Si $|q|<1$, converge vers 0."], "hints":["Que se passe-t-il si $q = -1$ ? (Oscillation)."], "points":10},
+    {"q":"Définition d'une suite majorée par $M$.", "answers":["Pour tout $n \\in \\mathbb{N}$, $u_n \\le M$."], "hints":["$M$ est un 'plafond'."], "points":8},
+    {"q":"Théorème de la limite monotone (énoncé).", "answers":["Toute suite croissante et majorée converge. Toute suite décroissante et minorée converge."], "hints":["Une suite qui monte mais ne peut dépasser un plafond finit par se tasser."], "points":15},
+    {"q":"Formule de la somme des cubes : $1^3 + 2^3 + ... + n^3$.", "answers":["$(\\frac{n(n+1)}{2})^2$"], "hints":["C'est le carré de la somme des entiers."], "points":15},
+    {"q":"Comment prouver qu'une suite n'est pas monotone ?", "answers":["On trouve trois termes consécutifs tels que $u_{n+1}-u_n$ et $u_{n+2}-u_{n+1}$ sont de signes contraires."], "hints":["Exemple avec $(-2)^n$."], "points":12},
+    {"q":"Limite de la somme géométrique finie quand $n \\to +\\infty$ ($|q|<1$).", "answers":["$1/(1-q)$ (si le premier terme est 1)."], "hints":["$q^{n+1}$ tend vers 0."], "points":14},
+    {"q":"Propriété : $u_n = u_0 + \\sum_{k=0}^{n-1} (u_{k+1} - u_k)$. Expliquez.", "answers":["C'est une somme télescopique où tous les termes intermédiaires s'annulent."], "hints":["Écrivez les premiers termes de la somme."], "points":15},
+    {"q":"Définition d'une suite divergente vers $+\\infty$.", "answers":["Pour tout réel $A$, il existe un rang $N$ tel que pour tout $n>N$, $u_n > A$."], "hints":["La suite finit par dépasser n'importe quel nombre."], "points":12},
+    {"q":"Nature de $v_n = \\ln(u_n)$ si $u_n$ est géométrique positive.", "answers":["Arithmétique de raison $\\ln(q)$."], "hints":["$\\ln(a \\cdot b) = \\ln(a) + \\ln(b)$."], "points":14}
   ],
   "quiz": [
-    {"type":"mcq","q":"$u_{n+1} = u_n + 3$, $u_0=1$. $u_2$ vaut ?","options":["4","7","10"],"answer":1,"explanation":"$u_1=4, u_2=7$.","points":10},
-    {"type":"mcq","q":"Somme $1+2+3+4+5$ ?","options":["10","15","20"],"answer":1,"explanation":"$5 \\cdot 6 / 2 = 15$.","points":10},
-    {"type":"mcq","q":"Raison de $100, 50, 25$ ?","options":["-50","0,5","2"],"answer":1,"explanation":"$50/100 = 0,5$.","points":10},
-    {"type":"open","q":"Combien de termes de $u_0$ à $u_{50}$ ?","expected_keywords":["51"],"points":10},
-    {"type":"mcq","q":"$u_n = 3n+1$ est :","options":["Arithmétique","Géométrique","Ni l'une"],"answer":0,"explanation":"Type $u_0+nr$.","points":10},
-    {"type":"mcq","q":"Limite de $(-0,9)^n$ ?","options":["0","1","Pas de limite"],"answer":0,"explanation":"$|q| < 1$.","points":10},
-    {"type":"mcq","q":"$u_{n+1} = 2u_n - 3$ est :","options":["Arithmétique","Géométrique","Arithmético-géométrique"],"answer":2,"explanation":"Mixte.","points":10},
-    {"type":"open","q":"Si $u_1=2$ et $r=3$, $u_{11}$ ?","expected_keywords":["32"],"explanation":"$2 + 10 \\cdot 3 = 32$.","points":10},
-    {"type":"mcq","q":"Une suite croissante tend-elle vers l'infini ?","options":["Oui","Pas obligatoirement"],"answer":1,"explanation":"Elle peut être bornée (ex: $1 - 1/n$).","points":10},
-    {"type":"open","q":"Mot-clé d'une suite qui change de signe à chaque pas ?","expected_keywords":["alternée"],"points":10}
+    {"type":"mcq","q":"Limite de $u_n = \\frac{2n^2 + 1}{n^2 - 1000n}$ ?","options":["2","0","+\\infty","-0,002"],"answer":0,"explanation":"Rapport des plus hauts degrés $2n^2/n^2 = 2$.","points":10},
+    {"type":"mcq","q":"Somme $1 + 1/2 + 1/4 + ... + 1/2^n$ quand $n$ est grand ?","options":["1","1,5","2","+\\infty"],"answer":2,"explanation":"$1/(1-0,5) = 2$.","points":12},
+    {"type":"open","q":"Nombre de termes de $u_n$ à $u_{3n}$ ?","expected_keywords":["2n+1"],"explanation":"$3n - n + 1 = 2n+1$.","points":15},
+    {"type":"mcq","q":"Si $u_n = (-1)^n \\cdot n$, la suite est :","options":["Bornée","Convergente","Divergente sans limite"],"answer":2,"explanation":"Elle oscille entre des valeurs de plus en plus grandes.","points":12},
+    {"type":"mcq","q":"Algorithme de seuil : que fait 'while u < 100' ?","options":["Cherche le premier n tel que un >= 100","Calcule 100 termes","S'arrête à n=100"],"answer":0,"points":10},
+    {"type":"open","q":"Raison de la suite $u_n = 5 \\cdot 3^{2n}$ ?","expected_keywords":["9"],"explanation":"$3^{2n} = (3^2)^n = 9^n$.","points":14},
+    {"type":"mcq","q":"$u_{n+1} - u_n = -n^2 - 1$. La suite est :","options":["Croissante","Décroissante","Non monotone"],"answer":1,"explanation":"La différence est toujours négative.","points":10},
+    {"type":"mcq","q":"$u_n$ est géométrique de raison 2. Si $u_0=1$, $u_{10}$ vaut :","options":["20","1024","2048"],"answer":1,"points":8},
+    {"type":"open","q":"Si $u_n$ est arithmétique, $u_5=10$, $u_{10}=20$, quelle est la raison ?","expected_keywords":["2"],"explanation":"$20 = 10 + 5r \\implies 5r = 10 \\implies r=2$","points":12},
+    {"type":"mcq","q":"Limite de $n^2 - 10^6 n$ ?","options":["0","-\\infty","+\\infty"],"answer":2,"explanation":"Le carré l'emporte toujours à l'infini.","points":10}
   ],
   "exercises": [
-    {"q":"Démontrez $v_{n+1}=0,5v_n$ si $u_{n+1}=0,5u_n+2$ et $v_n=u_n-4$.","solution":"$v_{n+1}=u_{n+1}-4=0,5u_n+2-4=0,5u_n-2=0,5(u_n-4)=0,5v_n$.", "time_limit_sec":300, "points":25}
+    {"q":"Soit $u_{n+1} = \\frac{1}{2}u_n + 3$ avec $u_0 = 10$. On pose $v_n = u_n - 6$. Calculez $u_n$ en fonction de $n$.","solution":"$v_n$ est géométrique de raison 0,5 et $v_0=4$. Donc $v_n = 4 \\cdot (0,5)^n$. D'où $u_n = 4 \\cdot (0,5)^n + 6$.", "time_limit_sec":420, "points":25},
+    {"q":"Calculez $S = \\sum_{k=1}^{10} (3k + 2)$.","solution":"Somme arithmétique. $u_1=5$, $u_{10}=32$. Nb termes = 10. $S = 10 \\cdot (5+32)/2 = 185$.", "time_limit_sec":300, "points":20}
   ],
   "traps": [
-    {"title":"Termes oubliés", "bad_reasoning":"De 0 à n il y a n termes.", "error_analysis":"Il y en a n+1.", "correct_formula":"Fin - début + 1", "points":10}
-  ]
-}
+    {"title":"Somme et Nb de termes", "bad_reasoning":"De $u
