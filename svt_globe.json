@@ -1,37 +1,41 @@
-"traps": [
-    {
-      "title": "L'état physique du manteau",
-      "bad_reasoning": "Le manteau terrestre est liquide car la lave sort des volcans.",
-      "error_analysis": "ERREUR : Le manteau est SOLIDE. Il est simplement ductile (il se déforme lentement). La lave vient d'une fusion très localisée.",
-      "correct_formula": "Le manteau est solide mais capable de convection plastique.",
-      "points": 15
-    },
-    {
-      "title": "Lithosphère vs Croûte",
-      "bad_reasoning": "La lithosphère est la couche de roche qui forme les continents (la croûte).",
-      "error_analysis": "ERREUR : La lithosphère comprend la croûte ET la partie supérieure rigide du manteau.",
-      "correct_formula": "Lithosphère = Croûte + Manteau Supérieur Rigide.",
-      "points": 12
-    },
-    {
-      "title": "La propagation des ondes S",
-      "bad_reasoning": "Les ondes S traversent toute la Terre mais ralentissent dans le noyau.",
-      "error_analysis": "ERREUR : Les ondes S ne traversent JAMAIS les liquides. Elles s'arrêtent net à 2900 km (Gutenberg).",
-      "correct_formula": "L'arrêt des ondes S prouve que le noyau externe est liquide.",
-      "points": 15
-    },
-    {
-      "title": "Le Moho et la profondeur",
-      "bad_reasoning": "La discontinuité du Moho se trouve toujours à 30 km de profondeur.",
-      "error_analysis": "ERREUR : Sa profondeur varie : 7 km sous les océans et jusqu'à 70 km sous les montagnes.",
-      "correct_formula": "Le Moho suit la racine crustale (isostasie).",
-      "points": 10
-    },
-    {
-      "title": "Vitesse et Densité",
-      "bad_reasoning": "Les ondes sismiques vont moins vite dans les roches denses.",
-      "error_analysis": "ERREUR : Plus une roche est dense et rigide, plus les ondes se propagent RAPIDEMENT.",
-      "correct_formula": "Vitesse $\\propto$ Rigidité et Densité.",
-      "points": 10
-    }
-]
+{
+  "title": "Structure du Globe Terrestre",
+  "flashcards": [
+    {"q":"Épaisseur croûte océanique ?", "answers":["~7 km"], "hints":["Très fine."], "points":10},
+    {"q":"Roche du manteau ?", "answers":["Péridotite"], "hints":["Verte, olivine."], "points":10},
+    {"q":"Discontinuité Moho ?", "answers":["Croûte / Manteau"], "hints":["La plus haute."], "points":10},
+    {"q":"Noyau externe : état ?", "answers":["Liquide"], "hints":["Bloque les ondes S."], "points":10},
+    {"q":"Densité croûte continentale ?", "answers":["2,7"], "hints":["Granite."], "points":10},
+    {"q":"Discontinuité Gutenberg ?", "answers":["Manteau / Noyau"], "hints":["2900 km."], "points":10},
+    {"q":"Ondes S : milieu ?", "answers":["Solide uniquement"], "hints":["Cisaillement."], "points":10},
+    {"q":"Lithosphère vs Asthénosphère ?", "answers":["Rigide vs Ductile"], "hints":["Limite 1300°C."], "points":10},
+    {"q":"Moho sous montagnes ?", "answers":["~70 km"], "hints":["Racine crustale."], "points":10},
+    {"q":"Composition du noyau ?", "answers":["Fer et Nickel"], "hints":["Métallique."], "points":10}
+  ],
+  "quiz": [
+    {"type":"mcq","q":"Quelle onde arrive en premier ?","options":["Onde P","Onde S","Onde L"],"answer":0,"points":10},
+    {"type":"mcq","q":"Roche croûte océanique ?","options":["Granite","Basalte","Gabbro"],"answer":1,"points":10},
+    {"type":"open","q":"Limite Manteau-Noyau (km) ?","expected_keywords":["2900"],"points":10},
+    {"type":"mcq","q":"La LVZ se trouve dans :","options":["La croûte","Le manteau supérieur","Le noyau"],"answer":1,"points":10},
+    {"type":"mcq","q":"Le Moho est une discontinuité :","options":["Chimique","Mécanique"],"answer":0,"points":10},
+    {"type":"open","q":"Roche continentale principale ?","expected_keywords":["granite"],"points":10},
+    {"type":"mcq","q":"La graine est :","options":["Solide","Liquide"],"answer":0,"points":10},
+    {"type":"open","q":"Vitesse ondes P au Moho ?","expected_keywords":["augmente"],"points":10},
+    {"type":"mcq","q":"Zone d'ombre due au :","options":["Noyau","Manteau"],"answer":0,"points":10},
+    {"type":"mcq","q":"Manteau : principalement ?","options":["Solide","Liquide"],"answer":0,"points":10}
+  ],
+  "exercises": [
+    {"q":"Calculez la profondeur si une onde P (v=6km/s) revient après 10s.", "solution":"$Distance = 6 \\times 10 = 60$ km aller-retour. Profondeur = 30 km.", "time_limit_sec":120, "points":20},
+    {"q":"Distance épicentre : Onde P à 12h00, Onde S à 12h03. (Vp=8, Vs=4).", "solution":"$\\frac{d}{4} - \\frac{d}{8} = 180s \\to \\frac{d}{8} = 180 \\to d=1440$ km.", "time_limit_sec":300, "points":30},
+    {"q":"Gradient thermique : Température à 0km = 15°C, à 3km = 105°C. Calculez le gradient.", "solution":"$(105-15)/3 = 30$°C/km.", "time_limit_sec":180, "points":20},
+    {"q":"Densité : Un échantillon de 10cm³ pèse 27g. Est-ce de la croûte continentale ?", "solution":"$d = 27/10 = 2,7$. Oui, c'est la densité du granite.", "time_limit_sec":120, "points":15},
+    {"q":"Interprétez l'arrêt des ondes S à 2900km.", "solution":"Le passage à un milieu liquide (noyau externe) empêche la propagation du cisaillement.", "time_limit_sec":180, "points":20}
+  ],
+  "traps": [
+    {"title":"Manteau Magma", "bad_reasoning":"Le manteau est liquide.", "error_analysis":"Il est solide ductile.", "correct_formula":"Solide", "points":10},
+    {"title":"Lithosphère/Croûte", "bad_reasoning":"C'est pareil.", "error_analysis":"Lithosphère = Croûte + Manteau sup.", "correct_formula":"C + M", "points":10},
+    {"title":"Vitesse/Densité", "bad_reasoning":"Plus dense = plus lent.", "error_analysis":"Dans la Terre, plus dense = plus rapide.", "correct_formula":"V augmente avec d", "points":10},
+    {"title":"Ondes S", "bad_reasoning":"Traversent le noyau.", "error_analysis":"Stop à 2900km.", "correct_formula":"Liquide bloque S", "points":10},
+    {"title":"Le Moho plat", "bad_reasoning":"Plat à 30km.", "error_analysis":"Il est ondulé selon le relief.", "correct_formula":"Isostasie", "points":10}
+  ]
+}
