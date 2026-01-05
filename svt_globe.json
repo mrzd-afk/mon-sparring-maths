@@ -1,41 +1,41 @@
 {
-  "title": "Structure du Globe Terrestre",
+  "title": "Structure du Globe Terrestre - Expert",
   "flashcards": [
-    {"q":"Épaisseur croûte océanique ?", "answers":["~7 km"], "hints":["Très fine."], "points":10},
-    {"q":"Roche du manteau ?", "answers":["Péridotite"], "hints":["Verte, olivine."], "points":10},
-    {"q":"Discontinuité Moho ?", "answers":["Croûte / Manteau"], "hints":["La plus haute."], "points":10},
-    {"q":"Noyau externe : état ?", "answers":["Liquide"], "hints":["Bloque les ondes S."], "points":10},
-    {"q":"Densité croûte continentale ?", "answers":["2,7"], "hints":["Granite."], "points":10},
-    {"q":"Discontinuité Gutenberg ?", "answers":["Manteau / Noyau"], "hints":["2900 km."], "points":10},
-    {"q":"Ondes S : milieu ?", "answers":["Solide uniquement"], "hints":["Cisaillement."], "points":10},
-    {"q":"Lithosphère vs Asthénosphère ?", "answers":["Rigide vs Ductile"], "hints":["Limite 1300°C."], "points":10},
-    {"q":"Moho sous montagnes ?", "answers":["~70 km"], "hints":["Racine crustale."], "points":10},
-    {"q":"Composition du noyau ?", "answers":["Fer et Nickel"], "hints":["Métallique."], "points":10}
+    {"q":"Qu'est-ce que le modèle PREM ?", "answers":["Preliminary Reference Earth Model : évolution de V, d et P avec la profondeur."], "hints":["Modèle sismologique global."], "points":15},
+    {"q":"Roches croûte continentale vs océanique ?", "answers":["Granite (continent) vs Basalte/Gabbro (océan)."], "hints":["Densité 2,7 vs 2,9."], "points":10},
+    {"q":"Profondeur Gutenberg et Lehmann ?", "answers":["2900 km et 5100 km."], "hints":["Manteau/Noyau et Noyau ext/Graine."], "points":12},
+    {"q":"Preuve noyau externe liquide ?", "answers":["Arrêt des ondes S et chute de Vp à 2900 km."], "hints":["Zone d'ombre."], "points":15},
+    {"q":"Définition LVZ ?", "answers":["Low Velocity Zone : ralentissement des ondes dans le manteau supérieur ductile."], "hints":["Limite lithosphère/asthénosphère."], "points":12},
+    {"q":"Gradient géothermique moyen ?", "answers":["30°C par km dans la croûte."], "hints":["Augmentation T avec z."], "points":10},
+    {"q":"Composition chimique noyau ?", "answers":["Alliage Fer-Nickel."], "hints":["Partie métallique."], "points":10},
+    {"q":"Conduction vs Convection ?", "answers":["Transfert sans mouvement (lithosphère) vs avec mouvement (manteau)."], "hints":["Mode de transfert thermique."], "points":15},
+    {"q":"Qu'est-ce que le Moho ?", "answers":["Discontinuité croûte/manteau (vitesse ondes augmente)."], "hints":["Découvert en 1909."], "points":10},
+    {"q":"Ondes P vs S ?", "answers":["P (compression, rapides, tout milieu) vs S (cisaillement, lentes, solides)."], "hints":["Ondes de volume."], "points":10}
   ],
   "quiz": [
-    {"type":"mcq","q":"Quelle onde arrive en premier ?","options":["Onde P","Onde S","Onde L"],"answer":0,"points":10},
-    {"type":"mcq","q":"Roche croûte océanique ?","options":["Granite","Basalte","Gabbro"],"answer":1,"points":10},
-    {"type":"open","q":"Limite Manteau-Noyau (km) ?","expected_keywords":["2900"],"points":10},
-    {"type":"mcq","q":"La LVZ se trouve dans :","options":["La croûte","Le manteau supérieur","Le noyau"],"answer":1,"points":10},
-    {"type":"mcq","q":"Le Moho est une discontinuité :","options":["Chimique","Mécanique"],"answer":0,"points":10},
-    {"type":"open","q":"Roche continentale principale ?","expected_keywords":["granite"],"points":10},
-    {"type":"mcq","q":"La graine est :","options":["Solide","Liquide"],"answer":0,"points":10},
+    {"type":"mcq","q":"La péridotite est la roche du :","options":["Noyau","Manteau","Moho"],"answer":1,"points":10},
+    {"type":"mcq","q":"Densité du manteau par rapport à la croûte ?","options":["Plus faible","Plus élevée","Identique"],"answer":1,"points":10},
+    {"type":"open","q":"Nom de la partie solide du noyau ?","expected_keywords":["graine"],"points":10},
+    {"type":"mcq","q":"La zone d'ombre s'étend de :","options":["0 à 103°","103 à 142°","142 à 180°"],"answer":1,"points":15},
+    {"type":"mcq","q":"Le Moho est plus profond sous :","options":["Les océans","Les plaines","Les montagnes"],"answer":2,"points":12},
     {"type":"open","q":"Vitesse ondes P au Moho ?","expected_keywords":["augmente"],"points":10},
-    {"type":"mcq","q":"Zone d'ombre due au :","options":["Noyau","Manteau"],"answer":0,"points":10},
-    {"type":"mcq","q":"Manteau : principalement ?","options":["Solide","Liquide"],"answer":0,"points":10}
+    {"type":"mcq","q":"La lithosphère est :","options":["Rigide","Ductile","Liquide"],"answer":0,"points":10},
+    {"type":"open","q":"Profondeur du Gutenberg (km) ?","expected_keywords":["2900"],"points":10},
+    {"type":"mcq","q":"L'asthénosphère commence à :","options":["La LVZ","Le Moho","Le Lehmann"],"answer":0,"points":12},
+    {"type":"mcq","q":"Champ magnétique créé dans :","options":["Manteau","Noyau externe","Graine"],"answer":1,"points":15}
   ],
   "exercises": [
-    {"q":"Profondeur si onde P (v=6km/s) revient après 10s.", "solution":"30 km.", "time_limit_sec":120, "points":20},
-    {"q":"Distance épicentre : Onde P à 12h00, Onde S à 12h03 (Vp=8, Vs=4).", "solution":"1440 km.", "time_limit_sec":300, "points":30},
-    {"q":"Gradient thermique : 15°C à 0km, 105°C à 3km.", "solution":"30°C/km.", "time_limit_sec":180, "points":20},
-    {"q":"Densité : 10cm³ pèse 27g. Est-ce de la croûte continentale ?", "solution":"d=2,7. Oui.", "time_limit_sec":120, "points":15},
-    {"q":"Interprétez l'arrêt des ondes S à 2900km.", "solution":"Noyau externe liquide.", "time_limit_sec":180, "points":20}
+    {"q":"Une onde P (6km/s) revient au Moho après 12s. Profondeur ?", "solution":"aller-retour 72km, donc 36km.", "time_limit_sec":120, "points":20},
+    {"q":"Distance épicentre : P à 10h00, S à 10h03 (Vp=8, Vs=4).", "solution":"1440 km.", "time_limit_sec":300, "points":30},
+    {"q":"Calculez T à 3km si gradient = 30°C/km et T surface = 15°C.", "solution":"$15 + 3 \\times 30 = 105$°C.", "time_limit_sec":120, "points":15},
+    {"q":"Densité : cube de 2cm de côté pesant 23,2g. Quelle couche ?", "solution":"Volume=8, d=23,2/8=2,9. Croûte océanique.", "time_limit_sec":180, "points":20},
+    {"q":"Interprétez une chute de Vp de 13 à 8 km/s.", "solution":"Passage manteau solide à noyau externe liquide.", "time_limit_sec":180, "points":20}
   ],
   "traps": [
-    {"title":"Manteau Magma", "bad_reasoning":"Le manteau est liquide.", "error_analysis":"Il est solide ductile.", "correct_formula":"Solide", "points":10},
-    {"title":"Lithosphère/Croûte", "bad_reasoning":"C'est pareil.", "error_analysis":"Lithosphère = Croûte + Manteau rigide.", "correct_formula":"C + M", "points":10},
-    {"title":"Vitesse/Densité", "bad_reasoning":"Plus dense = plus lent.", "error_analysis":"Dans la Terre, plus dense = plus rapide.", "correct_formula":"V augmente avec d", "points":10},
-    {"title":"Ondes S", "bad_reasoning":"Traversent le noyau.", "error_analysis":"Stop à 2900km.", "correct_formula":"Liquide bloque S", "points":10},
-    {"title":"Le Moho plat", "bad_reasoning":"Plat à 30km.", "error_analysis":"Il est ondulé selon le relief.", "correct_formula":"Isostasie", "points":10}
+    {"title":"Manteau Magma", "bad_reasoning":"Le manteau est liquide.", "error_analysis":"Il est solide ductile.", "correct_formula":"Solide", "points":15},
+    {"title":"Croûte vs Lithosphère", "bad_reasoning":"C'est la même chose.", "error_analysis":"Lithosphère = Croûte + Manteau sup rigide.", "correct_formula":"C + M", "points":12},
+    {"title":"Vitesse vs Densité", "bad_reasoning":"Plus c'est dense, plus c'est lent.", "error_analysis":"Dans la Terre, plus dense = plus rigide = plus rapide.", "correct_formula":"V augmente avec d", "points":12},
+    {"title":"Propagation S", "bad_reasoning":"Traversent le noyau.", "error_analysis":"Stop à 2900km.", "correct_formula":"Solide uniquement", "points":15},
+    {"title":"Origine magma", "bad_reasoning":"Vient du noyau.", "error_analysis":"Vient de la fusion partielle du manteau.", "correct_formula":"Manteau", "points":10}
   ]
 }
