@@ -1,34 +1,37 @@
-{
-  "title": "Structure du Globe - Expert",
-  "level": 9,
-  "flashcards": [
-    {"q":"Qu'est-ce que le modèle PREM ?", "answers":["Preliminary Reference Earth Model. Il décrit l'évolution de la densité, pression et vitesse des ondes en fonction de la profondeur."], "hints":["Modèle de référence."], "points":12},
-    {"q":"Pourquoi les ondes S ne traversent pas le noyau externe ?", "answers":["Ce sont des ondes de cisaillement qui ne se propagent pas dans les liquides."], "hints":["Rhéologie du noyau externe."], "points":10},
-    {"q":"Définition du gradient géothermique.", "answers":["Augmentation de la température avec la profondeur (en moyenne 30°C/km dans la croûte)."], "hints":["Chaleur interne."], "points":10},
-    {"q":"Comment le Moho a-t-il été découvert ?", "answers":["Par l'étude de séismes proches : existence d'ondes directes et d'ondes réfléchies arrivant à des temps différents."], "hints":["Andrija Mohorovičić, 1909."], "points":15},
-    {"q":"Différence entre conduction et convection.", "answers":["Conduction : transfert de proche en proche sans mouvement (lithosphère). Convection : mouvement de matière (manteau)."], "hints":["Mode de transfert thermique."], "points":12},
-    {"q":"Qu'est-ce qu'une zone d'ombre sismique ?", "answers":["Zone à la surface du globe où les stations ne reçoivent pas d'ondes P directes (entre 103° et 142°)."], "hints":["Réfraction par le noyau."], "points":15},
-    {"q":"Composition chimique de la péridotite.", "answers":["Roche silicatée riche en fer et magnésium (Olivine + Pyroxènes)."], "hints":["Manteau."], "points":10},
-    {"q":"Nature de la discontinuité de Lehmann.", "answers":["Limite entre le noyau externe liquide et la graine solide (5100 km)."], "hints":["C'est la plus profonde."], "points":12},
-    {"q":"L'isostasie : définition simple.", "answers":["État d'équilibre de la lithosphère sur l'asthénosphère ductile."], "hints":["Archimède appliqué à la géologie."], "points":15},
-    {"q":"Pourquoi la croûte océanique est-elle plus 'basse' que la continentale ?", "answers":["Elle est plus mince et plus dense, donc elle s'enfonce davantage dans le manteau (isostasie)."], "hints":["Densité 2,9 vs 2,7."], "points":12}
-  ],
-  "quiz": [
-    {"type":"mcq","q":"Profondeur moyenne du Gutenberg ?","options":["30 km","2900 km","5100 km"],"answer":1,"points":10},
-    {"type":"mcq","q":"La LVZ se situe dans :","options":["La croûte","Le manteau supérieur","Le noyau"],"answer":1,"explanation":"Entre 100 et 200 km de profondeur.","points":12},
-    {"type":"mcq","q":"Vitesse des ondes P au passage Gutenberg :","options":["Augmente","Chute brutalement","Reste identique"],"answer":1,"explanation":"Passage solide vers liquide moins rigide.","points":15},
-    {"type":"open","q":"Quel métal compose majoritairement le noyau ?","expected_keywords":["fer"],"points":8},
-    {"type":"mcq","q":"Le manteau est composé à 99% de :","options":["Magma liquide","Roche solide ductile","Glace"],"answer":1,"points":10},
-    {"type":"mcq","q":"Une onde qui se réfléchit sur le Moho est notée :","options":["Pg","Pn","PmP"],"answer":2,"points":15},
-    {"type":"open","q":"Nom de la partie solide du noyau ?","expected_keywords":["graine"],"points":10},
-    {"type":"mcq","q":"La température au centre de la Terre est d'environ :","options":["1000°C","5000°C","20000°C"],"answer":1,"points":12},
-    {"type":"mcq","q":"Le Moho est une discontinuité de :","options":["Vitesse et nature rocheuse","Vitesse uniquement","Température uniquement"],"answer":0,"points":12},
-    {"type":"mcq","q":"L'asthénosphère est :","options":["Rigide","Ductile"],"answer":1,"points":10}
-  ],
-  "exercises": [
-    {"q":"Une station reçoit les ondes P à 10h02 et les ondes S à 10h05. Calculez la distance à l'épicentre (Vp=8km/s, Vs=4km/s).","solution":"$d/4 - d/8 = 180s$. Donc $d/8 = 180 \\implies d = 1440$ km.", "time_limit_sec":360, "points":30}
-  ],
-  "traps": [
-    {"title":"Manteau Liquide", "bad_reasoning":"Le manteau est liquide car il y a des volcans.", "error_analysis":"Le manteau est solide. Le magma est produit par fusion partielle très localisée.", "correct_formula":"Solide ductile", "points":15}
-  ]
-}
+"traps": [
+    {
+      "title": "L'état physique du manteau",
+      "bad_reasoning": "Le manteau terrestre est liquide car la lave sort des volcans.",
+      "error_analysis": "ERREUR : Le manteau est SOLIDE. Il est simplement ductile (il se déforme lentement). La lave vient d'une fusion très localisée.",
+      "correct_formula": "Le manteau est solide mais capable de convection plastique.",
+      "points": 15
+    },
+    {
+      "title": "Lithosphère vs Croûte",
+      "bad_reasoning": "La lithosphère est la couche de roche qui forme les continents (la croûte).",
+      "error_analysis": "ERREUR : La lithosphère comprend la croûte ET la partie supérieure rigide du manteau.",
+      "correct_formula": "Lithosphère = Croûte + Manteau Supérieur Rigide.",
+      "points": 12
+    },
+    {
+      "title": "La propagation des ondes S",
+      "bad_reasoning": "Les ondes S traversent toute la Terre mais ralentissent dans le noyau.",
+      "error_analysis": "ERREUR : Les ondes S ne traversent JAMAIS les liquides. Elles s'arrêtent net à 2900 km (Gutenberg).",
+      "correct_formula": "L'arrêt des ondes S prouve que le noyau externe est liquide.",
+      "points": 15
+    },
+    {
+      "title": "Le Moho et la profondeur",
+      "bad_reasoning": "La discontinuité du Moho se trouve toujours à 30 km de profondeur.",
+      "error_analysis": "ERREUR : Sa profondeur varie : 7 km sous les océans et jusqu'à 70 km sous les montagnes.",
+      "correct_formula": "Le Moho suit la racine crustale (isostasie).",
+      "points": 10
+    },
+    {
+      "title": "Vitesse et Densité",
+      "bad_reasoning": "Les ondes sismiques vont moins vite dans les roches denses.",
+      "error_analysis": "ERREUR : Plus une roche est dense et rigide, plus les ondes se propagent RAPIDEMENT.",
+      "correct_formula": "Vitesse $\\propto$ Rigidité et Densité.",
+      "points": 10
+    }
+]
