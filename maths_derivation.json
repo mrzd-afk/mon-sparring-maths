@@ -1,33 +1,36 @@
 {
-  "title": "Dérivation & Analyse",
+  "title": "Dérivation & Analyse - Expert",
+  "level": 9,
   "flashcards": [
-    {"q":"Dérivée de $x^n$ ?", "answers":["$n x^{n-1}$"], "hints":["L'exposant descend.", "Puissance baisse."], "points":10},
-    {"q":"Dérivée de $\\sqrt{x}$ ?", "answers":["$\\frac{1}{2\\sqrt{x}}$"], "hints":["1 sur 2 racine.", "Non dérivable en 0."], "points":10},
-    {"q":"Dérivée de $u \\cdot v$ ?", "answers":["$u'v + uv'$"], "hints":["Pas juste $u'v'$.", "Addition."], "points":10},
-    {"q":"Dérivée de $\\frac{1}{u}$ ?", "answers":["$-\\frac{u'}{u^2}$"], "hints":["Signe moins.", "u carré en bas."], "points":10},
-    {"q":"Equation tangente ?", "answers":["$y = f'(a)(x-a) + f(a)$"], "hints":["Pente f'(a).", "Passe par A(a; f(a))."], "points":10},
-    {"q":"Dérivée de $\\cos(x)$ ?", "answers":["$-\\sin(x)$"], "hints":["Signe moins.", "Vers le bas du cercle."], "points":10},
-    {"q":"Dérivée de $\\sin(x)$ ?", "answers":["$\\cos(x)$"], "hints":["Pas de changement de signe.", "Horizontal."], "points":10},
-    {"q":"Dérivée de $\\frac{u}{v}$ ?", "answers":["$\\frac{u'v-uv'}{v^2}$"], "hints":["Signe moins au numérateur.", "v au carré."], "points":10},
-    {"q":"$f'(x) > 0$ signifie ?", "answers":["$f$ est croissante."], "hints":["Lien signe/variations.", "La pente monte."], "points":10},
-    {"q":"$f'(x) = 0$ signifie ?", "answers":["Tangente horizontale."], "hints":["Extremum local ?", "Sommet."], "points":10}
+    {"q":"Dérivée de $f(x) = u(x)^n$.", "answers":["$n \\cdot u'(x) \\cdot u(x)^{n-1}$"], "hints":["Ne pas oublier la dérivée de l'intérieur $u'$."], "points":12},
+    {"q":"Démontrez la dérivée de $1/u$.", "answers":["$(\\frac{1}{u})' = \\frac{-u'}{u^2}$"], "hints":["Utilisez le taux d'accroissement ou la dérivée d'un quotient."], "points":15},
+    {"q":"Condition pour que $f$ soit dérivable en $a$.", "answers":["La limite du taux d'accroissement $\\frac{f(a+h)-f(a)}{h}$ doit être un réel fini."], "hints":["Si c'est $\\infty$, ce n'est pas dérivable."], "points":10},
+    {"q":"Dérivée de $\\sqrt{u(x)}$.", "answers":["$\\frac{u'(x)}{2\\sqrt{u(x)}}$"], "hints":["Composée de la racine."], "points":10},
+    {"q":"Équation de la normale à la courbe en $a$ (perpendiculaire à la tangente).", "answers":["$y = \\frac{-1}{f'(a)}(x-a) + f(a)$"], "hints":["Le produit des pentes de deux droites perpendiculaires vaut -1."], "points":18},
+    {"q":"Dérivée de $\\sin(ax+b)$.", "answers":["$a \\cdot \\cos(ax+b)$"], "hints":["Sortez la constante a."], "points":10},
+    {"q":"Donnez la dérivée seconde de $x^3$. Quel est son sens ?", "answers":["$6x$. Elle indique la convexité de la fonction."], "hints":["Dérivez deux fois."], "points":12},
+    {"q":"Lien dérivée et extremum local.", "answers":["Si $f$ a un extremum en $a$, alors $f'(a)=0$. La réciproque est fausse."], "hints":["Pensez à $x^3$ en 0."], "points":15},
+    {"q":"Dérivée de $x^n$ pour $n$ négatif.", "answers":["$n x^{n-1}$ (la règle reste la même)."], "hints":["Exemple pour $x^{-2}$."], "points":10},
+    {"q":"Qu'est-ce qu'un point d'inflexion ?", "answers":["Un point où la courbe change de convexité (la dérivée seconde s'annule et change de signe)."], "hints":["La courbe traverse sa tangente."], "points":15}
   ],
   "quiz": [
-    {"type":"mcq","q":"Dérivée de $x^2 + x$ ?","options":["$2x+1$","$2x$","$x+1$"],"answer":0,"explanation":"$2x$ pour $x^2$ et $1$ pour $x$.","points":10},
-    {"type":"mcq","q":"Dérivée de $3e^x$ ?","options":["$3e^x$","$e^x$","$3x$"],"answer":0,"explanation":"$(ke^x)' = ke^x$.","points":10},
-    {"type":"mcq","q":"Dérivée de $1/x$ ?","options":["$1/x^2$","$-1/x^2$","$x$"],"answer":1,"explanation":"Formule usuelles.","points":10},
-    {"type":"open","q":"Si $f'(x)=-5$, f est ... ?","expected_keywords":["décroissante"],"points":10},
-    {"type":"mcq","q":"$f(x)=x^2$ au point $x=3$, pente ?","options":["3","6","9"],"answer":1,"explanation":"$f'(3) = 2 \\cdot 3 = 6$.","points":10},
-    {"type":"open","q":"Dérivée de $5x+2$ ?","expected_keywords":["5"],"points":10},
-    {"type":"mcq","q":"Dérivée de $\\sqrt{x}$ en 0 ?","options":["0","1","N'existe pas"],"answer":2,"explanation":"Limite infinie.","points":10},
-    {"type":"mcq","q":"Dérivée de $(3x+1)^2$ ?","options":["$6(3x+1)$","$2(3x+1)$","$3$"],"answer":0,"explanation":"$2 \\cdot 3 \\cdot (3x+1)$.","points":10},
-    {"type":"open","q":"La dérivée d'une constante est ?","expected_keywords":["0","zéro"],"points":10},
-    {"type":"mcq","q":"Signe de la dérivée d'une fonction constante ?","options":["Positif","Nul","Négatif"],"answer":1,"points":10}
+    {"type":"mcq","q":"Dérivée de $f(x) = (3x^2+1)^4$ ?","options":["$4(3x^2+1)^3$","$24x(3x^2+1)^3$","$6x(3x^2+1)^3$"],"answer":1,"explanation":"$4 \\cdot (6x) \\cdot (3x^2+1)^3 = 24x(...)^3$.","points":15},
+    {"type":"mcq","q":"Pente de la tangente à $1/x$ en $x=2$ ?","options":["0,5","-0,25","0,25","-0,5"],"answer":1,"explanation":"$-1/x^2 = -1/4 = -0,25$.","points":12},
+    {"type":"open","q":"Dérivée de $e^{2x}$ ?","expected_keywords":["2e^(2x)","2e^2x"],"points":10},
+    {"type":"mcq","q":"Si $f'(x) = x^2+1$, alors f est :","options":["Toujours croissante","Toujours décroissante","Monotone puis non monotone"],"answer":0,"explanation":"$x^2+1$ est toujours strictement positif.","points":10},
+    {"type":"open","q":"Quelle est la dérivée de la constante $\\pi^2$ ?","expected_keywords":["0"],"points":8},
+    {"type":"mcq","q":"Dérivée de $\\frac{x}{x+1}$ ?","options":["$\\frac{1}{(x+1)^2}$","$\\frac{-1}{(x+1)^2}$","$1$"],"answer":0,"explanation":"$(1(x+1)-1(x))/(x+1)^2 = 1/(x+1)^2$.","points":14},
+    {"type":"mcq","q":"L'approximation affine de $\\sqrt{1+h}$ en 0 est :","options":["$1+h$","$1+h/2$","$1+2h$"],"answer":1,"points":15},
+    {"type":"open","q":"En quel point la tangente à $x^2$ a une pente de 10 ?","expected_keywords":["5"],"explanation":"$2x = 10 \\implies x=5$.","points":10},
+    {"type":"mcq","q":"Si $f$ est paire, sa dérivée est :","options":["Paire","Impaire","Ni l'un ni l'autre"],"answer":1,"points":15},
+    {"type":"mcq","q":"Dérivée de $\\cos(x^2)$ ?","options":["$-2x\\sin(x^2)$","$-\\sin(x^2)$","$-2x\\cos(x^2)$"],"answer":0,"points":15}
   ],
   "exercises": [
-    {"q":"Dérivez $f(x) = (x^2+1)\\sin(x)$.","solution":"$(2x)\\sin(x) + (x^2+1)\\cos(x)$", "time_limit_sec":300, "points":25}
+    {"q":"Étudiez les variations de $f(x) = \\frac{x^2-3x}{x-4}$ sur $\\mathbb{R} \\setminus \\{4\\}$.","solution":"$f'(x) = \\frac{(2x-3)(x-4)-1(x^2-3x)}{(x-4)^2} = \\frac{x^2-8x+12}{(x-4)^2}$. Racines : 2 et 6. Croissante sur $]-\\infty, 2]$ et $[6, +\\infty[$.", "time_limit_sec":480, "points":30},
+    {"q":"Trouvez l'équation de la tangente à $f(x)=x^3-x$ au point d'abscisse 1.","solution":"$f(1)=0$. $f'(x)=3x^2-1$, donc $f'(1)=2$. $y = 2(x-1)+0 = 2x-2$.", "time_limit_sec":240, "points":15}
   ],
   "traps": [
-    {"title":"Oubli de u'", "bad_reasoning":"Dérivée de cos(3x) est -sin(3x).", "error_analysis":"Il manque la dérivée interne.", "correct_formula":"-3sin(3x)", "points":10}
+    {"title":"La puissance et la chaîne", "bad_reasoning":"La dérivée de $(x^2+1)^2$ est $2(x^2+1)$.", "error_analysis":"On a oublié de dériver l'intérieur ($2x$).", "correct_formula":"$2(2x)(x^2+1) = 4x(x^2+1)$", "points":15},
+    {"title":"Le signe du quotient", "bad_reasoning":"$\\frac{u'v + uv'}{v^2}$", "error_analysis":"C'est un MOINS au numérateur pour le quotient.", "correct_formula":"$\\frac{u'v - uv'}{v^2}$", "points":10}
   ]
 }
