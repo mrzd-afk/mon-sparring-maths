@@ -25,11 +25,11 @@
     {"type":"open","q":"Signe de f' si f descend ?","expected_keywords":["négatif"],"points":10}
   ],
   "exercises": [
-    {"q":"Déterminez l'équation de la tangente à $f(x)=x^2+1$ au point $x=3$.", "solution":"$f(3)=10, f'(x)=2x \\to f'(3)=6$. Équation : $y=6(x-3)+10 = 6x-8$.", "time_limit_sec":240, "points":20},
-    {"q":"Dérivez la fonction $f(x) = (3x+1)^2$.", "solution":"Formule $(u^2)'=2u'u$. $u=3x+1, u'=3$. $f'(x)=2 \\times 3 \\times (3x+1) = 6(3x+1)$.", "time_limit_sec":180, "points":20},
-    {"q":"Étudiez le signe de la dérivée de $f(x) = x^3 - 3x + 1$.", "solution":"$f'(x)=3x^2-3 = 3(x^2-1)$. Racines -1 et 1. Positive à l'extérieur.", "time_limit_sec":300, "points":25},
-    {"q":"Optimisation : Soit un rectangle de périmètre 20. Quelle largeur maximise l'aire ?", "solution":"$Aire = x(10-x) = 10x-x^2$. Dérivée $10-2x=0 \\to x=5$. C'est un carré.", "time_limit_sec":300, "points":25},
-    {"q":"Dérivez $f(x) = \\frac{2x}{x+1}$.", "solution":"Formule $u/v$. $u'=2, v'=1$. $f'(x) = \\frac{2(x+1)-2x(1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$.", "time_limit_sec":240, "points":20}
+    {"q":"Déterminez l'équation de la tangente à $f(x)=x^2+1$ au point $x=3$.", "solution":"$y=6x-8$.", "time_limit_sec":240, "points":20},
+    {"q":"Dérivez $f(x) = (3x+1)^2$.", "solution":"$f'(x)=6(3x+1)$.", "time_limit_sec":180, "points":20},
+    {"q":"Signe de la dérivée de $f(x) = x^3 - 3x + 1$.", "solution":"$3(x^2-1)$, racines -1 et 1.", "time_limit_sec":300, "points":25},
+    {"q":"Largeur x qui maximise l'aire d'un rectangle de périmètre 20.", "solution":"x=5 (carré).", "time_limit_sec":300, "points":25},
+    {"q":"Dérivez $f(x) = \\frac{2x}{x+1}$.", "solution":"$f'(x) = \\frac{2}{(x+1)^2}$.", "time_limit_sec":240, "points":20}
   ],
   "traps": [
     {"title":"La constante seule", "bad_reasoning":"$(x+5)' = 6$.", "error_analysis":"La dérivée de 5 est 0.", "correct_formula":"$(x+5)' = 1$", "points":10},
