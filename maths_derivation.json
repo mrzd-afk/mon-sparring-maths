@@ -1,37 +1,41 @@
-"traps": [
-    {
-      "title": "Dérivée d'un produit constant",
-      "bad_reasoning": "La dérivée de $f(x) = 5x^2$ est $0 \\times x^2 + 5 \\times 2x = 10x$.",
-      "error_analysis": "C'est juste, mais inutilement long. Ne traitez pas le nombre 5 comme une fonction $u(x)$.",
-      "correct_formula": "$(k \\cdot u)' = k \\cdot u'$ (On garde la constante devant).",
-      "points": 8
-    },
-    {
-      "title": "Le piège de la racine en 0",
-      "bad_reasoning": "La fonction $f(x) = \\sqrt{x}$ est dérivable sur $[0; +\\infty[$.",
-      "error_analysis": "ERREUR : Elle est continue en 0, mais pas dérivable en 0 car sa tangente y est verticale (pente infinie).",
-      "correct_formula": "Dérivable uniquement sur $]0; +\\infty[$.",
-      "points": 15
-    },
-    {
-      "title": "Confusion Signe / Variation",
-      "bad_reasoning": "Si $f(x)$ est positif sur un intervalle, alors $f$ est croissante.",
-      "error_analysis": "ERREUR : C'est le signe de la DÉRIVÉE $f'(x)$ qui compte, pas celui de la fonction $f(x)$.",
-      "correct_formula": "$f'(x) > 0 \\implies f$ croissante.",
-      "points": 12
-    },
-    {
-      "title": "La dérivée de 1/x²",
-      "bad_reasoning": "La dérivée de $1/x^2$ est $1/(2x)$.",
-      "error_analysis": "ERREUR : On ne dérive pas le dénominateur séparément. On utilise la règle $x^n$ avec $n = -2$.",
-      "correct_formula": "$(x^{-2})' = -2x^{-3} = -2/x^3$.",
-      "points": 12
-    },
-    {
-      "title": "Oubli de la dérivée interne",
-      "bad_reasoning": "La dérivée de $(3x+1)^2$ est $2(3x+1)$.",
-      "error_analysis": "ERREUR : Il manque la multiplication par la dérivée de ce qu'il y a dans la parenthèse (ici 3).",
-      "correct_formula": "$2 \\times 3 \\times (3x+1) = 6(3x+1)$.",
-      "points": 15
-    }
-]
+{
+  "title": "Dérivation & Analyse - Expert",
+  "flashcards": [
+    {"q":"Dérivée de $x^n$ ?", "answers":["$n x^{n-1}$"], "hints":["L'exposant descend."], "points":10},
+    {"q":"Dérivée de $\\sqrt{x}$ ?", "answers":["$\\frac{1}{2\\sqrt{x}}$"], "hints":["1 sur 2 racine."], "points":10},
+    {"q":"Dérivée de $u \\times v$ ?", "answers":["$u'v + uv'$"], "hints":["Addition de deux produits."], "points":10},
+    {"q":"Dérivée de $1/u$ ?", "answers":["$-u'/u^2$"], "hints":["Signe moins, carré en bas."], "points":10},
+    {"q":"Équation de la tangente ?", "answers":["$y = f'(a)(x-a) + f(a)$"], "hints":["f'(a) est la pente."], "points":10},
+    {"q":"Dérivée de $\\cos(x)$ ?", "answers":["$-\\sin(x)$"], "hints":["Changement de signe."], "points":10},
+    {"q":"Dérivée de $u/v$ ?", "answers":["$\\frac{u'v-uv'}{v^2}$"], "hints":["Soustraction en haut."], "points":10},
+    {"q":"$f'(x) > 0$ signifie ?", "answers":["Fonction croissante."], "hints":["Lien pente/sens."], "points":10},
+    {"q":"$f'(x) = 0$ signifie ?", "answers":["Tangente horizontale."], "hints":["Extremum possible."], "points":10},
+    {"q":"Dérivée de $\\sin(x)$ ?", "answers":["$\\cos(x)$"], "hints":["Pas de signe moins."], "points":10}
+  ],
+  "quiz": [
+    {"type":"mcq","q":"Dérivée de $x^2+3x$ ?","options":["$2x+3$","$2x$","$x+3$"],"answer":0,"points":10},
+    {"type":"mcq","q":"Dérivée de $1/x$ ?","options":["$1/x^2$","$-1/x^2$","$x$"],"answer":1,"points":10},
+    {"type":"open","q":"Pente de $x^2$ en $x=5$ ?","expected_keywords":["10"],"points":10},
+    {"type":"mcq","q":"Dérivée de $\\sqrt{x}$ en 0 ?","options":["0","1","N'existe pas"],"answer":2,"points":10},
+    {"type":"mcq","q":"$(uv)' = u'v'$ ?","options":["Vrai","Faux"],"answer":1,"points":10},
+    {"type":"mcq","q":"Dérivée de $e^x$ ?","options":["$e^x$","$xe^{x-1}$","$1$"],"answer":0,"points":10},
+    {"type":"open","q":"Dérivée de $7x-2$ ?","expected_keywords":["7"],"points":10},
+    {"type":"mcq","q":"Une fonction constante a une dérivée :","options":["Positive","Nulle","Négative"],"answer":1,"points":10},
+    {"type":"mcq","q":"Dérivée de $1/x^2$ ?","options":["$-2/x^3$","$2x$","$-1/x^4$"],"answer":0,"points":10},
+    {"type":"open","q":"Signe de f' si f descend ?","expected_keywords":["négatif"],"points":10}
+  ],
+  "exercises": [
+    {"q":"Déterminez l'équation de la tangente à $f(x)=x^2+1$ au point $x=3$.", "solution":"$f(3)=10, f'(x)=2x \\to f'(3)=6$. Équation : $y=6(x-3)+10 = 6x-8$.", "time_limit_sec":240, "points":20},
+    {"q":"Dérivez la fonction $f(x) = (3x+1)^2$.", "solution":"Formule $(u^2)'=2u'u$. $u=3x+1, u'=3$. $f'(x)=2 \\times 3 \\times (3x+1) = 6(3x+1)$.", "time_limit_sec":180, "points":20},
+    {"q":"Étudiez le signe de la dérivée de $f(x) = x^3 - 3x + 1$.", "solution":"$f'(x)=3x^2-3 = 3(x^2-1)$. Racines -1 et 1. Positive à l'extérieur.", "time_limit_sec":300, "points":25},
+    {"q":"Optimisation : Soit un rectangle de périmètre 20. Quelle largeur maximise l'aire ?", "solution":"$Aire = x(10-x) = 10x-x^2$. Dérivée $10-2x=0 \\to x=5$. C'est un carré.", "time_limit_sec":300, "points":25},
+    {"q":"Dérivez $f(x) = \\frac{2x}{x+1}$.", "solution":"Formule $u/v$. $u'=2, v'=1$. $f'(x) = \\frac{2(x+1)-2x(1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$.", "time_limit_sec":240, "points":20}
+  ],
+  "traps": [
+    {"title":"La constante seule", "bad_reasoning":"$(x+5)' = 6$.", "error_analysis":"La dérivée de 5 est 0.", "correct_formula":"$(x+5)' = 1$", "points":10},
+    {"title":"Le carré en bas", "bad_reasoning":"$(1/x)' = -1/x$.", "error_analysis":"Oubli du carré.", "correct_formula":"$-1/x^2$", "points":10},
+    {"title":"Puissance n", "bad_reasoning":"$(x^3)' = 3x^3$.", "error_analysis":"Il faut baisser la puissance.", "correct_formula":"$3x^2$", "points":10},
+    {"title":"Signe vs Variation", "bad_reasoning":"f > 0 donc f croissante.", "error_analysis":"Aucun lien direct.", "correct_formula":"Regarder f'", "points":10},
+    {"title":"La racine", "bad_reasoning":"Dérivable en 0.", "error_analysis":"Non, pente infinie.", "correct_formula":"$]0 ; +\\infty[$", "points":10}
+  ]
+}
