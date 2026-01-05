@@ -25,15 +25,15 @@
     {"type":"mcq","q":"Manteau : principalement ?","options":["Solide","Liquide"],"answer":0,"points":10}
   ],
   "exercises": [
-    {"q":"Calculez la profondeur si une onde P (v=6km/s) revient après 10s.", "solution":"$Distance = 6 \\times 10 = 60$ km aller-retour. Profondeur = 30 km.", "time_limit_sec":120, "points":20},
-    {"q":"Distance épicentre : Onde P à 12h00, Onde S à 12h03. (Vp=8, Vs=4).", "solution":"$\\frac{d}{4} - \\frac{d}{8} = 180s \\to \\frac{d}{8} = 180 \\to d=1440$ km.", "time_limit_sec":300, "points":30},
-    {"q":"Gradient thermique : Température à 0km = 15°C, à 3km = 105°C. Calculez le gradient.", "solution":"$(105-15)/3 = 30$°C/km.", "time_limit_sec":180, "points":20},
-    {"q":"Densité : Un échantillon de 10cm³ pèse 27g. Est-ce de la croûte continentale ?", "solution":"$d = 27/10 = 2,7$. Oui, c'est la densité du granite.", "time_limit_sec":120, "points":15},
-    {"q":"Interprétez l'arrêt des ondes S à 2900km.", "solution":"Le passage à un milieu liquide (noyau externe) empêche la propagation du cisaillement.", "time_limit_sec":180, "points":20}
+    {"q":"Profondeur si onde P (v=6km/s) revient après 10s.", "solution":"30 km.", "time_limit_sec":120, "points":20},
+    {"q":"Distance épicentre : Onde P à 12h00, Onde S à 12h03 (Vp=8, Vs=4).", "solution":"1440 km.", "time_limit_sec":300, "points":30},
+    {"q":"Gradient thermique : 15°C à 0km, 105°C à 3km.", "solution":"30°C/km.", "time_limit_sec":180, "points":20},
+    {"q":"Densité : 10cm³ pèse 27g. Est-ce de la croûte continentale ?", "solution":"d=2,7. Oui.", "time_limit_sec":120, "points":15},
+    {"q":"Interprétez l'arrêt des ondes S à 2900km.", "solution":"Noyau externe liquide.", "time_limit_sec":180, "points":20}
   ],
   "traps": [
     {"title":"Manteau Magma", "bad_reasoning":"Le manteau est liquide.", "error_analysis":"Il est solide ductile.", "correct_formula":"Solide", "points":10},
-    {"title":"Lithosphère/Croûte", "bad_reasoning":"C'est pareil.", "error_analysis":"Lithosphère = Croûte + Manteau sup.", "correct_formula":"C + M", "points":10},
+    {"title":"Lithosphère/Croûte", "bad_reasoning":"C'est pareil.", "error_analysis":"Lithosphère = Croûte + Manteau rigide.", "correct_formula":"C + M", "points":10},
     {"title":"Vitesse/Densité", "bad_reasoning":"Plus dense = plus lent.", "error_analysis":"Dans la Terre, plus dense = plus rapide.", "correct_formula":"V augmente avec d", "points":10},
     {"title":"Ondes S", "bad_reasoning":"Traversent le noyau.", "error_analysis":"Stop à 2900km.", "correct_formula":"Liquide bloque S", "points":10},
     {"title":"Le Moho plat", "bad_reasoning":"Plat à 30km.", "error_analysis":"Il est ondulé selon le relief.", "correct_formula":"Isostasie", "points":10}
