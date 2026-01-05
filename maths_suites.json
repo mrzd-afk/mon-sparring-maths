@@ -1,17 +1,41 @@
 {
-  "title": "Suites Numériques",
+  "title": "Suites Numériques - Niveau Expert",
   "flashcards": [
-    {"q":"Définition suite explicite ?", "answers":["$u_n = f(n)$"], "hints":["Pas besoin de $u_{n-1}$."], "points":10},
-    {"q":"Somme 1 à n ?", "answers":["$\\frac{n(n+1)}{2}$"], "hints":["Astuce de Gauss."], "points":10},
-    {"q":"Limite de $q^n$ si $|q|<1$ ?", "answers":["0"], "hints":["Raison petite."], "points":10}
+    {"q":"Comment prouver qu'une suite est géométrique ?", "answers":["On calcule le rapport $\\frac{u_{n+1}}{u_n}$ et on montre qu'il est constant ($q$)."], "hints":["Exprimez $u_{n+1}$ en fonction de $u_n$."], "points":10},
+    {"q":"Limite de $q^n$ si $|q| < 1$ ?", "answers":["La limite est 0."], "hints":["La raison est entre -1 et 1."], "points":10},
+    {"q":"Somme des termes d'une suite arithmétique ?", "answers":["$S = \\text{Nb termes} \\times \\frac{\\text{Premier} + \\text{Dernier}}{2}$"], "hints":["Moyenne des extrêmes."], "points":12},
+    {"q":"Théorème de la limite monotone ?", "answers":["Toute suite croissante et majorée converge."], "hints":["Elle ne peut pas monter indéfiniment sans dépasser son majorant."], "points":15},
+    {"q":"Somme géométrique $1 + q + q^2 + ... + q^n$ ?", "answers":["$\\frac{1 - q^{n+1}}{1 - q}$"], "hints":["Il y a $n+1$ termes."], "points":12},
+    {"q":"Nature de $v_n = \\ln(u_n)$ si $u_n$ est géométrique positive ?", "answers":["Arithmétique de raison $\\ln(q)$."], "hints":["Propriété du logarithme."], "points":15},
+    {"q":"Définition d'une suite bornée ?", "answers":["La suite est à la fois majorée et minorée."], "hints":["Elle reste dans un intervalle fini."], "points":10},
+    {"q":"Comment étudier les variations de $u_n$ ?", "answers":["Étude du signe de $u_{n+1} - u_n$."], "hints":["Méthode universelle."], "points":10},
+    {"q":"Limite de $u_n = \\frac{n^2+1}{2n^2-3}$ ?", "answers":["0,5"], "hints":["Gardez les plus hauts degrés."], "points":12},
+    {"q":"Relation $u_n$ et $u_0$ pour une suite arithmétique ?", "answers":["$u_n = u_0 + n \\times r$"], "hints":["Fonction affine de n."], "points":10}
   ],
   "quiz": [
-    {"type":"mcq","q":"$u_{n+1}=u_n+5, u_0=2$. $u_2$ ?","options":["7","12","17"],"answer":1,"explanation":"$u_1=7, u_2=12$.","points":10}
+    {"type":"mcq","q":"$u_{n+1} = 2u_n - 3, u_0=5$. Que vaut $u_2$ ?","options":["7","11","13"],"answer":1,"explanation":"$u_1=7, u_2=11$","points":10},
+    {"type":"mcq","q":"Somme des 100 premiers entiers (1 à 100) ?","options":["5000","5050","5100"],"answer":1,"points":12},
+    {"type":"mcq","q":"Raison de $u_n = 3 \\cdot 4^n$ ?","options":["3","4","12"],"answer":1,"points":10},
+    {"type":"open","q":"Nb de termes de $u_2$ à $u_{22}$ ?","expected_keywords":["21"],"points":10},
+    {"type":"mcq","q":"Limite de $0,99^n$ ?","options":["0","1","+\\infty"],"answer":0,"points":10},
+    {"type":"mcq","q":"$u_{n+1}-u_n = -n^2$. La suite est :","options":["Croissante","Décroissante","Alternée"],"answer":1,"points":10},
+    {"type":"open","q":"Raison de $u_n = 5n-4$ ?","expected_keywords":["5"],"points":10},
+    {"type":"mcq","q":"Une suite croissante et minorée converge ?","options":["Oui","Non obligatoirement"],"answer":1,"points":12},
+    {"type":"open","q":"Si $u_0=1, q=2$, $u_{10}$ ?","expected_keywords":["1024"],"points":10},
+    {"type":"mcq","q":"$u_{n+1} = u_n^2$. Si $u_0=0,5$, la suite :","options":["Tend vers 0","Tend vers 1","Tend vers l'infini"],"answer":0,"points":15}
   ],
   "exercises": [
-    {"q":"Calculez $S = 2+4+...+40$.", "solution":"$S = 420$.", "time_limit_sec":180, "points":20}
+    {"q":"Soit $u_{n+1}=0,8u_n+2, u_0=5$. Montrez que $v_n=u_n-10$ est géométrique.", "solution":"$v_{n+1}=u_{n+1}-10=0,8u_n-8=0,8(u_n-10)=0,8v_n$.", "time_limit_sec":360, "points":25},
+    {"q":"Calculez $S = 1+3+9+...+3^7$.", "solution":"$S = (1-3^8)/(1-3) = 3280$.", "time_limit_sec":240, "points":20},
+    {"q":"Calculez la limite de $u_n = (2n^2-1)/(n^2+10n)$.", "solution":"$\u2192 2n^2/n^2 = 2$.", "time_limit_sec":180, "points":20},
+    {"q":"Somme arithmétique : $u_1=10, u_{50}=100$. Calculez $S$.", "solution":"$50 \\times (110)/2 = 2750$.", "time_limit_sec":180, "points":20},
+    {"q":"Seuil : À partir de quel n, $1,05^n > 2$ ?", "solution":"$n=15$ car $1,05^{14} \\approx 1,98$.", "time_limit_sec":300, "points":25}
   ],
   "traps": [
-    {"title":"Nb de termes", "bad_reasoning":"De 0 à n, il y a n termes.", "error_analysis":"Il y en a n+1.", "correct_formula":"n-p+1", "points":10}
+    {"title":"Nb de termes", "bad_reasoning":"De 1 à n il y a n+1 termes.", "error_analysis":"De 1 à n, il y a n termes. C'est de 0 à n qu'il y en a n+1.", "correct_formula":"n-p+1", "points":10},
+    {"title":"Raison négative", "bad_reasoning":"$(-2)^n$ est décroissante.", "error_analysis":"Elle n'est pas monotone, elle oscille.", "correct_formula":"Pas de sens de variation", "points":10},
+    {"title":"Somme vs Terme", "bad_reasoning":"$S_n$ tend vers la même limite que $u_n$.", "error_analysis":"Faux. $u_n$ peut tendre vers 0 sans que $S_n$ converge.", "correct_formula":"Étudier la limite de la somme.", "points":15},
+    {"title":"Indice de départ", "bad_reasoning":"$u_n = u_0 + nr$ donc $u_{10} = u_1 + 10r$.", "error_analysis":"Si on part de $u_1$, il y a 9 sauts.", "correct_formula":"$u_1 + (n-1)r$", "points":10},
+    {"title":"Convergence de q^n", "bad_reasoning":"$q^n$ converge si $q<1$.", "error_analysis":"Il faut aussi $q > -1$.", "correct_formula":"$-1 < q \\le 1$", "points":12}
   ]
 }
