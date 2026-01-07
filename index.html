@@ -6,6 +6,7 @@
     <title>Sparring Partner | Spé Sciences</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         window.MathJax = {
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']], processEscapes: true },
@@ -13,6 +14,7 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #020617; color: #e2e8f0; }
@@ -25,58 +27,52 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen bg-slate-950">
     <header class="border-b border-slate-800 bg-slate-900 sticky top-0 z-50 p-4">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <h1 class="font-bold text-lg tracking-tight">SPARRING<span class="text-indigo-500">PARTNER</span></h1>
             <div class="text-right">
-                <p class="text-[10px] uppercase text-gray-500 font-bold">Score Global</p<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparring Partner | Spé Sciences 1ère</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']], processEscapes: true },
-            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .tab-active { border-bottom: 3px solid #6366f1; color: white; font-weight: bold; }
-        .animate-fade { animation: fadeIn 0.3s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-200 min-h-screen">
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 p-4 shadow-xl">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-indigo-600 p-2 rounded-xl shadow-lg shadow-indigo-500/20">
-                    <i class="fas fa-brain text-white text-xl"></i>
-                </div>
-                <h1 class="font-bold text-xl tracking-tight">SPARRING<span class="text-indigo-500 font-black">PARTNER</span></h1>
-            </div>
-            <div class="text-right">
-                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest leading-none mb-1">Score Maîtrise</p>
-                <p id="global-score" class="font-mono text-indigo-400 text-2xl leading-none">0000</p>
+                <p class="text-[10px] uppercase text-gray-500 font-bold tracking-widest leading-none mb-1">Score Maîtrise</p>
+                <p id="global-score" class="font-mono text-indigo-400 text-xl leading-none">0000</p>
             </div>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto p-6 sm:p-12">
-        <section id="dashboard" class="space-y-10 animate-fade">
-            <div class="border-l-4 border-indigo-500 pl-4">
-                <h2 class="text-3xl font-bold text-white tracking-tight">Modules d'Entraînement</h2>
-                <p class="text-slate-400 mt-2">Clique sur un module pour lancer la session.</p>
-            </div>
-
+    <main class="max-w-4xl mx-auto p-6">
+        <section id="dashboard" class="space-y-8 animate-fade">
+            <h2 class="text-3xl font-bold text-white tracking-tight text-center sm:text-left">Modules d'Entraînement</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div onclick="loadChapter('suites')" class="group cursor-pointer bg-slate-900 border border-slate
+                <div onclick="loadChapter('suites')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all shadow-lg">
+                    <i class="fas fa-list-ol text-2xl mb-4 text-gray-600 group-hover:text-indigo-500"></i>
+                    <h3 class="text-xl font-bold text-white">Suites Numériques</h3>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full mt-4"><div id="progress-suites" class="bg-indigo-500 h-full w-0 transition-all duration-1000"></div></div>
+                </div>
+                <div onclick="loadChapter('derivation')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500 transition-all shadow-lg">
+                    <i class="fas fa-chart-line text-2xl mb-4 text-gray-600 group-hover:text-indigo-500"></i>
+                    <h3 class="text-xl font-bold text-white">Dérivation</h3>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full mt-4"><div id="progress-derivation" class="bg-indigo-500 h-full w-0 transition-all duration-1000"></div></div>
+                </div>
+                <div onclick="loadChapter('globe')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-green-500 transition-all shadow-lg">
+                    <i class="fas fa-earth-europe text-2xl mb-4 text-gray-600 group-hover:text-green-500"></i>
+                    <h3 class="text-xl font-bold text-white">Structure du Globe</h3>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full mt-4"><div id="progress-globe" class="bg-green-500 h-full w-0 transition-all duration-1000"></div></div>
+                </div>
+                <div onclick="loadChapter('probabilites')" class="group cursor-pointer bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-yellow-500 transition-all shadow-lg">
+                    <i class="fas fa-dice text-2xl mb-4 text-gray-600 group-hover:text-yellow-500"></i>
+                    <h3 class="text-xl font-bold text-white">Probabilités</h3>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full mt-4"><div id="progress-probabilites" class="bg-yellow-500 h-full w-0 transition-all duration-1000"></div></div>
+                </div>
+            </div>
+        </section>
 
+        <section id="workspace" class="hidden animate-fade">
+            <button onclick="showDashboard()" class="text-gray-400 mb-6 hover:text-white transition"><i class="fas fa-arrow-left mr-2"></i>RETOUR</button>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+                <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+                    <div>
+                        <h2 id="chapter-title" class="text-2xl font-bold text-white">---</h2>
+                        <p id="mastery-label" class="text-xs text-indigo-400 font-bold uppercase mt-1 tracking-widest">Maîtrise : 0%</p>
+                    </div>
+                    <div id="mastery-badge" class="h-10 w-10 rounded-full border-2 border-indigo-500 flex items-center justify-center font-bold text-indigo-500 shadow-lg">1</div>
+                </div>
+                <div class="flex border-b border-slate-800 text-[10px] sm:text-xs font-bold bg-slate-950">
