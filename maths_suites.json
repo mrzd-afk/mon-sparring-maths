@@ -1,50 +1,53 @@
 {
-  "title": "Suites Numériques - Niveau Expert",
+  "title": "Suites Numériques - Expert",
   "traps": [
     {
       "title": "Le nombre de termes d'une somme",
-      "bad_reasoning": "Pour calculer la somme $S = u_0 + u_1 + ... + u_{10}$, il y a exactement 10 termes car le dernier indice est 10.",
-      "error_analysis": "C'est l'oubli du 'zéro'. En commençant à 0, le 10ème terme est $u_9$. $u_{10}$ est donc le onzième terme. Cette erreur fausse totalement le calcul d'une puissance dans une somme géométrique.",
-      "correct_formula": "Nombre de termes = (Dernier Indice - Premier Indice) + 1.",
+      "bad_reasoning": "Pour calculer la somme $S = u_0 + u_1 + ... + u_{10}$, il y a exactement 10 termes car l'indice s'arrête à 10.",
+      "error_analysis": "C'est l'erreur classique du décompte. En partant de 0, l'indice 10 représente en réalité le onzième terme. Oublier ce terme fausse tout le calcul d'une puissance dans une somme géométrique.",
+      "correct_formula": "Nombre de termes = (Indice Final - Indice Initial) + 1.",
       "points": 10
     },
     {
       "title": "Raison négative et monotonie",
       "bad_reasoning": "La suite géométrique $u_n = (-3)^n$ est strictement décroissante car sa raison $q = -3$ est inférieure à 1.",
-      "error_analysis": "Attention ! Pour qu'une suite géométrique soit monotone, sa raison doit être positive. Si $q$ est négatif, la suite est 'alternée' (elle change de signe à chaque rang : 1, -3, 9, -27...). Elle n'est ni croissante, ni décroissante.",
-      "correct_formula": "Une suite géométrique est monotone si et seulement si $q > 0$.",
+      "error_analysis": "Faux ! Une suite géométrique dont la raison est négative n'est pas monotone. Elle change de signe à chaque rang (1, -3, 9, -27...). Elle est dite 'alternée'.",
+      "correct_formula": "Une suite géométrique est monotone si et seulement si sa raison $q$ est positive.",
       "points": 15
     },
     {
       "title": "Limite et Nature de la suite",
-      "bad_reasoning": "Si une suite $u_n$ a pour limite 0 quand $n$ tend vers l'infini, alors c'est forcément une suite géométrique de raison $q$ comprise entre -1 et 1.",
-      "error_analysis": "C'est une confusion entre la limite et la structure de la suite. La suite $u_n = 1/n$ tend vers 0, mais elle n'est pas géométrique (le rapport entre deux termes n'est pas constant).",
-      "correct_formula": "La limite ne permet pas de deviner si une suite est arithmétique ou géométrique.",
+      "bad_reasoning": "Si une suite $u_n$ tend vers 0 à l'infini, alors c'est obligatoirement une suite géométrique de raison comprise entre -1 et 1.",
+      "error_analysis": "C'est une confusion entre la limite et la structure de la suite. La suite $1/n$ tend vers 0 mais n'est pas géométrique (le rapport entre deux termes n'est pas constant).",
+      "correct_formula": "La limite d'une suite ne définit en rien sa nature arithmétique ou géométrique.",
       "points": 12
     },
     {
       "title": "La limite de la somme",
       "bad_reasoning": "Si les termes d'une suite $u_n$ deviennent de plus en plus petits et tendent vers 0, alors la somme de tous ses termes sera forcément un nombre fini.",
-      "error_analysis": "Piège redoutable (Série Harmonique). Même si $u_n$ tend vers 0, l'accumulation des termes peut quand même tendre vers l'infini. C'est le cas pour $u_n = 1/n$.",
-      "correct_formula": "La limite $u_n = 0$ est nécessaire mais pas suffisante pour que la somme soit finie.",
+      "error_analysis": "Attention au 'Paradoxe de la Série Harmonique'. Même si $u_n$ tend vers 0, l'accumulation infinie peut quand même diverger vers $+\\infty$ (cas de $1/n$).",
+      "correct_formula": "La limite $u_n = 0$ est nécessaire mais pas suffisante pour la convergence de la somme.",
       "points": 15
     },
     {
       "title": "Sens de variation et premier terme",
-      "bad_reasoning": "Une suite géométrique de raison $q = 0,8$ est toujours décroissante car on multiplie par un nombre plus petit que 1.",
-      "error_analysis": "Faux. Si le premier terme $u_0$ est négatif (ex: -5), multiplier par 0,8 va rapprocher la suite de zéro par le bas (-5, -4, -3,2...). La suite sera donc croissante.",
-      "correct_formula": "Le sens de variation dépend du signe de $u_0$ ET de la valeur de $q$.",
+      "bad_reasoning": "Une suite géométrique de raison $q = 0,8$ est toujours décroissante car multiplier par 0,8 réduit la valeur du terme précédent.",
+      "error_analysis": "Cela dépend du premier terme $u_0$. Si $u_0 = -100$, multiplier par 0,8 va donner $-80, -64, ...$ : la suite augmente car elle se rapproche de zéro par le bas.",
+      "correct_formula": "Le sens de variation dépend du signe du premier terme ET de la valeur de la raison.",
       "points": 12
     }
   ],
   "flashcards": [
-    {"q":"Somme des n premiers entiers ?", "answers":["$n(n+1)/2$"], "points":10},
-    {"q":"Démontrer qu'une suite est arithmétique ?", "answers":["Montrer que $u_{n+1} - u_n = r$ (constante)."], "points":10}
+    {"q":"Comment démontrer qu'une suite est géométrique ?", "answers":["On calcule le rapport $\\frac{u_{n+1}}{u_n}$ et on montre qu'il est égal à une constante réelle $q$ indépendante de $n$."], "hints":["Utilisez l'expression de $u_{n+1}$."], "points":10},
+    {"q":"Somme des n premiers entiers ?", "answers":["$S_n = \\frac{n(n+1)}{2}$"], "hints":["Astuce de Gauss."], "points":10},
+    {"q":"Limite de $q^n$ si $|q| < 1$ ?", "answers":["La limite est 0."], "hints":["Exemple : $0,5^n$."], "points":10}
   ],
   "quiz": [
-    {"type":"mcq","q":"Limite de $0,5^n$ ?","options":["0","1","+\\infty"],"answer":0,"points":10}
+    {"type":"mcq","q":"$u_{n+1}=u_n+5$ et $u_0=2$. Que vaut $u_2$ ?","options":["7","12","17"],"answer":1,"points":10},
+    {"type":"mcq","q":"Limite de $u_n = \\frac{2n^2 + 1}{n^2 - 1000n}$ ?","options":["2","0","+\\infty"],"answer":0,"points":12}
   ],
   "exercises": [
-    {"q":"Soit $u_{n+1}=0,5u_n+4$. Montrez que $v_n=u_n-8$ est géométrique.", "solution":"$v_{n+1} = u_{n+1}-8 = 0,5u_n+4-8 = 0,5u_n-4 = 0,5(u_n-8) = 0,5v_n$.", "points":25}
+    {"q":"Soit $u_{n+1}=0,5u_n+4$ avec $u_0=10$. On pose $v_n=u_n-8$. Montrez que $v_n$ est géométrique.", "solution":"$v_{n+1} = u_{n+1}-8 = (0,5u_n+4)-8 = 0,5u_n-4 = 0,5(u_n-8) = 0,5v_n$. La suite $v_n$ est géométrique de raison $0,5$.", "points":25},
+    {"q":"Calculez la somme $S = 2 + 4 + 6 + ... + 40$.", "solution":"Il s'agit de $2(1 + 2 + ... + 20)$.<br>$S = 2 \\times \\frac{20 \\times 21}{2} = 420$.", "points":20}
   ]
 }
