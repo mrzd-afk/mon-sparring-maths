@@ -1,42 +1,51 @@
 {
-  "title": "Probabilités Conditionnelles & Variables Aléatoires",
-  "level": 9,
+  "title": "Probabilités Conditionnelles - Expert",
+  "traps": [
+    {
+      "title": "Incompatibilité vs Indépendance",
+      "bad_reasoning": "Si deux événements sont incompatibles (ils ne peuvent pas se produire ensemble), alors ils sont nécessairement indépendants.",
+      "error_analysis": "C'est l'inverse ! S'ils sont incompatibles, ils sont TRÈS dépendants : si l'un arrive, je suis certain que l'autre n'arrivera pas. La probabilité de l'un change radicalement au contact de l'autre.",
+      "correct_formula": "Indépendance $\\implies P(A \\cap B) = P(A) \\times P(B)$.",
+      "points": 15
+    },
+    {
+      "title": "L'inversion des probabilités",
+      "bad_reasoning": "La probabilité d'être malade sachant qu'on a un test positif $P_T(M)$ est la même que la probabilité d'être positif sachant qu'on est malade $P_M(T)$.",
+      "error_analysis": "C'est le 'Paradoxe du faux positif'. Ces deux valeurs sont très différentes. La probabilité d'être positif sachant qu'on est malade est élevée, mais la probabilité d'être malade sachant qu'on est positif dépend de la rareté de la maladie.",
+      "correct_formula": "Utilisez la formule de Bayes pour inverser le conditionnement.",
+      "points": 15
+    },
+    {
+      "title": "La somme des branches finales",
+      "bad_reasoning": "Dans un arbre pondéré, la somme des probabilités situées tout au bout des branches doit obligatoirement être égale à 1.",
+      "error_analysis": "Faux ! Seule la somme des probabilités des ISSUES (les intersections) de l'univers complet vaut 1. On ne peut pas sommer les probabilités conditionnelles finales entre elles.",
+      "correct_formula": "La somme des probabilités des événements élémentaires disjoints vaut 1.",
+      "points": 10
+    },
+    {
+      "title": "Espérance et Gain",
+      "bad_reasoning": "L'espérance d'un jeu ne peut pas être égale à -5 car une probabilité ne peut pas être négative.",
+      "error_analysis": "L'espérance n'est pas une probabilité, c'est un gain moyen. Si les issues du jeu sont des pertes financières, l'espérance sera négative.",
+      "correct_formula": "$E(X) = \\sum x_i p_i$. Si $x_i < 0$, $E(X)$ peut être négatif.",
+      "points": 12
+    },
+    {
+      "title": "Loi de Probabilité",
+      "bad_reasoning": "Pour définir la loi de probabilité d'une variable aléatoire X, il suffit de lister toutes les valeurs que X peut prendre.",
+      "error_analysis": "Incomplet. Définir une loi, c'est associer à CHAQUE valeur sa probabilité de réalisation.",
+      "correct_formula": "Une loi est un tableau associant $x_i$ et $P(X=x_i)$.",
+      "points": 10
+    }
+  ],
   "flashcards": [
-    {"q":"Formule de la probabilité conditionnelle de $B$ sachant $A$ ?", "answers":["$P_A(B) = \\frac{P(A \\cap B)}{P(A)}$"], "hints":["Condition : $P(A) \\neq 0$.", "On 'réduit' l'univers à l'événement A."], "points":10},
-    {"q":"Condition pour que deux événements $A$ et $B$ soient indépendants ?", "answers":["$P(A \\cap B) = P(A) \\times P(B)$"], "hints":["Ou alors $P_A(B) = P(B)$.", "La réalisation de l'un ne change pas la probabilité de l'autre."], "points":10},
-    {"q":"Énoncez la loi des probabilités totales.", "answers":["$P(B) = \\sum_{i=1}^{n} P(B \\cap A_i) = \\sum_{i=1}^{n} P(A_i) \\times P_{A_i}(B)$"], "hints":["$A_1, ..., A_n$ doit être une partition de l'univers.", "On somme les chemins menant à B dans un arbre."], "points":15},
-    {"q":"Définition de l'Espérance $E(X)$ d'une variable aléatoire.", "answers":["$E(X) = \\sum_{i=1}^{n} x_i \\cdot P(X=x_i)$"], "hints":["C'est la moyenne pondérée des valeurs.", "Somme des (valeur $\\times$ probabilité)."], "points":12},
-    {"q":"Lien entre Variance $V(X)$ et Écart-type $\\sigma(X)$.", "answers":["$\\sigma(X) = \\sqrt{V(X)}$"], "hints":["L'écart-type est toujours positif.", "Il s'exprime dans la même unité que X."], "points":8},
-    {"q":"Formule de König-Huygens pour la Variance.", "answers":["$V(X) = E(X^2) - (E(X))^2$"], "hints":["Plus rapide que la définition classique.", "C'est l'Espérance des carrés moins le carré de l'Espérance."], "points":15},
-    {"q":"Propriété : $E(aX + b) = ...$ ?", "answers":["$aE(X) + b$"], "hints":["Linéarité de l'espérance.", "Le décalage $b$ s'ajoute directement."], "points":12},
-    {"q":"Propriété : $V(aX + b) = ...$ ?", "answers":["$a^2 V(X)$"], "hints":["La constante $b$ disparaît.", "Le facteur $a$ sort au carré."], "points":15},
-    {"q":"Qu'est-ce qu'une partition de l'univers $\\Omega$ ?", "answers":["Un ensemble d'événements disjoints deux à deux dont l'union est $\\Omega$."], "hints":["Ils ne peuvent pas se produire en même temps.", "À eux tous, ils couvrent tout le possible."], "points":10},
-    {"q":"Définition d'une épreuve de Bernoulli.", "answers":["Une expérience aléatoire n'ayant que deux issues : Succès ($p$) et Échec ($1-p$)."], "hints":["Pile ou Face, Gagner ou Perdre.", "La base de la loi binomiale."], "points":10}
+    {"q":"Formule de $P_A(B)$ ?", "answers":["$P(A \\cap B) / P(A)$"], "hints":["Conditionnement."], "points":10},
+    {"q":"Espérance $E(X)$ ?", "answers":["$\\sum x_i P(X=x_i)$"], "hints":["Moyenne pondérée."], "points":10},
+    {"q":"Loi des probabilités totales ?", "answers":["$P(B) = P(A \\cap B) + P(\\bar{A} \\cap B)$"], "points":12}
   ],
   "quiz": [
-    {"type":"mcq","q":"$P(A)=0,6$ et $P(B)=0,3$. Si A et B sont indépendants, $P(A \\cap B)$ vaut :","options":["0,9","0,18","0,2"],"answer":1,"points":10},
-    {"type":"mcq","q":"$P(A)=0,5$ et $P(A \\cap B)=0,1$. Que vaut $P_A(B)$ ?","options":["0,05","0,2","0,4"],"answer":1,"explanation":"$0,1 / 0,5 = 0,2$","points":12},
-    {"type":"mcq","q":"$E(X)=10$. Que vaut $E(3X-5)$ ?","options":["25","30","35"],"answer":0,"explanation":"$3 \\times 10 - 5 = 25$","points":10},
-    {"type":"open","q":"Si $V(X)=16$, que vaut $\\sigma(X)$ ?","expected_keywords":["4"],"points":8},
-    {"type":"mcq","q":"La somme des probabilités des branches issues d'un même nœud vaut :","options":["0","0,5","1"],"answer":2,"points":5},
-    {"type":"mcq","q":"Si $A$ et $B$ sont incompatibles ($P(A \\cap B)=0$), sont-ils indépendants ?","options":["Oui","Non (sauf si l'un est quasi-impossible)"],"answer":1,"explanation":"S'ils sont incompatibles, savoir que A se produit change la probabilité de B à 0.","points":15},
-    {"type":"open","q":"Nom de la variable qui associe un nombre réel à chaque issue de $\\Omega$.","expected_keywords":["aléatoire"],"points":8},
-    {"type":"mcq","q":"$V(X)$ peut-il être négatif ?","options":["Oui","Jamais"],"answer":1,"explanation":"C'est une moyenne de carrés, donc toujours $\\ge 0$.","points":10},
-    {"type":"mcq","q":"$P(A \\cup B) = P(A) + P(B)$ si et seulement si :","options":["A et B sont indépendants","A et B sont incompatibles"],"answer":1,"points":12},
-    {"type":"open","q":"Probabilité de l'échec si le succès a une probabilité $p=0,03$.","expected_keywords":["0,97"],"points":8}
+    {"type":"mcq","q":"$P(A)=0,4$ et $P(B)=0,5$. Si indépendants, $P(A \\cap B) =$ ?","options":["0,9","0,2","0,1"],"answer":1,"points":10}
   ],
   "exercises": [
-    {"q":"Arbre : Un test est positif à 99% si on est malade, et positif à 2% si on est sain. On sait que 1% de la population est malade. Calculez la probabilité d'être malade sachant que le test est positif.", "solution":"$P(M)=0,01$, $P_M(T)=0,99$, $P_{\\bar{M}}(T)=0,02$.<br> $P(T) = 0,01\\times 0,99 + 0,99\\times 0,02 = 0,0297$.<br> $P_T(M) = (0,01\\times 0,99) / 0,0297 \\approx 0,33$.", "time_limit_sec":480, "points":30},
-    {"q":"Variable Aléatoire : On lance un dé. On gagne 5€ si on fait 6, on perd 1€ sinon. Calculez l'Espérance.", "solution":"$x_1=5, p_1=1/6$ ; $x_2=-1, p_2=5/6$.<br> $E(X) = 5(1/6) - 1(5/6) = 0$. Le jeu est équitable.", "time_limit_sec":240, "points":15},
-    {"q":"Indépendance : $P(A)=0,4$, $P(B)=0,5$ et $P(A \\cup B)=0,7$. A et B sont-ils indépendants ?", "solution":"$P(A \\cap B) = P(A)+P(B)-P(A \\cup B) = 0,4+0,5-0,7 = 0,2$.<br> $P(A)\\times P(B) = 0,4\\times 0,5 = 0,2$.<br> Oui, ils sont indépendants.", "time_limit_sec":300, "points":20},
-    {"q":"Loi de Probabilité : X peut prendre les valeurs 0, 10, 20. $P(X=0)=0,5$, $P(X=10)=0,3$. Calculez $V(X)$.", "solution":"$P(X=20)=0,2$.<br> $E(X)=0(0,5)+10(0,3)+20(0,2)=7$.<br> $E(X^2)=0(0,5)+100(0,3)+400(0,2)=110$.<br> $V(X)=110 - 7^2 = 110-49 = 61$.", "time_limit_sec":360, "points":25},
-    {"q":"Production : Deux machines A et B produisent 60% et 40% des pièces. A produit 5% de défectueux, B en produit 2%. Probabilité qu'une pièce soit défectueuse ?", "solution":"$P(D) = P(A)\\times P_A(D) + P(B)\\times P_B(D) = 0,6\\times 0,05 + 0,4\\times 0,02 = 0,03 + 0,008 = 0,038$.", "time_limit_sec":240, "points":20}
-  ],
-  "traps": [
-    {"title":"Indépendance vs Incompatibilité", "bad_reasoning":"Deux événements incompatibles sont indépendants car ils n'ont rien à voir.", "error_analysis":"C'est l'inverse ! S'ils sont incompatibles ($P(A \\cap B)=0$), ils sont 'fortement dépendants' : si A arrive, B est impossible.", "correct_formula":"Incompatible $\\implies$ Dépendants (si $P(B)>0$)", "points":15},
-    {"title":"Confusion $P_A(B)$ et $P(A \\cap B)$", "bad_reasoning":"La probabilité d'être malade et d'avoir un test positif est $P_M(T)$.", "error_analysis":"Non, $P_M(T)$ est la probabilité d'avoir le test SI on est malade. 'Et' correspond à l'intersection.", "correct_formula":"$P(M \\cap T) = P(M) \\times P_M(T)$", "points":12},
-    {"title":"La somme des branches", "bad_reasoning":"Dans un arbre, la somme de toutes les extrémités vaut 1.", "error_analysis":"C'est vrai, mais attention : la somme des branches issues d'un même nœud doit AUSSI valoir 1.", "correct_formula":"Somme locale = 1", "points":10},
-    {"title":"Variance et Écart-type", "bad_reasoning":"L'écart-type d'une variable qui peut être négative est négatif.", "error_analysis":"L'écart-type $\\sigma(X)$ est une racine carrée, il est TOUJOURS positif ou nul.", "correct_formula":"$\\sigma(X) \\ge 0$", "points":10},
-    {"title":"Le dénominateur de $P_A(B)$", "bad_reasoning":"$P_A(B) = P(A \\cap B) / P(B)$.", "error_analysis":"Erreur classique. On divise par la probabilité de l'événement qui est déjà RÉALISÉ (celui en indice).", "correct_formula":"$P_A(B) = P(A \\cap B) / P(A)$", "points":10}
+    {"q":"Gain de 10€ (p=0,2) et perte de 5€ (p=0,8). Calculez l'Espérance.", "solution":"$E(X) = 10 \\times 0,2 + (-5) \\times 0,8 = 2 - 4 = -2$ €. Le jeu est défavorable.", "points":15}
   ]
 }
