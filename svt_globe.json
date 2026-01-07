@@ -1,53 +1,35 @@
 {
   "title": "Structure du Globe Terrestre - Expert",
+  "flashcards": [
+    {"q": "Quelle est la roche principale du manteau ?", "answers": ["La péridotite"], "hints": ["Elle est riche en olivine.", "Couleur verte."], "points": 10},
+    {"q": "Quelle discontinuité sépare la croûte du manteau ?", "answers": ["Le Moho"], "hints": ["Du nom de Mohorovičić.", "Profondeur variable."], "points": 10},
+    {"q": "Quel est l'état physique du noyau externe ?", "answers": ["Liquide"], "hints": ["Les ondes S ne le traversent pas.", "Champ magnétique."], "points": 10},
+    {"q": "Épaisseur moyenne de la croûte océanique ?", "answers": ["~7 km"], "hints": ["Beaucoup plus fine que la continentale.", "Formée de basalte."], "points": 10},
+    {"q": "Définition de la lithosphère ?", "answers": ["Ensemble rigide formé par la croûte et la partie supérieure du manteau."], "hints": ["Repose sur l'asthénosphère.", "Comportement cassant."], "points": 10}
+  ],
+  "quiz": [
+    {"type": "mcq", "q": "Quelle onde arrive en premier lors d'un séisme ?", "options": ["Onde P", "Onde S", "Onde L"], "answer": 0, "explanation": "P pour Primaire (ondes de compression).", "points": 10},
+    {"type": "mcq", "q": "La zone d'ombre sismique prouve l'existence du :", "options": ["Manteau", "Noyau", "Moho"], "answer": 1, "explanation": "La réfraction à 2900km crée cette zone.", "points": 10},
+    {"type": "mcq", "q": "La LVZ (Low Velocity Zone) marque la limite :", "options": ["Croûte/Manteau", "Lithosphère/Asthénosphère"], "answer": 1, "explanation": "Ralentissement des ondes dû à la ductilité.", "points": 10}
+  ],
+  "exercises": [
+    {"q": "Calculez la profondeur si une onde P ($v=6\\text{ km/s}$) revient au Moho après 10s.", "solution": "Distance aller-retour = $V \\times T = 6 \\times 10 = 60\\text{ km}$.<br>La profondeur est donc de $60 / 2 = 30\\text{ km}$.", "points": 20},
+    {"q": "Expliquez pourquoi les ondes S disparaissent à 2900 km.", "solution": "Les ondes S sont des ondes de cisaillement. Elles ne peuvent se propager que dans des solides. Leur disparition prouve que le noyau externe est liquide.", "points": 20}
+  ],
   "traps": [
     {
-      "title": "L'état physique du manteau",
-      "bad_reasoning": "Le manteau terrestre est constitué de magma liquide car c'est la seule façon d'expliquer la dérive des plaques et la lave des volcans.",
-      "error_analysis": "C'est l'erreur la plus courante. Le manteau est SOLIDE à 99%. Il est constitué de péridotite rigide. Sa ductilité est due à une déformation plastique très lente sous pression, pas à une fusion liquide.",
-      "correct_formula": "Le manteau est solide mais ductile (convection lente).",
+      "title": "L'état du manteau",
+      "bad_reasoning": "Le manteau est liquide car la lave des volcans en sort.",
+      "error_analysis": "C'est l'erreur la plus commune. Le manteau est solide à 99%. La fusion est très localisée.",
+      "correct_formula": "Le manteau est un solide ductile (déformation plastique lente).",
       "points": 15
     },
     {
       "title": "Lithosphère vs Croûte",
-      "bad_reasoning": "La lithosphère est simplement le nom scientifique donné à l'ensemble des croûtes terrestres (océanique et continentale) qui forment la surface.",
-      "error_analysis": "Attention ! La lithosphère est une unité MÉCANIQUE. Elle est bien plus épaisse que la croûte car elle inclut la croûte ET la partie supérieure rigide du manteau supérieur.",
-      "correct_formula": "Lithosphère = Croûte + Manteau Supérieur Rigide (au-dessus de l'isotherme 1300°C).",
+      "bad_reasoning": "La lithosphère est juste un autre nom pour la croûte terrestre.",
+      "error_analysis": "La lithosphère est plus épaisse. Elle contient la croûte ET une partie du manteau.",
+      "correct_formula": "Lithosphère = Croûte + Manteau supérieur rigide.",
       "points": 15
-    },
-    {
-      "title": "La propagation des ondes S",
-      "bad_reasoning": "Les ondes S ralentissent fortement à 2900 km de profondeur car la densité du fer dans le noyau freine leur progression.",
-      "error_analysis": "Les ondes S ne ralentissent pas : elles DISPARAISSENT totalement. Ce sont des ondes de cisaillement, elles sont physiquement incapables de circuler dans un liquide.",
-      "correct_formula": "L'arrêt des ondes S prouve que le noyau externe est liquide.",
-      "points": 15
-    },
-    {
-      "title": "La profondeur du Moho",
-      "bad_reasoning": "La discontinuité du Moho se situe à une profondeur fixe de 30 km tout autour du globe, car c'est la limite stable entre la croûte et le manteau.",
-      "error_analysis": "Faux. Sa profondeur est très hétérogène : 7 km sous les océans et jusqu'à 70 km sous les montagnes (racine crustale).",
-      "correct_formula": "Le Moho suit les variations d'épaisseur de la croûte (isostasie).",
-      "points": 10
-    },
-    {
-      "title": "Vitesse et Densité",
-      "bad_reasoning": "Les ondes sismiques accélèrent dans le manteau profond uniquement parce que les roches y deviennent beaucoup plus denses au centre de la Terre.",
-      "error_analysis": "Au contraire ! Si la densité augmentait seule, les ondes seraient freinées. Elles accélèrent car la RIGIDITÉ et la pression augmentent encore plus vite que la densité.",
-      "correct_formula": "La vitesse augmente avec la rigidité des roches.",
-      "points": 12
     }
-  ],
-  "flashcards": [
-    {"q":"Roche du manteau ?", "answers":["Péridotite"], "hints":["Riche en olivine."], "points":10},
-    {"q":"Discontinuité Moho ?", "answers":["Croûte / Manteau"], "hints":["La plus haute."], "points":10},
-    {"q":"Noyau externe : état ?", "answers":["Liquide"], "hints":["Bloque les ondes S."], "points":10}
-  ],
-  "quiz": [
-    {"type":"mcq","q":"Quelle onde arrive en premier ?","options":["Onde P","Onde S","Onde L"],"answer":0,"points":10},
-    {"type":"mcq","q":"La LVZ se situe dans :","options":["La croûte","Le manteau supérieur","Le noyau"],"answer":1,"points":12}
-  ],
-  "exercises": [
-    {"q":"Profondeur si onde P (v=6km/s) revient après 12s.", "solution":"Aller-retour 72km $\\rightarrow$ Profondeur 36km.", "points":20},
-    {"q":"Interprétez l'arrêt des ondes S à 2900km.", "solution":"Le passage à un milieu liquide (noyau externe) empêche la propagation du cisaillement.", "points":20}
   ]
 }
