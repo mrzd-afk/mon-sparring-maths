@@ -1,71 +1,31 @@
 {
-  "title": "Structure du Globe Terrestre - Niveau Expert",
+  "title": "Structure du Globe Terrestre - Expert",
   "flashcards": [
-    {"q": "Roche principale du manteau ?", "answers": ["La péridotite"], "hints": ["Riche en olivine.", "Verte."], "points": 10},
-    {"q": "Quelle discontinuité sépare la croûte du manteau ?", "answers": ["Le Moho"], "hints": ["Mohorovičić.", "Profondeur variable (7 à 70km)."], "points": 10},
-    {"q": "État physique du noyau externe ?", "answers": ["Liquide"], "hints": ["Bloque les ondes S.", "Champ magnétique."], "points": 10},
-    {"q": "Roche de la croûte océanique ?", "answers": ["Basalte et Gabbro"], "hints": ["Densité ~2,9.", "Fine."], "points": 10},
-    {"q": "Discontinuité à 2900 km ?", "answers": ["Gutenberg"], "hints": ["Limite Manteau-Noyau.", "Zone d'ombre."], "points": 10},
-    {"q": "Vitesse des ondes P vs S ?", "answers": ["P est plus rapide que S."], "hints": ["P = Primaire.", "S = Secondaire."], "points": 10},
-    {"q": "Composition de la croûte continentale ?", "answers": ["Granite"], "hints": ["Densité ~2,7.", "Épaisse."], "points": 10},
-    {"q": "Qu'est-ce que la LVZ ?", "answers": ["Low Velocity Zone : ralentissement des ondes dans le manteau."], "hints": ["Limite lithosphère-asthénosphère.", "Ductile."], "points": 12},
-    {"q": "Onde sismique ne traversant que les solides ?", "answers": ["Onde S"], "hints": ["Onde de cisaillement."], "points": 10},
-    {"q": "Composition du noyau ?", "answers": ["Fer et Nickel"], "hints": ["Métallique.", "Très dense."], "points": 10}
+    {"q": "Roche principale du manteau ?", "answers": ["La péridotite"], "hints": ["Riche en olivine."], "points": 10},
+    {"q": "Limite croûte/manteau ?", "answers": ["Le Moho"], "hints": ["Mohorovičić."], "points": 10},
+    {"q": "État physique du noyau externe ?", "answers": ["Liquide"], "hints": ["Bloque les ondes S."], "points": 10}
   ],
   "quiz": [
-    {"type": "mcq", "q": "Quelle onde arrive en premier ?", "options": ["Onde P", "Onde S", "Onde L"], "answer": 0, "points": 10},
-    {"type": "mcq", "q": "Le Moho est plus profond sous :", "options": ["Les océans", "Les montagnes"], "answer": 1, "points": 12},
-    {"type": "mcq", "q": "L'état du manteau est :", "options": ["Liquide", "Solide ductile"], "answer": 1, "points": 15},
-    {"type": "open", "q": "Nom de la limite Manteau/Noyau ?", "expected_keywords": ["Gutenberg"], "points": 10},
-    {"type": "mcq", "q": "La lithosphère comprend :", "options": ["La croûte seulement", "La croûte et le manteau rigide"], "answer": 1, "points": 12},
-    {"type": "open", "q": "Profondeur moyenne du Moho continental (km) ?", "expected_keywords": ["30"], "points": 10},
-    {"type": "mcq", "q": "La zone d'ombre prouve l'existence du :", "options": ["Moho", "Noyau"], "answer": 1, "points": 15},
-    {"type": "mcq", "q": "Roche grenue de la croûte océanique ?", "options": ["Basalte", "Gabbro"], "answer": 1, "points": 10},
-    {"type": "open", "q": "Température à la limite Lithosphère/Asthénosphère (°C) ?", "expected_keywords": ["1300"], "points": 15},
-    {"type": "mcq", "q": "Le noyau interne (graine) est :", "options": ["Liquide", "Solide"], "answer": 1, "points": 10}
+    {"q": "Quelle onde arrive en premier ?", "options": ["Onde P", "Onde S", "Onde L"], "answer": 0, "explanation": "P pour Primaire.", "points": 10},
+    {"q": "Le Moho est plus profond sous :", "options": ["L'océan", "Les montagnes"], "answer": 1, "explanation": "Racine crustale.", "points": 10}
   ],
   "exercises": [
-    {"q": "Calculez la profondeur d'un Moho si une onde P (v=6km/s) revient après 10s.", "solution": "Distance aller-retour = $6 \\times 10 = 60$ km.<br>Profondeur = $60 / 2 = 30$ km.", "points": 20},
-    {"q": "Expliquez l'arrêt des ondes S à 2900 km.", "solution": "Les ondes S sont des ondes de cisaillement qui ne se propagent que dans les solides. Leur arrêt à la discontinuité de Gutenberg prouve que le noyau externe est liquide.", "points": 20},
-    {"q": "Densité : Échantillon de 10cm³ pesant 27g. De quelle croûte s'agit-il ?", "solution": "$d = 27/10 = 2,7$.<br>C'est la densité typique du granite, donc de la croûte continentale.", "points": 15},
-    {"q": "Calculez le gradient thermique si on gagne 30°C par km.", "solution": "C'est la valeur standard dans la croûte : le gradient géothermique est de 30°C/km.", "points": 15},
-    {"q": "Interprétez un ralentissement des ondes à 100km de profondeur.", "solution": "C'est l'entrée dans la LVZ (Low Velocity Zone), marquant le passage de la lithosphère rigide à l'asthénosphère ductile.", "points": 20}
+    {"q": "Calcul de profondeur : Onde P ($6\\text{ km/s}$) revient après 10s.", "solution": "$6 \\times 10 / 2 = 30\\text{ km}$.", "points": 20}
   ],
   "traps": [
     {
-      "title": "Manteau Liquide",
+      "title": "État du manteau",
       "bad_reasoning": "Le manteau est liquide car la lave sort des volcans.",
-      "error_analysis": "Le manteau est solide à 99%. Il est ductile (il coule comme de la pâte à modeler) mais reste solide.",
+      "error_analysis": "Le manteau est solide à 99%. Il est simplement déformable (ductile).",
       "correct_formula": "Manteau = Solide ductile.",
       "points": 15
     },
     {
       "title": "Lithosphère vs Croûte",
-      "bad_reasoning": "La lithosphère est juste un autre nom pour la croûte.",
-      "error_analysis": "Faux. La lithosphère inclut la croûte ET une partie rigide du manteau supérieur.",
-      "correct_formula": "Lithosphère = Croûte + Manteau Supérieur Rigide.",
+      "bad_reasoning": "C'est la même chose.",
+      "error_analysis": "La lithosphère inclut la croûte ET une partie du manteau.",
+      "correct_formula": "Lithosphère = Croûte + Manteau rigide.",
       "points": 15
-    },
-    {
-      "title": "Vitesse et Densité",
-      "bad_reasoning": "Plus une roche est dense, plus les ondes vont lentement.",
-      "error_analysis": "Au contraire ! Dans la Terre, l'augmentation de pression augmente la rigidité plus vite que la densité, donc les ondes accélèrent.",
-      "correct_formula": "Profondeur augmente $\\implies$ Vitesse augmente (en général).",
-      "points": 12
-    },
-    {
-      "title": "Arrêt des ondes",
-      "bad_reasoning": "Les ondes s'arrêtent au Moho.",
-      "error_analysis": "Non, elles changent de vitesse (accélération) mais continuent leur chemin.",
-      "correct_formula": "Discontinuité = Changement de milieu.",
-      "points": 10
-    },
-    {
-      "title": "Ondes de surface",
-      "bad_reasoning": "Les ondes L servent à explorer l'intérieur de la Terre.",
-      "error_analysis": "Faux. Les ondes de surface ne pénètrent pas en profondeur.",
-      "correct_formula": "Seules les ondes P et S (de volume) sont utiles en sismologie profonde.",
-      "points": 10
     }
   ]
 }
