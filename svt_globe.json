@@ -3,48 +3,51 @@
   "traps": [
     {
       "title": "L'état physique du manteau",
-      "bad_reasoning": "Le manteau est constitué de magma liquide, car c'est la seule façon d'expliquer que les plaques tectoniques puissent se déplacer à sa surface et que la lave sorte des volcans.",
-      "error_analysis": "Le manteau est solide à 99%. Il est constitué de péridotite. Sa capacité à se déformer (ductilité) n'est pas due à une fusion liquide, mais à un comportement plastique très lent sous haute pression.",
+      "bad_reasoning": "Le manteau terrestre est constitué de magma liquide car c'est la seule façon d'expliquer la dérive des plaques et la lave des volcans.",
+      "error_analysis": "C'est l'erreur la plus courante. Le manteau est SOLIDE à 99%. Il est constitué de péridotite rigide. Sa ductilité est due à une déformation plastique très lente sous pression, pas à une fusion liquide.",
       "correct_formula": "Le manteau est solide mais ductile (convection lente).",
       "points": 15
     },
     {
       "title": "Lithosphère vs Croûte",
-      "bad_reasoning": "La lithosphère est simplement le nom scientifique utilisé pour désigner l'ensemble des croûtes terrestres (océanique et continentale) qui forment la surface du globe.",
-      "error_analysis": "C'est l'erreur la plus fréquente. La lithosphère est une unité MÉCANIQUE. Elle est plus épaisse que la croûte car elle inclut la croûte ET la partie supérieure rigide du manteau supérieur.",
+      "bad_reasoning": "La lithosphère est simplement le nom scientifique donné à l'ensemble des croûtes terrestres (océanique et continentale) qui forment la surface.",
+      "error_analysis": "Attention ! La lithosphère est une unité MÉCANIQUE. Elle est bien plus épaisse que la croûte car elle inclut la croûte ET la partie supérieure rigide du manteau supérieur.",
       "correct_formula": "Lithosphère = Croûte + Manteau Supérieur Rigide (au-dessus de l'isotherme 1300°C).",
       "points": 15
     },
     {
       "title": "La propagation des ondes S",
-      "bad_reasoning": "Les ondes S ralentissent fortement à 2900 km de profondeur car la densité du noyau est beaucoup plus élevée que celle du manteau.",
-      "error_analysis": "Les ondes S ne ralentissent pas : elles DISPARAISSENT totalement. Comme ce sont des ondes de cisaillement, elles ne peuvent pas circuler dans un milieu liquide.",
-      "correct_formula": "L'arrêt des ondes S à la discontinuité de Gutenberg prouve que le noyau externe est liquide.",
+      "bad_reasoning": "Les ondes S ralentissent fortement à 2900 km de profondeur car la densité du fer dans le noyau freine leur progression.",
+      "error_analysis": "Les ondes S ne ralentissent pas : elles DISPARAISSENT totalement. Ce sont des ondes de cisaillement, elles sont physiquement incapables de circuler dans un liquide.",
+      "correct_formula": "L'arrêt des ondes S prouve que le noyau externe est liquide.",
       "points": 15
     },
     {
       "title": "La profondeur du Moho",
-      "bad_reasoning": "La discontinuité du Moho se situe à une profondeur fixe de 30 km tout autour du globe, car elle marque la limite stable entre la croûte et le manteau.",
-      "error_analysis": "Faux. Sa profondeur est très variable. Elle est de 7 km sous les océans et plonge jusqu'à 70 km sous les chaînes de montagnes (racine crustale).",
-      "correct_formula": "Le Moho suit les variations d'épaisseur de la croûte (Isostasie).",
+      "bad_reasoning": "La discontinuité du Moho se situe à une profondeur fixe de 30 km tout autour du globe, car c'est la limite stable entre la croûte et le manteau.",
+      "error_analysis": "Faux. Sa profondeur est très hétérogène : 7 km sous les océans et jusqu'à 70 km sous les montagnes (racine crustale).",
+      "correct_formula": "Le Moho suit les variations d'épaisseur de la croûte (isostasie).",
       "points": 10
     },
     {
       "title": "Vitesse et Densité",
-      "bad_reasoning": "Dans le modèle PREM, les ondes sismiques accélèrent dans le manteau profond uniquement parce que les roches y deviennent beaucoup plus froides et denses.",
-      "error_analysis": "Au contraire, la température augmente avec la profondeur ! Si les ondes accélèrent, c'est parce que la pression augmente la rigidité des roches plus vite que la densité ne les freine.",
-      "correct_formula": "Vitesse augmente avec la rigidité et la pression.",
+      "bad_reasoning": "Les ondes sismiques accélèrent dans le manteau profond uniquement parce que les roches y deviennent beaucoup plus denses au centre de la Terre.",
+      "error_analysis": "Au contraire ! Si la densité augmentait seule, les ondes seraient freinées. Elles accélèrent car la RIGIDITÉ et la pression augmentent encore plus vite que la densité.",
+      "correct_formula": "La vitesse augmente avec la rigidité des roches.",
       "points": 12
     }
   ],
   "flashcards": [
-    {"q":"Roche du manteau ?", "answers":["Péridotite"], "hints":["Verte, olivine."], "points":10},
+    {"q":"Roche du manteau ?", "answers":["Péridotite"], "hints":["Riche en olivine."], "points":10},
+    {"q":"Discontinuité Moho ?", "answers":["Croûte / Manteau"], "hints":["La plus haute."], "points":10},
     {"q":"Noyau externe : état ?", "answers":["Liquide"], "hints":["Bloque les ondes S."], "points":10}
   ],
   "quiz": [
-    {"type":"mcq","q":"Quelle onde arrive en premier ?","options":["Onde P","Onde S","Onde L"],"answer":0,"points":10}
+    {"type":"mcq","q":"Quelle onde arrive en premier ?","options":["Onde P","Onde S","Onde L"],"answer":0,"points":10},
+    {"type":"mcq","q":"La LVZ se situe dans :","options":["La croûte","Le manteau supérieur","Le noyau"],"answer":1,"points":12}
   ],
   "exercises": [
-    {"q":"Calculez la profondeur si une onde P (v=6km/s) revient au Moho après 10s.", "solution":"$6 \\times 10 / 2 = 30$ km.", "points":20}
+    {"q":"Profondeur si onde P (v=6km/s) revient après 12s.", "solution":"Aller-retour 72km $\\rightarrow$ Profondeur 36km.", "points":20},
+    {"q":"Interprétez l'arrêt des ondes S à 2900km.", "solution":"Le passage à un milieu liquide (noyau externe) empêche la propagation du cisaillement.", "points":20}
   ]
 }
