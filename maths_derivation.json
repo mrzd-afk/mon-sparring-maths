@@ -1,53 +1,71 @@
 {
-  "title": "Dérivation & Analyse - Expert",
+  "title": "Dérivation & Analyse - Niveau Expert",
+  "flashcards": [
+    {"q": "Dérivée de $x^n$ ?", "answers": ["$n x^{n-1}$"], "hints": ["L'exposant 'tombe' devant.", "La puissance baisse de 1."], "points": 10},
+    {"q": "Dérivée de $\\sqrt{x}$ ?", "answers": ["$\\frac{1}{2\\sqrt{x}}$"], "hints": ["Elle n'est pas dérivable en 0.", "Pensez à $x^{1/2}$."], "points": 10},
+    {"q": "Dérivée de $u \\times v$ ?", "answers": ["$u'v + uv'$"], "hints": ["Produit de fonctions.", "Ce n'est PAS $u'v'$."], "points": 10},
+    {"q": "Dérivée de $1/u$ ?", "answers": ["$-\\frac{u'}{u^2}$"], "hints": ["Inverse d'une fonction.", "N'oubliez pas le signe moins."], "points": 10},
+    {"q": "Dérivée de $u/v$ ?", "answers": ["$\\frac{u'v - uv'}{v^2}$"], "hints": ["Quotient.", "Carré au dénominateur."], "points": 12},
+    {"q": "Équation de la tangente en $a$ ?", "answers": ["$y = f'(a)(x-a) + f(a)$"], "hints": ["$f'(a)$ est le coefficient directeur.", "Passe par le point $(a ; f(a))$."], "points": 10},
+    {"q": "Dérivée de $e^x$ ?", "answers": ["$e^x$"], "hints": ["Elle est sa propre dérivée.", "Cas unique."], "points": 10},
+    {"q": "Dérivée de $\\sin(x)$ ?", "answers": ["$\\cos(x)$"], "hints": ["Trigonométrie.", "Vers le haut."], "points": 10},
+    {"q": "Dérivée de $\\cos(x)$ ?", "answers": ["$-\\sin(x)$"], "hints": ["Trigonométrie.", "N'oubliez pas le moins."], "points": 10},
+    {"q": "Lien signe de $f'$ et variations de $f$ ?", "answers": ["$f' > 0 \\iff f$ croissante."], "hints": ["La pente indique la direction.", "Théorème fondamental."], "points": 15}
+  ],
+  "quiz": [
+    {"type": "mcq", "q": "Dérivée de $5x^3$ ?", "options": ["$15x^2$", "$5x^2$", "$15x$"], "answer": 0, "explanation": "$5 \\times 3x^2 = 15x^2$.", "points": 10},
+    {"type": "mcq", "q": "Dérivée de $1/x$ ?", "options": ["$1/x^2$", "$-1/x^2$", "$-1/x$"], "answer": 1, "explanation": "Cas particulier de $x^n$ avec $n=-1$.", "points": 10},
+    {"type": "open", "q": "Pente de $x^2$ au point d'abscisse 4 ?", "expected_keywords": ["8"], "points": 10},
+    {"type": "mcq", "q": "La dérivée de $(x+1)^2$ est :", "options": ["$2(x+1)$", "$2x$", "$x+1$"], "answer": 0, "points": 12},
+    {"type": "mcq", "q": "Si $f'(x) = 0$ sur un intervalle, $f$ est :", "options": ["Croissante", "Décroissante", "Constante"], "answer": 2, "points": 10},
+    {"type": "open", "q": "Dérivée de $7x - 3$ ?", "expected_keywords": ["7"], "points": 10},
+    {"type": "mcq", "q": "La fonction $\\sqrt{x}$ est-elle dérivable en 0 ?", "options": ["Oui", "Non"], "answer": 1, "explanation": "La tangente est verticale.", "points": 15},
+    {"type": "mcq", "q": "Dérivée de $e^{2x}$ ?", "options": ["$e^{2x}$", "$2e^{2x}$", "$e^x$"], "answer": 1, "points": 15},
+    {"type": "mcq", "q": "Si $f$ est décroissante, alors $f'$ est :", "options": ["Positive", "Négative"], "answer": 1, "points": 10},
+    {"type": "open", "q": "Valeur de $f'(1)$ si $f(x) = x^3$ ?", "expected_keywords": ["3"], "points": 10}
+  ],
+  "exercises": [
+    {"q": "Déterminez l'équation de la tangente à $f(x)=x^2+1$ au point $x=2$.", "solution": "$f(2) = 2^2+1 = 5$.<br>$f'(x) = 2x \\implies f'(2) = 4$.<br>Équation : $y = 4(x-2)+5 = 4x-8+5 = 4x-3$.", "points": 20},
+    {"q": "Dérivez la fonction $f(x) = \\frac{2x+1}{x-3}$ sur $]3;+\\infty[$.", "solution": "$u=2x+1, u'=2$ ; $v=x-3, v'=1$.<br>$f'(x) = \\frac{2(x-3) - (2x+1)(1)}{(x-3)^2} = \\frac{2x-6-2x-1}{(x-3)^2} = \\frac{-7}{(x-3)^2}$.", "points": 25},
+    {"q": "Étudiez les variations de $f(x) = x^3 - 3x$ sur $\\mathbb{R}$.", "solution": "$f'(x) = 3x^2 - 3 = 3(x^2-1) = 3(x-1)(x+1)$.<br>Racines : -1 et 1. Positive à l'extérieur : croissante sur $]-\\infty;-1]$ et $[1;+\\infty[$.", "points": 25},
+    {"q": "Dérivez $g(x) = (3x+1)^2$.", "solution": "Formule $(u^2)' = 2u'u$.<br>$u=3x+1, u'=3$.<br>$g'(x) = 2 \\times 3 \\times (3x+1) = 6(3x+1) = 18x+6$.", "points": 20},
+    {"q": "Trouvez le minimum de $f(x) = x^2 - 4x + 7$.", "solution": "$f'(x) = 2x - 4$. $f'(x)=0 \\iff x=2$.<br>La dérivée change de signe (négative puis positive), donc $f(2) = 4-8+7 = 3$ est le minimum.", "points": 20}
+  ],
   "traps": [
     {
-      "title": "Dérivée d'un produit de fonctions",
-      "bad_reasoning": "Pour dériver $f(x) = (3x+2)(x^2-1)$, on dérive chaque parenthèse séparément puis on les multiplie : $f'(x) = 3 \\times 2x = 6x$.",
-      "error_analysis": "C'est l'erreur la plus commune. La dérivation d'un produit n'est pas distributive par rapport à la multiplication.",
-      "correct_formula": "Formule : $(u \\times v)' = u'v + uv'$.",
+      "title": "Dérivée d'un produit",
+      "bad_reasoning": "La dérivée de $(x+1)(x^2)$ est $1 \\times 2x = 2x$.",
+      "error_analysis": "C'est l'erreur classique. On ne multiplie pas les dérivées.",
+      "correct_formula": "$(uv)' = u'v + uv'$.",
       "points": 15
     },
     {
-      "title": "Signe de f(x) vs Variations",
-      "bad_reasoning": "La fonction $f(x) = -10x + 500$ est positive sur $[0; 20]$, elle est donc croissante sur cet intervalle car ses valeurs sont élevées.",
-      "error_analysis": "Confusion entre le 'signe' (la hauteur) et la 'variation' (la pente). Une fonction peut être très positive mais en train de descendre.",
-      "correct_formula": "C'est le signe de la dérivée $f'(x)$ qui définit les variations de $f$.",
+      "title": "Signe vs Variation",
+      "bad_reasoning": "Si $f(x) > 0$ sur un intervalle, alors la fonction est croissante.",
+      "error_analysis": "Aucun rapport. Une fonction peut être positive mais descendre (ex: $1/x$).",
+      "correct_formula": "C'est le signe de la DÉRIVÉE qui compte.",
       "points": 12
     },
     {
-      "title": "Dérivée de l'inverse au dénominateur",
-      "bad_reasoning": "La dérivée de $f(x) = 1/x^3$ est $1/(3x^2)$ car on dérive simplement le dénominateur.",
-      "error_analysis": "On ne dérive jamais le bas d'une fraction sur place. Il faut utiliser la règle du quotient ou transformer en puissance négative ($x^{-3}$).",
-      "correct_formula": "La dérivée de $x^{-3}$ est $-3x^{-4} = -3/x^4$.",
+      "title": "Dérivée de la racine",
+      "bad_reasoning": "La fonction $\\sqrt{x}$ est dérivable sur $[0;+\\infty[$.",
+      "error_analysis": "Elle est continue en 0 mais pas dérivable car sa pente tend vers l'infini.",
+      "correct_formula": "Dérivable sur $]0;+\\infty[$.",
       "points": 15
     },
     {
-      "title": "Tangente horizontale et Extremum",
-      "bad_reasoning": "Dès que $f'(a) = 0$, on peut affirmer que la fonction admet un maximum ou un minimum au point d'abscisse $a$.",
-      "error_analysis": "Pas forcément. La dérivée peut s'annuler sans changer de signe (cas de $x^3$ en 0). La courbe s'aplatit mais continue dans sa direction.",
-      "correct_formula": "Pour un extremum, il faut que $f'$ s'annule ET change de signe.",
-      "points": 15
+      "title": "La constante seule",
+      "bad_reasoning": "La dérivée de $x+5$ est $1+5 = 6$.",
+      "error_analysis": "La dérivée d'un nombre seul est toujours 0.",
+      "correct_formula": "$(k)' = 0$.",
+      "points": 10
     },
     {
-      "title": "Dérivabilité de la racine carrée",
-      "bad_reasoning": "Puisque $\\sqrt{0} = 0$, la fonction racine est dérivable en 0 et sa dérivée vaut 0.",
-      "error_analysis": "Faux. La fonction $\\sqrt{x}$ n'est pas dérivable en 0 car le taux d'accroissement tend vers l'infini. La tangente est verticale.",
-      "correct_formula": "$\\sqrt{x}$ est dérivable sur $]0 ; +\\infty[$.",
-      "points": 15
+      "title": "Quotient et signe",
+      "bad_reasoning": "Dans la dérivée de $u/v$, on peut mettre une addition au numérateur.",
+      "error_analysis": "L'ordre et le signe sont critiques. Si on inverse $u'v$ et $uv'$, le signe change.",
+      "correct_formula": "$(u'v - uv')/v^2$.",
+      "points": 12
     }
-  ],
-  "flashcards": [
-    {"q":"Dérivée de $u \\cdot v$ ?", "answers":["$u'v + uv'$"], "hints":["Dérivée du produit."], "points":10},
-    {"q":"Équation de la tangente ?", "answers":["$y = f'(a)(x-a) + f(a)$"], "hints":["Formule du cours."], "points":10},
-    {"q":"Dérivée de $x^n$ ?", "answers":["$n x^{n-1}$"], "points":8}
-  ],
-  "quiz": [
-    {"type":"mcq","q":"Dérivée de $x^2+3x$ ?","options":["$2x+3$","$2x$","$x+3$"],"answer":0,"points":10},
-    {"type":"mcq","q":"Pente de $e^x$ en $x=0$ ?","options":["0","1","e"],"answer":1,"points":10}
-  ],
-  "exercises": [
-    {"q":"Équation de la tangente à $f(x)=x^2+1$ au point $x=3$.", "solution":"$f(3)=10$, $f'(x)=2x \\rightarrow f'(3)=6$.<br>$y = 6(x-3)+10 = 6x-8$.", "points":20},
-    {"q":"Dérivez $f(x) = \\frac{2x}{x+1}$.", "solution":"$u=2x \\rightarrow u'=2$ ; $v=x+1 \\rightarrow v'=1$.<br>$f'(x) = \\frac{2(x+1)-2x(1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$.", "points":20}
   ]
 }
